@@ -1,11 +1,11 @@
 {
-  "name": "tarkov-tilty-frontend-opensource",
+  "name": "tarkov-map",
   "version": "1.0.1",
-  "description": "逃离塔科夫·缇尔蒂助手",
-  "homepage": "https://github.com/tiltysola/tarkov-tilty-frontend-opensource",
+  "description": "逃离塔科夫互动地图",
+  "homepage": "https://github.com/josliang/interactiveMap",
   "author": "TiltySola",
   "repository": {
-    "url": "https://github.com/tiltysola/tarkov-tilty-frontend-opensource.git"
+    "url": "https://github.com/josliang/interactiveMap.git"
   },
   "scripts": {
     "dev": "vite",
