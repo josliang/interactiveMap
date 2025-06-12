@@ -9,17 +9,21 @@ export interface SettingProps {
   directoryHandler?: FileSystemDirectoryHandle;
   tarkovGamePathHandler?: FileSystemDirectoryHandle;
   locationScale: boolean;
+  autoDelete: boolean;
   onClickEftWatcherPath: () => void;
   onClickTarkovGamePathPath: () => void;
   onLocationScaleChange: (b: boolean) => void;
+  onAutoDeleteChange: (b: boolean) => void;
 }
 
 const Index = (props: SettingProps) => {
   const {
     locationScale,
+    autoDelete,
     directoryHandler,
     tarkovGamePathHandler,
     onLocationScaleChange,
+    onAutoDeleteChange,
     onClickEftWatcherPath,
     onClickTarkovGamePathPath,
   } = props;
@@ -38,6 +42,10 @@ const Index = (props: SettingProps) => {
 
   const handleToggleLocationScale = () => {
     onLocationScaleChange(!locationScale);
+  };
+
+  const handleToggleAutoDelete = () => {
+    onAutoDeleteChange(!autoDelete);
   };
 
   return (
@@ -68,6 +76,13 @@ const Index = (props: SettingProps) => {
               : t('setting.enableTarkovGamePath')}
           </button>
         )}
+        <button
+          style={{ color: !autoDelete ? '#882828' : '#288828' }}
+          className="im-quicktools-modal-setting-button"
+          onClick={handleToggleAutoDelete}
+        >
+          {t('setting.autoDelete')} ({autoDelete ? t('common.enable') : t('common.disable')})
+        </button>
         <button
           style={{ color: !locationScale ? '#882828' : '#288828' }}
           className="im-quicktools-modal-setting-button"

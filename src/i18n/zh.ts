@@ -62,6 +62,7 @@ export default {
     tarkovGamePath: '游戏目录:',
     enableTarkovGamePath: '选择塔科夫游戏目录',
     markerScale: '标点缩放',
+    autoDelete: '删除截图',
   },
 
   // 登录

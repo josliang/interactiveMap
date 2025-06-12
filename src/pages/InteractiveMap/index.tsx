@@ -86,6 +86,9 @@ const Index = () => {
   const [locationScale, setLocationScale] = useLocalStorageState<boolean>('im-locationScale', {
     defaultValue: true,
   });
+  const [autoDelete, setAutoDelete] = useLocalStorageState<boolean>('im-autoDelete', {
+    defaultValue: false,
+  });
 
   const [strokeType, setStrokeType] = useState<InteractiveMap.StrokeType>('drag');
   const [strokeColor, setStrokeColor] = useLocalStorageState<string>('im-strokeColor', {
@@ -121,6 +124,13 @@ const Index = () => {
       if (diff.length > 0 && !initial) {
         const filename = diff[diff.length - 1];
         (window as any).interactUpdateLocation(filename);
+        if (autoDelete) {
+          try {
+            await directoryHandler.removeEntry(filename);
+          } catch (err) {
+            console.error(`删除 ${filename} 失败:`, err);
+          }
+        }
       }
     }
   };
@@ -417,6 +427,10 @@ const Index = () => {
     setLocationScale(_b);
   };
 
+  const handleToggleAutoDelete = (_b: boolean) => {
+    setAutoDelete(_b);
+  };
+
   const handleStrokeTypeChange = (_strokeType: InteractiveMap.StrokeType) => {
     setStrokeType(_strokeType);
   };
@@ -621,6 +635,7 @@ const Index = () => {
                   directoryHandler={directoryHandler}
                   tarkovGamePathHandler={tarkovGamePathHandler}
                   locationScale={locationScale}
+                  autoDelete={autoDelete}
                   resolution={resolution}
                   isMobile={isMobile}
                   setQuickSearchShow={setQuickSearchShow}
@@ -638,6 +653,7 @@ const Index = () => {
                   onClickEftWatcherPath={handleClickEftWatcherPath}
                   onClickTarkovGamePathPath={handleClickTarkovGamePath}
                   onLocationScaleChange={handleLocationScaleChange}
+                  onAutoDeleteChange={handleToggleAutoDelete}
                   onMapInfoActive={handleMapInfoActive}
                 />
                 {resolution.width > 1280 && <Coordinate {...utils} position={cursorPosition} />}
