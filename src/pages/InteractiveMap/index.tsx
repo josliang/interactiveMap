@@ -71,6 +71,9 @@ const Index = () => {
   const [hazards, setHazards] = useLocalStorageState<string[]>('im-hazards', {
     defaultValue: ['hazard'],
   });
+  const [btrs, setBtrs] = useLocalStorageState<string[]>('im-btrs', {
+    defaultValue: ['btrs'],
+  });
   const [stationaryWeapons, setStationaryWeapons] = useLocalStorageState<string[]>(
     'im-stationaryWeapons',
     {
@@ -339,6 +342,10 @@ const Index = () => {
     setHazards(_hazards);
   };
 
+  const handleBtrsChange = (_btrs: string[]) => {
+    setBtrs(_btrs);
+  };
+
   const handleStationaryWeaponsChange = (_stationaryWeapons: string[]) => {
     setStationaryWeapons(_stationaryWeapons);
   };
@@ -492,9 +499,9 @@ const Index = () => {
     }
   }, [notificationsLogsHandler]);
 
-  // useEffect(() => {
-  //   toast.info(t('toast.alert'), { autoClose: 10000 });
-  // }, []);
+  /*   useEffect(() => {
+    toast.info(t('toast.alert'), { autoClose: 10000 });
+  }, []); */
 
   useInterval(() => {
     if (directoryHandler) {
@@ -533,6 +540,7 @@ const Index = () => {
             markerLootKeys={lootKeys}
             markerSpawns={spawns}
             markerHazards={hazards}
+            markerBtrs={btrs}
             markerStationaryWeapons={stationaryWeapons}
             locationScale={locationScale}
             strokeType={strokeType}
@@ -579,6 +587,7 @@ const Index = () => {
                   lootKeys={lootKeys}
                   spawns={spawns}
                   hazards={hazards}
+                  btrs={btrs}
                   stationaryWeapons={stationaryWeapons}
                   mapInfoActive={mapInfoActive}
                   lootContainers={activeMap.lootContainers}
@@ -597,6 +606,7 @@ const Index = () => {
                   onLootKeysChange={handleLootKeysChange}
                   onSpawnsChange={handleSpawnsChange}
                   onHazardsChange={handleHazardsChange}
+                  onBtrsChange={handleBtrsChange}
                   onStationaryWeaponsChange={handleStationaryWeaponsChange}
                   onStrokeColorChange={handleStrokeColorChange}
                   onStrokeWidthChange={handleStrokeWidthChange}

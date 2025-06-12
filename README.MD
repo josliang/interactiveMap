@@ -1,4 +1,4 @@
-![LOGO](https://cdn.mahoutsukai.cn/uploads/tilty/gallery/18c9a3866cc04d8a89549c29dc78a9fd/18c9a3866cc04d8a89549c29dc78a9fd.webp)
+![LOGO](https://cdn.tiltysola.com/uploads/tilty/gallery/18c9a3866cc04d8a89549c29dc78a9fd/18c9a3866cc04d8a89549c29dc78a9fd.webp)
 
 <p align="center">
   <a href="https://github.com/tiltysola/tarkov-tilty-frontend-opensource" alt="GitHub Repo stars">
@@ -19,7 +19,7 @@ OpenSource Version: Version.1.0.1-OpenSource
 
 Copyright 2022-2024, TiltySola.
 
-![Preview Image](https://cdn.mahoutsukai.cn/uploads/tilty/gallery/c8a403def818467b8891ad10afdbc13d/c8a403def818467b8891ad10afdbc13d.webp)
+![Preview Image](https://cdn.tiltysola.com/uploads/tilty/gallery/c8a403def818467b8891ad10afdbc13d/c8a403def818467b8891ad10afdbc13d.webp)
 
 ### 更新日志 <small>[Updates]</small>
 

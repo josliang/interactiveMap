@@ -14,14 +14,16 @@ export interface MarkerSelectProps {
   lootKeys: string[];
   spawns: string[];
   hazards: string[];
+  btrs: string[];
   stationaryWeapons: string[];
   lootContainers: InteractiveMap.LootContainer[];
   onExtractsChange: (extracts: InteractiveMap.Faction[]) => void;
   onLocksChange: (locks: string[]) => void;
   onLootKeysChange: (lootKeys: string[]) => void;
-  onSpawnsChange: (hazards: string[]) => void;
+  onSpawnsChange: (spawn: string[]) => void;
   onHazardsChange: (hazards: string[]) => void;
-  onStationaryWeaponsChange: (hazards: string[]) => void;
+  onBtrsChange: (btrs: string[]) => void;
+  onStationaryWeaponsChange: (stationaryWeapon: string[]) => void;
 }
 
 const Index = (props: MarkerSelectProps) => {
@@ -31,6 +33,7 @@ const Index = (props: MarkerSelectProps) => {
     lootKeys,
     spawns,
     hazards,
+    btrs,
     stationaryWeapons,
     lootContainers,
     onExtractsChange,
@@ -38,6 +41,7 @@ const Index = (props: MarkerSelectProps) => {
     onLootKeysChange,
     onSpawnsChange,
     onHazardsChange,
+    onBtrsChange,
     onStationaryWeaponsChange,
   } = props;
 
@@ -82,6 +86,14 @@ const Index = (props: MarkerSelectProps) => {
       onHazardsChange?.(hazards.filter((h) => h !== _hazard));
     } else {
       onHazardsChange?.([...hazards, _hazard]);
+    }
+  };
+
+  const handleToggleBtr = (_btr: string) => {
+    if (btrs.includes(_btr)) {
+      onBtrsChange?.(btrs.filter((h) => h !== _btr));
+    } else {
+      onBtrsChange?.([...btrs, _btr]);
     }
   };
 
@@ -182,6 +194,17 @@ const Index = (props: MarkerSelectProps) => {
                 })}
                 src={getIconCDN('hazard')}
                 onClick={() => handleToggleHazard(hazard)}
+              />
+            );
+          })}
+          {['btr'].map((btr) => {
+            return (
+              <img
+                className={classNames({
+                  active: btrs.includes(btr),
+                })}
+                src={getIconCDN('btr')}
+                onClick={() => handleToggleBtr(btr)}
               />
             );
           })}

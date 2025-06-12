@@ -31701,6 +31701,56 @@ export default [
         },
       },
     ],
+    btrs: [
+      {
+        parkingPointName: '市中心',
+        position: {
+          x: -4,
+          y: 1,
+          z: 212.3,
+        },
+      },
+      {
+        parkingPointName: 'Rodina影院',
+        position: {
+          x: -146.6,
+          y: 1,
+          z: 419.4,
+        },
+      },
+      {
+        parkingPointName: '电车',
+        position: {
+          x: -227.1,
+          y: 1,
+          z: 232.9,
+        },
+      },
+      {
+        parkingPointName: 'Pinewood酒店',
+        position: {
+          x: -125.7,
+          y: 1,
+          z: 64.2,
+        },
+      },
+      {
+        parkingPointName: '废弃Scav检查点',
+        position: {
+          x: 125.3,
+          y: 1,
+          z: 31.6,
+        },
+      },
+      {
+        parkingPointName: '倒塌的吊车',
+        position: {
+          x: 211.8,
+          y: 1,
+          z: 254.5,
+        },
+      },
+    ],
   },
   {
     key: 'ground-zero',
@@ -85853,6 +85903,7 @@ export default [
     ],
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev',
+    svgPath: 'https://cdn.tiltysola.com/assets/tarkov/maps/the-lab-temp.jpg',
     tilePath: 'https://assets.tarkov.dev/maps/labs_v3/1st/{z}/{x}/{y}.png',
     heightRange: [
       -0.9,
@@ -162036,5 +162087,71 @@ export default [
       },
     ],
     stationaryWeapons: [],
+    btrs: [
+      {
+        parkingPointName: 'USEC检查站',
+        position: {
+          x: 238.4,
+          y: 1,
+          z: -56.6,
+        },
+      },
+      {
+        parkingPointName: '锯木厂',
+        position: {
+          x: 26.7,
+          y: 1,
+          z: -113.4,
+        },
+      },
+      {
+        parkingPointName: 'Scav地堡',
+        position: {
+          x: 183.1,
+          y: 1,
+          z: -752.5,
+        },
+      },
+      {
+        parkingPointName: '沉陷的村庄',
+        position: {
+          x: -100.1,
+          y: 1,
+          z: -712.6,
+        },
+      },
+      {
+        parkingPointName: '路口',
+        position: {
+          x: -78.5,
+          y: 1,
+          z: -378.6,
+        },
+      },
+      {
+        parkingPointName: 'Emercom营地',
+        position: {
+          x: -139.2,
+          y: 1,
+          z: 261.2,
+        },
+      },
+      {
+        parkingPointName: '列车停放处',
+        position: {
+          x: -637.4,
+          y: 1,
+          z: 163.0,
+        },
+      },
+      {
+        parkingPointName: '旧锯木厂',
+        position: {
+          x: -499.8,
+          y: 1,
+          z: -246.3,
+        },
+      },
+    ],
   },
 ];

@@ -14,6 +14,7 @@ declare namespace InteractiveMap {
     extracts: Extract[];
     locks: Lock[];
     hazards: Hazard[];
+    btrs: Btr[];
     lootContainers: LootContainer[];
     stationaryWeapons: StationaryWeapon[];
 
@@ -88,6 +89,11 @@ declare namespace InteractiveMap {
     outline: Position[];
     top: number;
     bottom: number;
+  }
+
+  interface Btr {
+    parkingPointName: string;
+    position: Position;
   }
 
   interface LootContainer {

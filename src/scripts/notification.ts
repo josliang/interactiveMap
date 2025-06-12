@@ -32,7 +32,7 @@ export const showNotification = (data: NotificationData) => {
     // eslint-disable-next-line
     new Notification(data.title, {
       body: data.body,
-      icon: 'https://cdn.mahoutsukai.cn/assets/tilty/images/tilty_logo_round.png',
+      icon: 'https://cdn.tiltysola.com/assets/tilty/images/tilty_logo_round.png',
     });
   } else {
     toast.info(`${data.title}: ${data.body}`);
