@@ -59,6 +59,7 @@ const Index = (props: EFTWatcherProps) => {
       onMouseDown={handleCloseModal}
     >
       <div className="im-eftwatcher" onMouseDown={(e) => e.stopPropagation()}>
+        {/*
         <div className="im-eftwatcher-title">
           <span>{t('eftwatcher.title')}</span>
         </div>
@@ -69,6 +70,7 @@ const Index = (props: EFTWatcherProps) => {
           <span style={{ color: '#ffff88' }}>{t('eftwatcher.tips4')}</span>
           <span style={{ color: '#ffff88' }}>{t('eftwatcher.tips5')}</span>
         </div>
+         */}
         <div className="im-eftwatcher-buttons">
           {window.showDirectoryPicker ? (
             <button
@@ -100,10 +102,12 @@ const Index = (props: EFTWatcherProps) => {
             {t('eftwatcher.later')}
           </button>
         </div>
+        {/*
         <div className="im-eftwatcher-contacts">
           <span>{t('contact.group')}</span>
           <span>{t('contact.email')}</span>
         </div>
+        */}
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import { openDB } from 'idb';
 import { KonvaEventObject } from 'konva/lib/Node';
 
 import { showTooltip } from './components/UI/Tooltip';
@@ -375,3 +376,37 @@ export const getLayer = (name: string, layers: InteractiveMap.Layer[]) => {
   });
   return layer;
 };
+
+const DB_NAME = 'efs-store';
+const STORE_NAME = 'handlers';
+
+export async function saveHandle(key: string, handle: FileSystemDirectoryHandle) {
+  const db = await getDB();
+  const tx = db.transaction(STORE_NAME, 'readwrite');
+  await tx.objectStore(STORE_NAME).put(handle, key);
+  await tx.done;
+}
+
+export async function getSavedHandle(key: string): Promise<FileSystemDirectoryHandle | undefined> {
+  const db = await getDB();
+  const tx = db.transaction(STORE_NAME, 'readonly');
+  const handle = await tx.objectStore(STORE_NAME).get(key);
+  return handle;
+}
+
+export async function clearSavedHandle(key: string) {
+  const db = await getDB();
+  const tx = db.transaction(STORE_NAME, 'readwrite');
+  await tx.objectStore(STORE_NAME).delete(key);
+  await tx.done;
+}
+
+async function getDB(): Promise<IDBPDatabase> {
+  return await openDB(DB_NAME, 1, {
+    upgrade(db) {
+      if (!db.objectStoreNames.contains(STORE_NAME)) {
+        db.createObjectStore(STORE_NAME);
+      }
+    },
+  });
+}

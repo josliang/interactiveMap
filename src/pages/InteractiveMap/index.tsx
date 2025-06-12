@@ -26,7 +26,7 @@ import RulerPosition from './components/UI/RulerPosition';
 import Title from './components/UI/Title';
 import Tooltip from './components/UI/Tooltip';
 import Warning from './components/UI/Warning';
-import { getLayer } from './utils';
+import { clearSavedHandle, getLayer, getSavedHandle, saveHandle } from './utils';
 
 import './style.less';
 
@@ -355,37 +355,61 @@ const Index = () => {
   };
 
   const handleClickEftWatcherPath = async () => {
-    if (window.showDirectoryPicker) {
-      try {
-        const handler = await window.showDirectoryPicker();
-        if (handler) {
-          setDirectoryHandler(handler);
+    const saveHandler = await getSavedHandle('eftWatcherDir');
+    if (!saveHandler) {
+      if (window.showDirectoryPicker) {
+        try {
+          const handler = await window.showDirectoryPicker();
+          if (handler) {
+            setDirectoryHandler(handler);
+            await saveHandle('eftWatcherDir', handler);
+          }
+        } catch (err) {
+          setDirectoryHandler(undefined);
         }
-      } catch (err) {
-        setDirectoryHandler(undefined);
+      } else {
+        message.show({ content: t('eftwatcher.unsupportMsg') });
       }
     } else {
-      message.show({ content: t('eftwatcher.unsupportMsg') });
+      const permission = await saveHandler.queryPermission({ mode: 'readwrite' });
+      if (permission === 'granted' || await saveHandler.requestPermission({ mode: 'readwrite' }) === 'granted') {
+        setDirectoryHandler(saveHandler);
+      } else {
+        clearSavedHandle('eftWatcherDir');
+        message.show({ content: '需要访问权限，请重新选择' });
+      }
     }
   };
 
   const handleClickTarkovGamePath = async () => {
-    if (window.showDirectoryPicker) {
-      try {
-        const handler = await window.showDirectoryPicker();
-        if (handler) {
-          const result = await tarkovGamePathResolve.checkPath(handler);
-          if (result) {
-            setTarkovGamePathHandler(handler);
-          } else {
-            message.show({ content: '所选文件夹不是塔科夫游戏目录，请重新选择！' });
+    const saveHandler = await getSavedHandle('tarkovGameDir');
+    if (!saveHandler) {
+      if (window.showDirectoryPicker) {
+        try {
+          const handler = await window.showDirectoryPicker();
+          if (handler) {
+            const result = await tarkovGamePathResolve.checkPath(handler);
+            if (result) {
+              setTarkovGamePathHandler(handler);
+              await saveHandle('tarkovGameDir', handler);
+            } else {
+              message.show({ content: '所选文件夹不是塔科夫游戏目录，请重新选择！' });
+            }
           }
+        } catch (err) {
+          setTarkovGamePathHandler(undefined);
         }
-      } catch (err) {
-        setTarkovGamePathHandler(undefined);
+      } else {
+        message.show({ content: t('eftwatcher.unsupportMsg') });
       }
     } else {
-      message.show({ content: t('eftwatcher.unsupportMsg') });
+      const permission = await saveHandler.queryPermission({ mode: 'readwrite' });
+      if (permission === 'granted' || await saveHandler.requestPermission({ mode: 'readwrite' }) === 'granted') {
+        setTarkovGamePathHandler(saveHandler);
+      } else {
+        clearSavedHandle('tarkovGameDir');
+        message.show({ content: '需要访问权限，请重新选择' });
+      }
     }
   };
 
