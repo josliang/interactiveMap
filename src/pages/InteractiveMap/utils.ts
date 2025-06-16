@@ -81,6 +81,7 @@ export const icons: any = {
   extract_pmc: 'extract_pmc',
   extract_scav: 'extract_scav',
   extract_shared: 'extract_shared',
+  extract_transit: 'extract_transit',
   hazard: 'hazard',
   key: 'key',
   lock: 'lock',

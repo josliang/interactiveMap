@@ -112,7 +112,7 @@ const Index = (props: MarkerSelectProps) => {
       </div>
       <div className="im-quicktools-modal-marker-block">
         <div className="im-quicktools-modal-marker-block-list">
-          {['pmc', 'scav', 'shared'].map((faction) => {
+          {['pmc', 'scav', 'shared', 'transit'].map((faction) => {
             return (
               <img
                 className={classNames({

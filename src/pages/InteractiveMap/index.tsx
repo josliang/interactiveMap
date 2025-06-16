@@ -57,7 +57,7 @@ const Index = () => {
   const [raidInfo, setRaidInfo] = useState<InteractiveMap.RaidLogProps>();
 
   const [extracts, setExtracts] = useLocalStorageState<InteractiveMap.Faction[]>('im-extracts', {
-    defaultValue: ['pmc', 'scav', 'shared'],
+    defaultValue: ['pmc', 'scav', 'shared', 'transit'],
   });
   const [locks, setLocks] = useLocalStorageState<string[]>('im-locks', {
     defaultValue: ['lock'],
