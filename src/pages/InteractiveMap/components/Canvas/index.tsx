@@ -17,8 +17,8 @@ import Btrs from '../Btrs';
 import DrawLines from '../DrawLines';
 import Extracts from '../Extracts';
 import Hazards from '../Hazards';
-import Image from '../Image';
 import Labels from '../Labels';
+import LayerMap from '../LayerMap';
 import Locks from '../Locks';
 import LootContainers from '../LootContainers';
 import PlayerLocation from '../PlayerLocation';
@@ -509,7 +509,7 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
           coordinateRotation={mapData.coordinateRotation}
           resolution={{ width, height }}
         />
-        {activeLayer && <Image id="im-layermap" imageSrc={activeLayer.svgPath} />}
+        {activeLayer && <LayerMap id="im-layermap" baseMap={baseMap} imageSrc={activeLayer.svgPath} coordinateRotation={mapData.coordinateRotation} />}
         <Labels {...utils} labels={mapData.labels} show />
         <LootContainers {...utils} lootContainers={mapData.lootContainers} show={markerLootKeys} />
         <StationaryWeapons

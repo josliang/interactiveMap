@@ -27,11 +27,11 @@ export default [
     ],
     author: 'Shebuka',
     authorLink: 'https://github.com/TarkovTracker/tarkovdata/',
-    svgPath: 'https://assets.tarkov.dev/maps/svg/StreetsOfTarkov-Ground_Level.svg',
+    svgPath: '/mapSvg/StreetsOfTarkov-Ground_Level.svg',
     layers: [
       {
         name: 'Underground',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/StreetsOfTarkov-Underground_Level.svg',
+        svgPath: '/mapSvg/StreetsOfTarkov-Underground_Level.svg',
         show: false,
         extents: [
           {
@@ -44,7 +44,7 @@ export default [
       },
       {
         name: '2nd Floor',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/StreetsOfTarkov-Second_Floor.svg',
+        svgPath: '/mapSvg/StreetsOfTarkov-Second_Floor.svg',
         show: false,
         extents: [
           {
@@ -57,7 +57,7 @@ export default [
       },
       {
         name: '3rd Floor',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/StreetsOfTarkov-Third_Floor.svg',
+        svgPath: '/mapSvg/StreetsOfTarkov-Third_Floor.svg',
         show: false,
         extents: [
           {
@@ -70,7 +70,7 @@ export default [
       },
       {
         name: '4th Floor',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/StreetsOfTarkov-Fourth_Floor.svg',
+        svgPath: '/mapSvg/StreetsOfTarkov-Fourth_Floor.svg',
         show: false,
         extents: [
           {
@@ -83,7 +83,7 @@ export default [
       },
       {
         name: '5th Floor',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/StreetsOfTarkov-Fifth_Floor.svg',
+        svgPath: '/mapSvg/StreetsOfTarkov-Fifth_Floor.svg',
         show: false,
         extents: [
           {
@@ -499,8 +499,8 @@ export default [
           id: 'bossKolontay',
           name: 'Kollontay',
           normalizedName: 'kollontay',
-          imagePortraitLink: 'https://assets.tarkov.dev/kollontay-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/kollontay-poster.jpg',
+          imagePortraitLink: '/uselessPath/kollontay-portrait.png',
+          imagePosterLink: '/uselessPath/kollontay-poster.jpg',
         },
         spawnChance: 0.4,
         spawnLocations: [
@@ -521,8 +521,8 @@ export default [
           id: 'bossBoar',
           name: 'Kaban',
           normalizedName: 'kaban',
-          imagePortraitLink: 'https://assets.tarkov.dev/kaban-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/kaban-poster.jpg',
+          imagePortraitLink: '/uselessPath/kaban-portrait.png',
+          imagePosterLink: '/uselessPath/kaban-poster.jpg',
         },
         spawnChance: 0.4,
         spawnLocations: [
@@ -6719,7 +6719,7 @@ export default [
         switches: [],
         position: {
           x: 207.7,
-          y: 0.09,
+          y: -20,
           z: 79.8,
         },
         outline: [],
@@ -31826,13 +31826,13 @@ export default [
     ],
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev',
-    svgPath: 'https://assets.tarkov.dev/maps/svg/GroundZero-Ground_Level.svg',
-    tilePath: 'https://assets.tarkov.dev/maps/groundzero/main/{z}/{x}/{y}.png',
+    svgPath: '/mapSvg/GroundZero-Ground_Level.svg',
+    tilePath: '/uselessPath/maps/groundzero/main/{z}/{x}/{y}.png',
     layers: [
       {
         name: 'Garage',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/GroundZero-Underground_Level.svg',
-        tilePath: 'https://assets.tarkov.dev/maps/groundzero/garage/{z}/{x}/{y}.png',
+        svgPath: '/mapSvg/GroundZero-Underground_Level.svg',
+        tilePath: '/uselessPath/maps/groundzero/garage/{z}/{x}/{y}.png',
         show: false,
         extents: [
           {
@@ -31869,8 +31869,8 @@ export default [
       },
       {
         name: '2nd Floor',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/GroundZero-Second_Floor.svg',
-        tilePath: 'https://assets.tarkov.dev/maps/groundzero/2nd/{z}/{x}/{y}.png',
+        svgPath: '/mapSvg/GroundZero-Second_Floor.svg',
+        tilePath: '/uselessPath/maps/groundzero/2nd/{z}/{x}/{y}.png',
         show: false,
         extents: [
           {
@@ -31902,8 +31902,8 @@ export default [
       },
       {
         name: '3rd Floor',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/GroundZero-Third_Floor.svg',
-        tilePath: 'https://assets.tarkov.dev/maps/groundzero/3rd/{z}/{x}/{y}.png',
+        svgPath: '/mapSvg/GroundZero-Third_Floor.svg',
+        tilePath: '/uselessPath/maps/groundzero/3rd/{z}/{x}/{y}.png',
         show: false,
         extents: [
           {
@@ -41319,13 +41319,13 @@ export default [
     ],
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev',
-    svgPath: 'https://assets.tarkov.dev/maps/svg/GroundZero-Ground_Level.svg',
-    tilePath: 'https://assets.tarkov.dev/maps/groundzero/main/{z}/{x}/{y}.png',
+    svgPath: '/mapSvg/GroundZero-Ground_Level.svg',
+    tilePath: '/uselessPath/maps/groundzero/main/{z}/{x}/{y}.png',
     layers: [
       {
         name: 'Garage',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/GroundZero-Underground_Level.svg',
-        tilePath: 'https://assets.tarkov.dev/maps/groundzero/garage/{z}/{x}/{y}.png',
+        svgPath: '/mapSvg/GroundZero-Underground_Level.svg',
+        tilePath: '/uselessPath/maps/groundzero/garage/{z}/{x}/{y}.png',
         show: false,
         extents: [
           {
@@ -41362,8 +41362,8 @@ export default [
       },
       {
         name: '2nd Floor',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/GroundZero-Second_Floor.svg',
-        tilePath: 'https://assets.tarkov.dev/maps/groundzero/2nd/{z}/{x}/{y}.png',
+        svgPath: '/mapSvg/GroundZero-Second_Floor.svg',
+        tilePath: '/uselessPath/maps/groundzero/2nd/{z}/{x}/{y}.png',
         show: false,
         extents: [
           {
@@ -41395,8 +41395,8 @@ export default [
       },
       {
         name: '3rd Floor',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/GroundZero-Third_Floor.svg',
-        tilePath: 'https://assets.tarkov.dev/maps/groundzero/3rd/{z}/{x}/{y}.png',
+        svgPath: '/mapSvg/GroundZero-Third_Floor.svg',
+        tilePath: '/uselessPath/maps/groundzero/3rd/{z}/{x}/{y}.png',
         show: false,
         extents: [
           {
@@ -41529,8 +41529,8 @@ export default [
           id: 'bossKolontay',
           name: 'Kollontay',
           normalizedName: 'kollontay',
-          imagePortraitLink: 'https://assets.tarkov.dev/kollontay-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/kollontay-poster.jpg',
+          imagePortraitLink: '/uselessPath/kollontay-portrait.png',
+          imagePosterLink: '/uselessPath/kollontay-poster.jpg',
         },
         spawnChance: 0.4,
         spawnLocations: [
@@ -41546,8 +41546,8 @@ export default [
           id: 'sectantPriest',
           name: '邪教徒牧师',
           normalizedName: 'cultist-priest',
-          imagePortraitLink: 'https://assets.tarkov.dev/cultist-priest-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/cultist-priest-poster.jpg',
+          imagePortraitLink: '/uselessPath/cultist-priest-portrait.png',
+          imagePosterLink: '/uselessPath/cultist-priest-poster.jpg',
         },
         spawnChance: 0.02,
         spawnLocations: [
@@ -50917,13 +50917,13 @@ export default [
     ],
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev/',
-    svgPath: 'https://assets.tarkov.dev/maps/svg/Customs-Ground_Level.svg',
-    tilePath: 'https://assets.tarkov.dev/maps/customs_v4/main/{z}/{x}/{y}.png',
+    svgPath: '/mapSvg/Customs-Ground_Level.svg',
+    tilePath: '/uselessPath/maps/customs_v4/main/{z}/{x}/{y}.png',
     layers: [
       {
         name: 'Underground',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/Customs-Underground_Level.svg',
-        tilePath: 'https://assets.tarkov.dev/maps/customs_v4/underground/{z}/{x}/{y}.png',
+        svgPath: '/mapSvg/Customs-Underground_Level.svg',
+        tilePath: '/uselessPath/maps/customs_v4/underground/{z}/{x}/{y}.png',
         show: false,
         extents: [
           {
@@ -50993,8 +50993,8 @@ export default [
       },
       {
         name: '2nd Floor',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/Customs-Second_Floor.svg',
-        tilePath: 'https://assets.tarkov.dev/maps/customs_v4/2nd/{z}/{x}/{y}.png',
+        svgPath: '/mapSvg/Customs-Second_Floor.svg',
+        tilePath: '/uselessPath/maps/customs_v4/2nd/{z}/{x}/{y}.png',
         show: false,
         extents: [
           {
@@ -51179,8 +51179,8 @@ export default [
       },
       {
         name: '3rd Floor',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/Customs-Third_Floor.svg',
-        tilePath: 'https://assets.tarkov.dev/maps/customs_v4/3rd/{z}/{x}/{y}.png',
+        svgPath: '/mapSvg/Customs-Third_Floor.svg',
+        tilePath: '/uselessPath/maps/customs_v4/3rd/{z}/{x}/{y}.png',
         show: false,
         extents: [
           {
@@ -51411,8 +51411,8 @@ export default [
           id: 'bossKnight',
           name: 'Death Knight',
           normalizedName: 'death-knight',
-          imagePortraitLink: 'https://assets.tarkov.dev/death-knight-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/death-knight-poster.jpg',
+          imagePortraitLink: '/uselessPath/death-knight-portrait.png',
+          imagePosterLink: '/uselessPath/death-knight-poster.jpg',
         },
         spawnChance: 0.4,
         spawnLocations: [
@@ -51428,8 +51428,8 @@ export default [
           id: 'bossBully',
           name: 'Reshala',
           normalizedName: 'reshala',
-          imagePortraitLink: 'https://assets.tarkov.dev/reshala-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/reshala-poster.jpg',
+          imagePortraitLink: '/uselessPath/reshala-portrait.png',
+          imagePosterLink: '/uselessPath/reshala-poster.jpg',
         },
         spawnChance: 0.4,
         spawnLocations: [
@@ -51455,8 +51455,8 @@ export default [
           id: 'sectantPriest',
           name: '邪教徒牧师',
           normalizedName: 'cultist-priest',
-          imagePortraitLink: 'https://assets.tarkov.dev/cultist-priest-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/cultist-priest-poster.jpg',
+          imagePortraitLink: '/uselessPath/cultist-priest-portrait.png',
+          imagePosterLink: '/uselessPath/cultist-priest-poster.jpg',
         },
         spawnChance: 0.2,
         spawnLocations: [
@@ -62233,13 +62233,13 @@ export default [
     ],
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev',
-    tilePath: 'https://assets.tarkov.dev/maps/factory_v2/main/{z}/{x}/{y}.png',
-    svgPath: 'https://assets.tarkov.dev/maps/svg/Factory-Ground_Floor.svg',
+    tilePath: '/uselessPath/maps/factory_v2/main/{z}/{x}/{y}.png',
+    svgPath: '/mapSvg/Factory-Ground_Floor.svg',
     layers: [
       {
         name: '2nd Floor',
-        tilePath: 'https://assets.tarkov.dev/maps/factory_v2/2nd_notint/{z}/{x}/{y}.png',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/Factory-Second_Floor.svg',
+        tilePath: '/uselessPath/maps/factory_v2/2nd_notint/{z}/{x}/{y}.png',
+        svgPath: '/mapSvg/Factory-Second_Floor.svg',
         show: false,
         extents: [
           {
@@ -62252,8 +62252,8 @@ export default [
       },
       {
         name: '3rd Floor',
-        tilePath: 'https://assets.tarkov.dev/maps/factory_v2/3rd_notint/{z}/{x}/{y}.png',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/Factory-Third_Floor.svg',
+        tilePath: '/uselessPath/maps/factory_v2/3rd_notint/{z}/{x}/{y}.png',
+        svgPath: '/mapSvg/Factory-Third_Floor.svg',
         show: false,
         extents: [
           {
@@ -62266,8 +62266,8 @@ export default [
       },
       {
         name: 'Tunnels',
-        tilePath: 'https://assets.tarkov.dev/maps/factory_v2/tunnels_notint/{z}/{x}/{y}.png',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/Factory-Basement.svg',
+        tilePath: '/uselessPath/maps/factory_v2/tunnels_notint/{z}/{x}/{y}.png',
+        svgPath: '/mapSvg/Factory-Basement.svg',
         show: false,
         extents: [
           {
@@ -62566,8 +62566,8 @@ export default [
           id: 'bossTagilla',
           name: 'Tagilla',
           normalizedName: 'tagilla',
-          imagePortraitLink: 'https://assets.tarkov.dev/tagilla-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/tagilla-poster.jpg',
+          imagePortraitLink: '/uselessPath/tagilla-portrait.png',
+          imagePosterLink: '/uselessPath/tagilla-poster.jpg',
         },
         spawnChance: 0.4,
         spawnLocations: [
@@ -65393,13 +65393,13 @@ export default [
     ],
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev',
-    tilePath: 'https://assets.tarkov.dev/maps/factory_v2/main/{z}/{x}/{y}.png',
-    svgPath: 'https://assets.tarkov.dev/maps/svg/Factory-Ground_Floor.svg',
+    tilePath: '/uselessPath/maps/factory_v2/main/{z}/{x}/{y}.png',
+    svgPath: '/mapSvg/Factory-Ground_Floor.svg',
     layers: [
       {
         name: '2nd Floor',
-        tilePath: 'https://assets.tarkov.dev/maps/factory_v2/2nd_notint/{z}/{x}/{y}.png',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/Factory-Second_Floor.svg',
+        tilePath: '/uselessPath/maps/factory_v2/2nd_notint/{z}/{x}/{y}.png',
+        svgPath: '/mapSvg/Factory-Second_Floor.svg',
         show: false,
         extents: [
           {
@@ -65412,8 +65412,8 @@ export default [
       },
       {
         name: '3rd Floor',
-        tilePath: 'https://assets.tarkov.dev/maps/factory_v2/3rd_notint/{z}/{x}/{y}.png',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/Factory-Third_Floor.svg',
+        tilePath: '/uselessPath/maps/factory_v2/3rd_notint/{z}/{x}/{y}.png',
+        svgPath: '/mapSvg/Factory-Third_Floor.svg',
         show: false,
         extents: [
           {
@@ -65426,8 +65426,8 @@ export default [
       },
       {
         name: 'Tunnels',
-        tilePath: 'https://assets.tarkov.dev/maps/factory_v2/tunnels_notint/{z}/{x}/{y}.png',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/Factory-Basement.svg',
+        tilePath: '/uselessPath/maps/factory_v2/tunnels_notint/{z}/{x}/{y}.png',
+        svgPath: '/mapSvg/Factory-Basement.svg',
         show: false,
         extents: [
           {
@@ -65728,8 +65728,8 @@ export default [
           id: 'bossTagilla',
           name: 'Tagilla',
           normalizedName: 'tagilla',
-          imagePortraitLink: 'https://assets.tarkov.dev/tagilla-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/tagilla-poster.jpg',
+          imagePortraitLink: '/uselessPath/tagilla-portrait.png',
+          imagePosterLink: '/uselessPath/tagilla-poster.jpg',
         },
         spawnChance: 0.4,
         spawnLocations: [
@@ -65745,8 +65745,8 @@ export default [
           id: 'sectantPriest',
           name: '邪教徒牧师',
           normalizedName: 'cultist-priest',
-          imagePortraitLink: 'https://assets.tarkov.dev/cultist-priest-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/cultist-priest-poster.jpg',
+          imagePortraitLink: '/uselessPath/cultist-priest-portrait.png',
+          imagePosterLink: '/uselessPath/cultist-priest-poster.jpg',
         },
         spawnChance: 0.02,
         spawnLocations: [
@@ -68565,8 +68565,8 @@ export default [
     ],
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev',
-    svgPath: 'https://assets.tarkov.dev/maps/svg/Interchange-Ground_Level.svg',
-    tilePath: 'https://assets.tarkov.dev/maps/interchange/main/{z}/{x}/{y}.png',
+    svgPath: '/mapSvg/Interchange-Ground_Level.svg',
+    tilePath: '/uselessPath/maps/interchange/main/{z}/{x}/{y}.png',
     _heightRange: [
       -1000,
       25,
@@ -68574,7 +68574,7 @@ export default [
     layers: [
       {
         name: '2nd Floor',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/Interchange-First_Floor.svg',
+        svgPath: '/mapSvg/Interchange-First_Floor.svg',
         show: true,
         extents: [
           {
@@ -68600,7 +68600,7 @@ export default [
       },
       {
         name: '3rd Floor',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/Interchange-Second_Floor.svg',
+        svgPath: '/mapSvg/Interchange-Second_Floor.svg',
         show: false,
         extents: [
           {
@@ -69413,8 +69413,8 @@ export default [
           id: 'bossKilla',
           name: 'Killa',
           normalizedName: 'killa',
-          imagePortraitLink: 'https://assets.tarkov.dev/killa-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/killa-poster.jpg',
+          imagePortraitLink: '/uselessPath/killa-portrait.png',
+          imagePosterLink: '/uselessPath/killa-poster.jpg',
         },
         spawnChance: 0.4,
         spawnLocations: [
@@ -86141,8 +86141,8 @@ export default [
     ],
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev',
-    svgPath: 'https://cdn.tiltysola.com/assets/tarkov/maps/the-lab-temp.jpg',
-    tilePath: 'https://assets.tarkov.dev/maps/labs_v3/1st/{z}/{x}/{y}.png',
+    svgPath: '/mapSvg/the-lab-temp.jpg',
+    tilePath: '/uselessPath/maps/labs_v3/1st/{z}/{x}/{y}.png',
     heightRange: [
       -0.9,
       3,
@@ -86150,7 +86150,7 @@ export default [
     layers: [
       {
         name: 'Second Level',
-        tilePath: 'https://assets.tarkov.dev/maps/labs_v3/2nd/{z}/{x}/{y}.png',
+        tilePath: '/uselessPath/maps/labs_v3/2nd/{z}/{x}/{y}.png',
         show: false,
         extents: [
           {
@@ -86175,7 +86175,7 @@ export default [
       },
       {
         name: 'Technical',
-        tilePath: 'https://assets.tarkov.dev/maps/labs_v3/technical/{z}/{x}/{y}.png',
+        tilePath: '/uselessPath/maps/labs_v3/technical/{z}/{x}/{y}.png',
         show: false,
         extents: [
           {
@@ -86516,8 +86516,8 @@ export default [
           id: 'PmcBot',
           name: '掠夺者',
           normalizedName: 'raider',
-          imagePortraitLink: 'https://assets.tarkov.dev/raider-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/raider-poster.jpg',
+          imagePortraitLink: '/uselessPath/raider-portrait.png',
+          imagePosterLink: '/uselessPath/raider-poster.jpg',
         },
         spawnChance: 0.6,
         spawnLocations: [
@@ -86533,8 +86533,8 @@ export default [
           id: 'PmcBot',
           name: '掠夺者',
           normalizedName: 'raider',
-          imagePortraitLink: 'https://assets.tarkov.dev/raider-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/raider-poster.jpg',
+          imagePortraitLink: '/uselessPath/raider-portrait.png',
+          imagePosterLink: '/uselessPath/raider-poster.jpg',
         },
         spawnChance: 0.6,
         spawnLocations: [
@@ -86550,8 +86550,8 @@ export default [
           id: 'PmcBot',
           name: '掠夺者',
           normalizedName: 'raider',
-          imagePortraitLink: 'https://assets.tarkov.dev/raider-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/raider-poster.jpg',
+          imagePortraitLink: '/uselessPath/raider-portrait.png',
+          imagePosterLink: '/uselessPath/raider-poster.jpg',
         },
         spawnChance: 0.45,
         spawnLocations: [
@@ -86567,8 +86567,8 @@ export default [
           id: 'PmcBot',
           name: '掠夺者',
           normalizedName: 'raider',
-          imagePortraitLink: 'https://assets.tarkov.dev/raider-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/raider-poster.jpg',
+          imagePortraitLink: '/uselessPath/raider-portrait.png',
+          imagePosterLink: '/uselessPath/raider-poster.jpg',
         },
         spawnChance: 0.45,
         spawnLocations: [
@@ -86584,8 +86584,8 @@ export default [
           id: 'PmcBot',
           name: '掠夺者',
           normalizedName: 'raider',
-          imagePortraitLink: 'https://assets.tarkov.dev/raider-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/raider-poster.jpg',
+          imagePortraitLink: '/uselessPath/raider-portrait.png',
+          imagePosterLink: '/uselessPath/raider-poster.jpg',
         },
         spawnChance: 0.4,
         spawnLocations: [
@@ -86601,8 +86601,8 @@ export default [
           id: 'PmcBot',
           name: '掠夺者',
           normalizedName: 'raider',
-          imagePortraitLink: 'https://assets.tarkov.dev/raider-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/raider-poster.jpg',
+          imagePortraitLink: '/uselessPath/raider-portrait.png',
+          imagePosterLink: '/uselessPath/raider-poster.jpg',
         },
         spawnChance: 0.45,
         spawnLocations: [
@@ -86618,8 +86618,8 @@ export default [
           id: 'PmcBot',
           name: '掠夺者',
           normalizedName: 'raider',
-          imagePortraitLink: 'https://assets.tarkov.dev/raider-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/raider-poster.jpg',
+          imagePortraitLink: '/uselessPath/raider-portrait.png',
+          imagePosterLink: '/uselessPath/raider-poster.jpg',
         },
         spawnChance: 0.35,
         spawnLocations: [
@@ -86635,8 +86635,8 @@ export default [
           id: 'PmcBot',
           name: '掠夺者',
           normalizedName: 'raider',
-          imagePortraitLink: 'https://assets.tarkov.dev/raider-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/raider-poster.jpg',
+          imagePortraitLink: '/uselessPath/raider-portrait.png',
+          imagePosterLink: '/uselessPath/raider-poster.jpg',
         },
         spawnChance: 0.35,
         spawnLocations: [
@@ -86652,8 +86652,8 @@ export default [
           id: 'PmcBot',
           name: '掠夺者',
           normalizedName: 'raider',
-          imagePortraitLink: 'https://assets.tarkov.dev/raider-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/raider-poster.jpg',
+          imagePortraitLink: '/uselessPath/raider-portrait.png',
+          imagePosterLink: '/uselessPath/raider-poster.jpg',
         },
         spawnChance: 0.35,
         spawnLocations: [
@@ -86669,8 +86669,8 @@ export default [
           id: 'PmcBot',
           name: '掠夺者',
           normalizedName: 'raider',
-          imagePortraitLink: 'https://assets.tarkov.dev/raider-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/raider-poster.jpg',
+          imagePortraitLink: '/uselessPath/raider-portrait.png',
+          imagePosterLink: '/uselessPath/raider-poster.jpg',
         },
         spawnChance: 0.35,
         spawnLocations: [
@@ -86686,8 +86686,8 @@ export default [
           id: 'PmcBot',
           name: '掠夺者',
           normalizedName: 'raider',
-          imagePortraitLink: 'https://assets.tarkov.dev/raider-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/raider-poster.jpg',
+          imagePortraitLink: '/uselessPath/raider-portrait.png',
+          imagePosterLink: '/uselessPath/raider-poster.jpg',
         },
         spawnChance: 0.35,
         spawnLocations: [
@@ -86703,8 +86703,8 @@ export default [
           id: 'PmcBot',
           name: '掠夺者',
           normalizedName: 'raider',
-          imagePortraitLink: 'https://assets.tarkov.dev/raider-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/raider-poster.jpg',
+          imagePortraitLink: '/uselessPath/raider-portrait.png',
+          imagePosterLink: '/uselessPath/raider-poster.jpg',
         },
         spawnChance: 0.35,
         spawnLocations: [
@@ -86720,8 +86720,8 @@ export default [
           id: 'PmcBot',
           name: '掠夺者',
           normalizedName: 'raider',
-          imagePortraitLink: 'https://assets.tarkov.dev/raider-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/raider-poster.jpg',
+          imagePortraitLink: '/uselessPath/raider-portrait.png',
+          imagePosterLink: '/uselessPath/raider-poster.jpg',
         },
         spawnChance: 0.35,
         spawnLocations: [
@@ -86737,8 +86737,8 @@ export default [
           id: 'PmcBot',
           name: '掠夺者',
           normalizedName: 'raider',
-          imagePortraitLink: 'https://assets.tarkov.dev/raider-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/raider-poster.jpg',
+          imagePortraitLink: '/uselessPath/raider-portrait.png',
+          imagePosterLink: '/uselessPath/raider-poster.jpg',
         },
         spawnChance: 0.35,
         spawnLocations: [
@@ -86754,8 +86754,8 @@ export default [
           id: 'PmcBot',
           name: '掠夺者',
           normalizedName: 'raider',
-          imagePortraitLink: 'https://assets.tarkov.dev/raider-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/raider-poster.jpg',
+          imagePortraitLink: '/uselessPath/raider-portrait.png',
+          imagePosterLink: '/uselessPath/raider-poster.jpg',
         },
         spawnChance: 0.4,
         spawnLocations: [
@@ -86771,8 +86771,8 @@ export default [
           id: 'PmcBot',
           name: '掠夺者',
           normalizedName: 'raider',
-          imagePortraitLink: 'https://assets.tarkov.dev/raider-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/raider-poster.jpg',
+          imagePortraitLink: '/uselessPath/raider-portrait.png',
+          imagePosterLink: '/uselessPath/raider-poster.jpg',
         },
         spawnChance: 0.45,
         spawnLocations: [
@@ -93290,7 +93290,7 @@ export default [
     ],
     author: 'Shebuka',
     authorLink: 'https://github.com/TarkovTracker/tarkovdata/',
-    svgPath: 'https://assets.tarkov.dev/maps/svg/Lighthouse.svg',
+    svgPath: '/mapSvg/Lighthouse.svg',
     labels: [
       {
         position: [
@@ -93469,8 +93469,8 @@ export default [
           id: 'bossZryachiy',
           name: 'Zryachiy',
           normalizedName: 'zryachiy',
-          imagePortraitLink: 'https://assets.tarkov.dev/zryachiy-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/zryachiy-poster.jpg',
+          imagePortraitLink: '/uselessPath/zryachiy-portrait.png',
+          imagePosterLink: '/uselessPath/zryachiy-poster.jpg',
         },
         spawnChance: 1,
         spawnLocations: [
@@ -93486,8 +93486,8 @@ export default [
           id: 'bossKnight',
           name: 'Death Knight',
           normalizedName: 'death-knight',
-          imagePortraitLink: 'https://assets.tarkov.dev/death-knight-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/death-knight-poster.jpg',
+          imagePortraitLink: '/uselessPath/death-knight-portrait.png',
+          imagePosterLink: '/uselessPath/death-knight-poster.jpg',
         },
         spawnChance: 0.4,
         spawnLocations: [
@@ -93508,8 +93508,8 @@ export default [
           id: 'ExUsec',
           name: '游荡者',
           normalizedName: 'rogue',
-          imagePortraitLink: 'https://assets.tarkov.dev/rogue-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/rogue-poster.jpg',
+          imagePortraitLink: '/uselessPath/rogue-portrait.png',
+          imagePosterLink: '/uselessPath/rogue-poster.jpg',
         },
         spawnChance: 0.8,
         spawnLocations: [
@@ -93525,8 +93525,8 @@ export default [
           id: 'ExUsec',
           name: '游荡者',
           normalizedName: 'rogue',
-          imagePortraitLink: 'https://assets.tarkov.dev/rogue-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/rogue-poster.jpg',
+          imagePortraitLink: '/uselessPath/rogue-portrait.png',
+          imagePosterLink: '/uselessPath/rogue-poster.jpg',
         },
         spawnChance: 0.8,
         spawnLocations: [
@@ -93542,8 +93542,8 @@ export default [
           id: 'ExUsec',
           name: '游荡者',
           normalizedName: 'rogue',
-          imagePortraitLink: 'https://assets.tarkov.dev/rogue-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/rogue-poster.jpg',
+          imagePortraitLink: '/uselessPath/rogue-portrait.png',
+          imagePosterLink: '/uselessPath/rogue-poster.jpg',
         },
         spawnChance: 0.5,
         spawnLocations: [
@@ -93559,8 +93559,8 @@ export default [
           id: 'ExUsec',
           name: '游荡者',
           normalizedName: 'rogue',
-          imagePortraitLink: 'https://assets.tarkov.dev/rogue-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/rogue-poster.jpg',
+          imagePortraitLink: '/uselessPath/rogue-portrait.png',
+          imagePosterLink: '/uselessPath/rogue-poster.jpg',
         },
         spawnChance: 0.5,
         spawnLocations: [
@@ -93576,8 +93576,8 @@ export default [
           id: 'ExUsec',
           name: '游荡者',
           normalizedName: 'rogue',
-          imagePortraitLink: 'https://assets.tarkov.dev/rogue-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/rogue-poster.jpg',
+          imagePortraitLink: '/uselessPath/rogue-portrait.png',
+          imagePosterLink: '/uselessPath/rogue-poster.jpg',
         },
         spawnChance: 0.8,
         spawnLocations: [
@@ -93593,8 +93593,8 @@ export default [
           id: 'ExUsec',
           name: '游荡者',
           normalizedName: 'rogue',
-          imagePortraitLink: 'https://assets.tarkov.dev/rogue-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/rogue-poster.jpg',
+          imagePortraitLink: '/uselessPath/rogue-portrait.png',
+          imagePosterLink: '/uselessPath/rogue-poster.jpg',
         },
         spawnChance: 0.8,
         spawnLocations: [
@@ -93610,8 +93610,8 @@ export default [
           id: 'ExUsec',
           name: '游荡者',
           normalizedName: 'rogue',
-          imagePortraitLink: 'https://assets.tarkov.dev/rogue-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/rogue-poster.jpg',
+          imagePortraitLink: '/uselessPath/rogue-portrait.png',
+          imagePosterLink: '/uselessPath/rogue-poster.jpg',
         },
         spawnChance: 0.2,
         spawnLocations: [
@@ -120827,7 +120827,7 @@ export default [
     ],
     author: 'Shebuka',
     authorLink: 'https://github.com/TarkovTracker/tarkovdata/',
-    svgPath: 'https://assets.tarkov.dev/maps/svg/Reserve-Ground_Level.svg',
+    svgPath: '/mapSvg/Reserve-Ground_Level.svg',
     heightRange: [
       -7,
       10000,
@@ -120835,7 +120835,7 @@ export default [
     layers: [
       {
         name: 'Bunkers',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/Reserve-Bunkers.svg',
+        svgPath: '/mapSvg/Reserve-Bunkers.svg',
         show: false,
         extents: [
           {
@@ -121118,8 +121118,8 @@ export default [
           id: 'bossGluhar',
           name: 'Glukhar',
           normalizedName: 'glukhar',
-          imagePortraitLink: 'https://assets.tarkov.dev/glukhar-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/glukhar-poster.jpg',
+          imagePortraitLink: '/uselessPath/glukhar-portrait.png',
+          imagePosterLink: '/uselessPath/glukhar-poster.jpg',
         },
         spawnChance: 0.4,
         spawnLocations: [
@@ -121150,8 +121150,8 @@ export default [
           id: 'PmcBot',
           name: '掠夺者',
           normalizedName: 'raider',
-          imagePortraitLink: 'https://assets.tarkov.dev/raider-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/raider-poster.jpg',
+          imagePortraitLink: '/uselessPath/raider-portrait.png',
+          imagePosterLink: '/uselessPath/raider-poster.jpg',
         },
         spawnChance: 0.4,
         spawnLocations: [
@@ -121167,8 +121167,8 @@ export default [
           id: 'PmcBot',
           name: '掠夺者',
           normalizedName: 'raider',
-          imagePortraitLink: 'https://assets.tarkov.dev/raider-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/raider-poster.jpg',
+          imagePortraitLink: '/uselessPath/raider-portrait.png',
+          imagePosterLink: '/uselessPath/raider-poster.jpg',
         },
         spawnChance: 0.25,
         spawnLocations: [
@@ -121184,8 +121184,8 @@ export default [
           id: 'PmcBot',
           name: '掠夺者',
           normalizedName: 'raider',
-          imagePortraitLink: 'https://assets.tarkov.dev/raider-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/raider-poster.jpg',
+          imagePortraitLink: '/uselessPath/raider-portrait.png',
+          imagePosterLink: '/uselessPath/raider-poster.jpg',
         },
         spawnChance: 0.25,
         spawnLocations: [
@@ -121201,8 +121201,8 @@ export default [
           id: 'PmcBot',
           name: '掠夺者',
           normalizedName: 'raider',
-          imagePortraitLink: 'https://assets.tarkov.dev/raider-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/raider-poster.jpg',
+          imagePortraitLink: '/uselessPath/raider-portrait.png',
+          imagePosterLink: '/uselessPath/raider-poster.jpg',
         },
         spawnChance: 0.25,
         spawnLocations: [
@@ -137449,12 +137449,12 @@ export default [
     ],
     author: 'Shebuka',
     authorLink: 'https://github.com/TarkovTracker/tarkovdata/',
-    svgPath: 'https://assets.tarkov.dev/maps/svg/Shoreline-Ground_Level.svg',
-    tilePath: 'https://assets.tarkov.dev/maps/shoreline/main_spring/{z}/{x}/{y}.png',
+    svgPath: '/mapSvg/Shoreline-Ground_Level.svg',
+    tilePath: '/uselessPath/maps/shoreline/main_spring/{z}/{x}/{y}.png',
     layers: [
       {
         name: 'Underground',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/Shoreline-Underground_Level.svg',
+        svgPath: '/mapSvg/Shoreline-Underground_Level.svg',
         show: false,
         extents: [
           {
@@ -137491,7 +137491,7 @@ export default [
       },
       {
         name: '2nd Floor',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/Shoreline-Second_Floor.svg',
+        svgPath: '/mapSvg/Shoreline-Second_Floor.svg',
         show: false,
         extents: [
           {
@@ -137504,7 +137504,7 @@ export default [
       },
       {
         name: '3rd Floor',
-        svgPath: 'https://assets.tarkov.dev/maps/svg/Shoreline-Third_Floor.svg',
+        svgPath: '/mapSvg/Shoreline-Third_Floor.svg',
         show: false,
         extents: [
           {
@@ -137722,8 +137722,8 @@ export default [
           id: 'bossKnight',
           name: 'Death Knight',
           normalizedName: 'death-knight',
-          imagePortraitLink: 'https://assets.tarkov.dev/death-knight-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/death-knight-poster.jpg',
+          imagePortraitLink: '/uselessPath/death-knight-portrait.png',
+          imagePosterLink: '/uselessPath/death-knight-poster.jpg',
         },
         spawnChance: 0.4,
         spawnLocations: [
@@ -137739,8 +137739,8 @@ export default [
           id: 'bossSanitar',
           name: 'Sanitar',
           normalizedName: 'sanitar',
-          imagePortraitLink: 'https://assets.tarkov.dev/sanitar-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/sanitar-poster.jpg',
+          imagePortraitLink: '/uselessPath/sanitar-portrait.png',
+          imagePosterLink: '/uselessPath/sanitar-poster.jpg',
         },
         spawnChance: 0.4,
         spawnLocations: [
@@ -137771,8 +137771,8 @@ export default [
           id: 'sectantPriest',
           name: '邪教徒牧师',
           normalizedName: 'cultist-priest',
-          imagePortraitLink: 'https://assets.tarkov.dev/cultist-priest-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/cultist-priest-poster.jpg',
+          imagePortraitLink: '/uselessPath/cultist-priest-portrait.png',
+          imagePosterLink: '/uselessPath/cultist-priest-poster.jpg',
         },
         spawnChance: 0.15,
         spawnLocations: [
@@ -153038,8 +153038,8 @@ export default [
     ],
     author: 'Shebuka',
     authorLink: 'https://github.com/TarkovTracker/tarkovdata/',
-    svgPath: 'https://assets.tarkov.dev/maps/svg/Woods.svg',
-    tilePath: 'https://assets.tarkov.dev/maps/woods/main/{z}/{x}/{y}.png',
+    svgPath: '/mapSvg/Woods.svg',
+    tilePath: '/uselessPath/maps/woods/main/{z}/{x}/{y}.png',
     labels: [
       {
         position: [
@@ -153187,8 +153187,8 @@ export default [
           id: 'bossKnight',
           name: 'Death Knight',
           normalizedName: 'death-knight',
-          imagePortraitLink: 'https://assets.tarkov.dev/death-knight-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/death-knight-poster.jpg',
+          imagePortraitLink: '/uselessPath/death-knight-portrait.png',
+          imagePosterLink: '/uselessPath/death-knight-poster.jpg',
         },
         spawnChance: 0.4,
         spawnLocations: [
@@ -153204,8 +153204,8 @@ export default [
           id: 'bossKojaniy',
           name: 'Shturman',
           normalizedName: 'shturman',
-          imagePortraitLink: 'https://assets.tarkov.dev/shturman-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/shturman-poster.jpg',
+          imagePortraitLink: '/uselessPath/shturman-portrait.png',
+          imagePosterLink: '/uselessPath/shturman-poster.jpg',
         },
         spawnChance: 0.4,
         spawnLocations: [
@@ -153221,8 +153221,8 @@ export default [
           id: 'sectantPriest',
           name: '邪教徒牧师',
           normalizedName: 'cultist-priest',
-          imagePortraitLink: 'https://assets.tarkov.dev/cultist-priest-portrait.png',
-          imagePosterLink: 'https://assets.tarkov.dev/cultist-priest-poster.jpg',
+          imagePortraitLink: '/uselessPath/cultist-priest-portrait.png',
+          imagePosterLink: '/uselessPath/cultist-priest-poster.jpg',
         },
         spawnChance: 0.2,
         spawnLocations: [
