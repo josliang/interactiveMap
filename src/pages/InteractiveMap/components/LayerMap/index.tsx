@@ -17,7 +17,9 @@ const Index = (props: LayerMapProps) => {
           id={id}
           imageSrc={imageSrc}
           rotation={coordinateRotation - 180}
-          offset={{ x: baseMap.width + 5, y: 9 }}
+          offset={{ x: baseMap.width, y: 0 }}
+          scaleX={Math.abs(baseMap.height / baseMap.width)}
+          scaleY={Math.abs(baseMap.width / baseMap.height)}
         />
       );
     } else if (coordinateRotation === 180) {
@@ -27,6 +29,8 @@ const Index = (props: LayerMapProps) => {
           imageSrc={imageSrc}
           rotation={coordinateRotation - 180}
           offset={{ x: 0, y: 0 }}
+          scaleX={1}
+          scaleY={1}
         />
       );
     } else if (coordinateRotation === 270) {
@@ -36,6 +40,8 @@ const Index = (props: LayerMapProps) => {
           imageSrc={imageSrc}
           rotation={coordinateRotation - 180}
           offset={{ x: 0, y: baseMap.height }}
+          scaleX={Math.abs(baseMap.height / baseMap.width)}
+          scaleY={Math.abs(baseMap.width / baseMap.height)}
         />
       );
     }
