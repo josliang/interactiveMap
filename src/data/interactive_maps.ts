@@ -6099,8 +6099,8 @@ export default [
     extracts: [
       {
         id: 'e952fffc64bda06fb61d0db3fb9cd30a61111cb3',
-        name: '走私者的秘密基地',
-        faction: 'pmc',
+        name: '走私者的秘密基地（暗号）',
+        faction: 'shared',
         switches: [],
         position: {
           x: 74.4,
@@ -34457,8 +34457,8 @@ export default [
       },
       {
         id: '89ff19116feeafdf4a2b4e538cafb5364ffbe863',
-        name: 'Tartowers销售办公室',
-        faction: 'pmc',
+        name: 'Tartowers销售办公室（暗号）',
+        faction: 'shared',
         switches: [],
         position: {
           x: 191.2,
@@ -44093,8 +44093,8 @@ export default [
       },
       {
         id: '89ff19116feeafdf4a2b4e538cafb5364ffbe865',
-        name: 'Tartowers销售办公室',
-        faction: 'pmc',
+        name: 'Tartowers销售办公室（暗号）',
+        faction: 'shared',
         switches: [],
         position: {
           x: 191.2,
@@ -54925,7 +54925,7 @@ export default [
       {
         id: 'b113904d09c836e3b6fb937ebd1201f30a5900e6',
         name: 'RUAF路障',
-        faction: 'pmc',
+        faction: 'shared',
         switches: [],
         position: {
           x: -10.250061,
@@ -54959,8 +54959,8 @@ export default [
       },
       {
         id: 'a8ee669bcd17e9c578059cf322f1efe5f70f8e07',
-        name: '走私者的船',
-        faction: 'pmc',
+        name: '走私者的船（暗号）',
+        faction: 'shared',
         switches: [],
         position: {
           x: -42.31012,
@@ -54994,8 +54994,8 @@ export default [
       },
       {
         id: '93659bafaf3bbedfdf9c7c235aba751177850f13',
-        name: '走私者的地堡（ZB-1012）',
-        faction: 'pmc',
+        name: '走私者的地堡（ZB-1012）（暗号）',
+        faction: 'shared',
         switches: [],
         position: {
           x: 464.1,
@@ -55345,41 +55345,6 @@ export default [
         ],
         top: 6.99892569,
         bottom: -0.218969822,
-      },
-      {
-        id: '8574c32eb626a3e230f454d65b9262d4f9e9fbf8',
-        name: 'RUAF路障',
-        faction: 'scav',
-        switches: [],
-        position: {
-          x: -9.436584,
-          y: 1.6499877,
-          z: -138.743988,
-        },
-        outline: [
-          {
-            x: -19.4795532,
-            y: 1.6499877,
-            z: -148.371735,
-          },
-          {
-            x: 3.20904541,
-            y: 1.6499877,
-            z: -144.544052,
-          },
-          {
-            x: 0.606323242,
-            y: 1.6499877,
-            z: -129.116272,
-          },
-          {
-            x: -22.0822754,
-            y: 1.6499877,
-            z: -132.943939,
-          },
-        ],
-        top: 4.055017,
-        bottom: -0.7550416,
       },
       {
         id: '1bcdc243701067f1469ee4d177ddde7c53aaecb6',
@@ -63864,8 +63829,8 @@ export default [
       },
       {
         id: 'ffb8b37a6390d2c3b00baeee3295492ea1e19a94',
-        name: '走私者小道',
-        faction: 'pmc',
+        name: '走私者小道（暗号）',
+        faction: 'shared',
         switches: [],
         position: {
           x: 48.2,
@@ -63879,7 +63844,7 @@ export default [
       {
         id: '7ae0a08942ce71d8d713ef3628c86619598160f8',
         name: '3号门',
-        faction: 'pmc',
+        faction: 'shared',
         switches: [],
         position: {
           x: 58.6,
@@ -63980,41 +63945,6 @@ export default [
         ],
         top: 9.230333,
         bottom: 8.230333,
-      },
-      {
-        id: '7ae0a08942ce71d8d713ef3628c86619598160f5',
-        name: '3号门',
-        faction: 'scav',
-        switches: [],
-        position: {
-          x: 58.8,
-          y: 1.59233332,
-          z: 60.6,
-        },
-        outline: [
-          {
-            x: 55.154,
-            y: 1.59233332,
-            z: 55.40811,
-          },
-          {
-            x: 62.264,
-            y: 1.59233332,
-            z: 55.40811,
-          },
-          {
-            x: 62.264,
-            y: 1.59233332,
-            z: 66.32811,
-          },
-          {
-            x: 55.154,
-            y: 1.59233332,
-            z: 66.32811,
-          },
-        ],
-        top: 3.04233336,
-        bottom: 0.142333239,
       },
       {
         id: '4f953558d3d7bca7bd7b4d40a6429adc34cc1834',
@@ -67075,9 +67005,9 @@ export default [
         faction: 'pmc',
         switches: [],
         position: {
-          x: 77.529,
-          y: -4.657,
-          z: -28.891,
+          x: 73.89422,
+          y: -3.2876668,
+          z: -29.0818882,
         },
         outline: [
           {
@@ -67106,8 +67036,8 @@ export default [
       },
       {
         id: 'ffb8b37a6390d2c3b00baeee3295492ea1e19a54',
-        name: '走私者小道',
-        faction: 'pmc',
+        name: '走私者小道（暗号）',
+        faction: 'shared',
         switches: [],
         position: {
           x: 48.2,
@@ -67121,7 +67051,7 @@ export default [
       {
         id: '63a28bc225fda155ccb1296183390a66f5ec1656',
         name: '3号门',
-        faction: 'pmc',
+        faction: 'shared',
         switches: [],
         position: {
           x: 58.6,
@@ -67159,9 +67089,9 @@ export default [
         faction: 'scav',
         switches: [],
         position: {
-          x: -14.5749989,
-          y: -2.086,
-          z: 40.36,
+          x: -15.71578,
+          y: -1.64766669,
+          z: 40.1081123,
         },
         outline: [
           {
@@ -67224,49 +67154,14 @@ export default [
         bottom: 8.230333,
       },
       {
-        id: '7ae0a08942ce71d8d713ef3628c8661959816085',
-        name: '3号门',
-        faction: 'scav',
-        switches: [],
-        position: {
-          x: 58.8,
-          y: 1.59233332,
-          z: 60.6,
-        },
-        outline: [
-          {
-            x: 55.154,
-            y: 1.59233332,
-            z: 55.40811,
-          },
-          {
-            x: 62.264,
-            y: 1.59233332,
-            z: 55.40811,
-          },
-          {
-            x: 62.264,
-            y: 1.59233332,
-            z: 66.32811,
-          },
-          {
-            x: 55.154,
-            y: 1.59233332,
-            z: 66.32811,
-          },
-        ],
-        top: 3.04233336,
-        bottom: 0.142333239,
-      },
-      {
         id: '10676217239aba7a443a63588b6b2db412698686',
         name: '0号门',
         faction: 'pmc',
         switches: [],
         position: {
-          x: -63.7400055,
-          y: 1.749,
-          z: 55.902,
+          x: -59.8357773,
+          y: 2.85233331,
+          z: 56.1081161,
         },
         outline: [
           {
@@ -67299,9 +67194,9 @@ export default [
         faction: 'pmc',
         switches: [],
         position: {
-          x: -18.4857769,
-          y: 1.16133332,
-          z: -60.1718826,
+          x: -17.1657772,
+          y: 1.99233329,
+          z: -54.7518845,
         },
         outline: [
           {
@@ -96778,8 +96673,8 @@ export default [
       },
       {
         id: '2cdd9d1604ebe77b3fa8bf1461530ca5b3551d8a',
-        name: '湖边小径',
-        faction: 'pmc',
+        name: '湖边小径（暗号）',
+        faction: 'shared',
         switches: [],
         position: {
           x: -358.4,
@@ -96793,7 +96688,7 @@ export default [
       {
         id: '2cdd9d1604ebe77b3fa8bf1461530ca5b3551d8f',
         name: '通往海岸线的路',
-        faction: 'pmc',
+        faction: 'shared',
         switches: [],
         position: {
           x: -364.4,
@@ -96820,41 +96715,6 @@ export default [
             x: -441.717072,
             y: 28.758,
             z: -113.996338,
-          },
-        ],
-        top: 53.4330978,
-        bottom: 4.082899,
-      },
-      {
-        id: '5c81e25f20e4784c348357ce1a0eb1100ad0a417',
-        name: '通往海岸线的路',
-        faction: 'scav',
-        switches: [],
-        position: {
-          x: -364.4,
-          y: 28.758,
-          z: -121.4,
-        },
-        outline: [
-          {
-            x: -392.297028,
-            y: 28.758,
-            z: -197.247284,
-          },
-          {
-            x: -284.455536,
-            y: 28.758,
-            z: -133.22963,
-          },
-          {
-            x: -336.50296,
-            y: 28.758,
-            z: -45.55271,
-          },
-          {
-            x: -444.344452,
-            y: 28.758,
-            z: -109.570381,
           },
         ],
         top: 53.4330978,
@@ -123690,9 +123550,9 @@ export default [
           },
         ],
         position: {
-          x: -121.479065,
+          x: -121.7,
           y: -17.0010071,
-          z: 172.24913,
+          z: 211.0,
         },
         outline: [
           {
@@ -123756,9 +123616,9 @@ export default [
           },
         ],
         position: {
-          x: 61.9206619,
+          x: 61.6,
           y: -5.257,
-          z: -190.541931,
+          z: -228.8,
         },
         outline: [
           {
@@ -123791,9 +123651,9 @@ export default [
         faction: 'pmc',
         switches: [],
         position: {
-          x: -9.24,
+          x: -11.6,
           y: 20.93,
-          z: 208.43,
+          z: 254.9,
         },
         outline: [
           {
@@ -123821,14 +123681,28 @@ export default [
         bottom: 17.335,
       },
       {
+        id: '6eb9d336eb71fbf68c7d809b55dec62ec89e7627',
+        name: '前往森林的路（暗号）',
+        faction: 'shared',
+        switches: [],
+        position: {
+          x: 33.4,
+          y: 5,
+          z: -272.8,
+        },
+        outline: [],
+        top: 24.5250015,
+        bottom: 17.335,
+      },
+      {
         id: 'acd6a6b60241f90925084d8f608b89ba7a459fdb',
         name: 'Scav之地（合作撤离点）',
         faction: 'shared',
         switches: [],
         position: {
-          x: -127.9,
+          x: -126.1,
           y: -3.28,
-          z: -142.59,
+          z: -172.1,
         },
         outline: [
           {
@@ -123861,9 +123735,9 @@ export default [
         faction: 'shared',
         switches: [],
         position: {
-          x: 40.18,
+          x: 41.5,
           y: -5.12,
-          z: 76.45,
+          z: 91.5,
         },
         outline: [
           {
@@ -123906,9 +123780,9 @@ export default [
         faction: 'scav',
         switches: [],
         position: {
-          x: -261.43,
+          x: -261.7,
           y: -6.34,
-          z: 48.52,
+          z: 59.4,
         },
         outline: [
           {
@@ -123941,9 +123815,9 @@ export default [
         faction: 'scav',
         switches: [],
         position: {
-          x: -35.26,
+          x: -38.2,
           y: -5.15,
-          z: -180.12,
+          z: -224.3,
         },
         outline: [
           {
@@ -123976,9 +123850,9 @@ export default [
         faction: 'scav',
         switches: [],
         position: {
-          x: 120.78,
+          x: 120.5,
           y: -10.27,
-          z: -120.352,
+          z: -149.9,
         },
         outline: [
           {
@@ -124011,9 +123885,9 @@ export default [
         faction: 'scav',
         switches: [],
         position: {
-          x: 61.97,
+          x: 66.5,
           y: -4.43,
-          z: 134.31,
+          z: 171.1,
         },
         outline: [
           {
@@ -124046,9 +123920,9 @@ export default [
         faction: 'shared',
         switches: [],
         position: {
-          x: 144.986,
+          x: 120.9,
           y: -3.92,
-          z: -147.352,
+          z: -174.2,
         },
         outline: [
           {
@@ -124109,9 +123983,9 @@ export default [
         faction: 'transit',
         switches: [],
         position: {
-          x: -196.6,
+          x: -194.0,
           y: 1,
-          z: -149.0,
+          z: -141.8,
         },
         outline: [],
         top: 14.4583473,
@@ -141469,8 +141343,8 @@ export default [
       },
       {
         id: 'c56426953cd17c9fffd4b1c2113254dec6038d11',
-        name: '山间堡垒',
-        faction: 'pmc',
+        name: '山间堡垒（暗号）',
+        faction: 'shared',
         switches: [],
         position: {
           x: -389.2,
@@ -156981,7 +156855,7 @@ export default [
       {
         id: '96ddc4bf8688f90f215226fd5788e1291ed13bfd',
         name: 'ZB-014',
-        faction: 'pmc',
+        faction: 'shared',
         switches: [],
         position: {
           x: 447.24,
@@ -157016,7 +156890,7 @@ export default [
       {
         id: 'e6fd5a732d1fd0662221d75f31f0e2e8021ef4ca',
         name: 'UN路障',
-        faction: 'pmc',
+        faction: 'shared',
         switches: [],
         position: {
           x: -536.1243,
@@ -157064,8 +156938,8 @@ export default [
       },
       {
         id: 'e6fd5a732d1fd0662221d75f31f0e2e8021ef4cc',
-        name: '前往塔科夫的铁路桥',
-        faction: 'pmc',
+        name: '前往塔科夫的铁路桥（暗号）',
+        faction: 'shared',
         switches: [],
         position: {
           x: -737.4,
@@ -157114,7 +156988,7 @@ export default [
       {
         id: 'c0a4ba6cf6476b99f2dcba3a85b21018c4853fe9',
         name: '郊区',
-        faction: 'scav',
+        faction: 'shared',
         switches: [],
         position: {
           x: 347.15567,
@@ -157397,41 +157271,6 @@ export default [
         bottom: 7.101375,
       },
       {
-        id: '0f7b5f228a32ab1dbd8544277419521ba1cc5e3b',
-        name: 'UN路障',
-        faction: 'scav',
-        switches: [],
-        position: {
-          x: -535.2443,
-          y: 1.43126917,
-          z: 287.050385,
-        },
-        outline: [
-          {
-            x: -548.445251,
-            y: 1.43126917,
-            z: 278.32312,
-          },
-          {
-            x: -519.657654,
-            y: 1.43126917,
-            z: 284.314575,
-          },
-          {
-            x: -522.0434,
-            y: 1.43126917,
-            z: 295.777649,
-          },
-          {
-            x: -550.831,
-            y: 1.43126917,
-            z: 289.7862,
-          },
-        ],
-        top: 4.99989367,
-        bottom: -2.13735533,
-      },
-      {
         id: '2766656887b738cb1b0a1fcaedf163e30f98b0c9',
         name: 'RUAF路障',
         faction: 'scav',
@@ -157465,41 +157304,6 @@ export default [
         ],
         top: 4.53989458,
         bottom: -2.59735656,
-      },
-      {
-        id: 'e70d314d202e673b96671e810e54cef5657c16ca',
-        name: '郊区',
-        faction: 'pmc',
-        switches: [],
-        position: {
-          x: 349.035645,
-          y: -9.148731,
-          z: 358.580383,
-        },
-        outline: [
-          {
-            x: 332.240265,
-            y: -9.148731,
-            z: 337.439758,
-          },
-          {
-            x: 366.779449,
-            y: -9.148731,
-            z: 338.229248,
-          },
-          {
-            x: 365.831055,
-            y: -9.148731,
-            z: 379.721,
-          },
-          {
-            x: 331.29187,
-            y: -9.148731,
-            z: 378.931519,
-          },
-        ],
-        top: -0.5538746,
-        bottom: -17.7435875,
       },
       {
         id: '98dfbaebc7bedea817c9ea5ec2e36f42a36b7ebf',
