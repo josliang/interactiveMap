@@ -28,7 +28,7 @@ export default {
 
   // 互动地图
   interactive: {
-    title: '互动地图 - 缇尔蒂',
+    title: '互动地图',
     mapLoading: '互动地图载入中...',
   },
 

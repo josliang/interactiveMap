@@ -29,11 +29,11 @@ const Index = () => {
           <img alt="logo" src="/images/tilty_logo_round_white.png" />
         </div>
         <div className="notfound-header">
-          <span>お探しのページは見つかりませんでした</span>
+          <span>404</span>
         </div>
         <div className="notfound-describe">
           <span>
-            杂鱼、杂鱼，你是转身就忘了自己游过的水流吗？这么快就迷失在这个数字海洋里啦？哈哈，别告诉我你连回家的路都不记得了。
+            Not Found。
           </span>
         </div>
         <div className="notfound-button">
