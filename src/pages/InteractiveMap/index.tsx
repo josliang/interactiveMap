@@ -60,16 +60,16 @@ const Index = () => {
     defaultValue: ['pmc', 'scav', 'shared', 'transit'],
   });
   const [locks, setLocks] = useLocalStorageState<string[]>('im-locks', {
-    defaultValue: ['lock'],
+    defaultValue: [],
   });
   const [lootKeys, setLootKeys] = useLocalStorageState<string[]>('im-lootKeys', {
-    defaultValue: ['safe', 'jacket', 'pc-block', 'cache', 'medcase', 'plastic-suitcase'],
+    defaultValue: [],
   });
   const [spawns, setSpawns] = useLocalStorageState<string[]>('im-spawns', {
-    defaultValue: ['scav', 'sniper_scav', 'boss'],
+    defaultValue: [],
   });
   const [hazards, setHazards] = useLocalStorageState<string[]>('im-hazards', {
-    defaultValue: ['hazard'],
+    defaultValue: [],
   });
   const [btrs, setBtrs] = useLocalStorageState<string[]>('im-btrs', {
     defaultValue: ['btrs'],
@@ -123,7 +123,7 @@ const Index = () => {
       const diff = diffDirectories(files);
       if (diff.length > 0 && !initial) {
         const filename = diff[diff.length - 1];
-        (window as any).interactUpdateLocation(filename);
+        (window as any).interactUpdateLocalLocation(filename);
         if (autoDelete) {
           try {
             await directoryHandler.removeEntry(filename);
@@ -475,6 +475,7 @@ const Index = () => {
 
   useEffect(() => {
     setMapList(dataImap as any);
+    localStorage.getItem('im-username') ?? localStorage.setItem('im-username', 'default');
   }, []);
 
   useEffect(() => {
