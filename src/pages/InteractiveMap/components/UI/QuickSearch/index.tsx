@@ -36,7 +36,7 @@ const Index = (props: QuickSearchProps) => {
         /([0-9.-]+), ([0-9.-]+), ([0-9.-]+)_([0-9.-]+), ([0-9.-]+), ([0-9.-]+), ([0-9.-]+)/i;
       const location = value.match(regexp);
       if (location) {
-        (window as any).interactUpdateLocation?.(value);
+        (window as any).interactUpdateLocalLocation?.(value);
         setValue('');
         onHide?.();
       }

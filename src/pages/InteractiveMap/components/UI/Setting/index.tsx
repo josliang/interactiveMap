@@ -1,3 +1,5 @@
+import { ChangeEvent, useState } from 'react';
+
 import { useRecoilState } from 'recoil';
 
 import useI18N from '@/i18n';
@@ -48,6 +50,14 @@ const Index = (props: SettingProps) => {
     onAutoDeleteChange(!autoDelete);
   };
 
+  const [value, setValue] = useState(localStorage.getItem('im-username') ?? 'default');
+
+  const handleValueChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value;
+    setValue(newValue);
+    newValue && localStorage.setItem('im-username', newValue);
+  };
+
   return (
     <div className="im-quicktools-modal-setting" onMouseDown={(e) => e.stopPropagation()}>
       <div className="im-quicktools-modal-setting-title">
@@ -90,6 +100,13 @@ const Index = (props: SettingProps) => {
         >
           {t('setting.markerScale')} ({locationScale ? t('common.enable') : t('common.disable')})
         </button>
+        <div className="im-quicktools-modal-setting-input">
+          <input
+            value={value}
+            onChange={handleValueChange}
+            placeholder="请输入用户名"
+          />
+        </div>
       </div>
     </div>
   );

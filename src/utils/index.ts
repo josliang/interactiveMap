@@ -37,3 +37,21 @@ export const timeDiffFormat = (time: number) => {
     return `${Math.round(time / scale[3])} 月 前`;
   }
 };
+
+/**
+ * @description 封装json格式化, 避免error
+ */
+export const getJsonParse: any = (jsonStr: string) => {
+  let res = '';
+  try {
+    res = JSON.parse(jsonStr);
+  } catch (e) {
+    if (typeof jsonStr === 'string') {
+      res = jsonStr;
+    } else {
+      res = '';
+      console.log(e);
+    }
+  }
+  return res;
+};

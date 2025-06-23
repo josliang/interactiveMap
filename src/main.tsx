@@ -8,6 +8,8 @@ import { ErrorBoundary, Message } from 'tilty-ui';
 
 import Router from '@/router';
 
+import { WsProvider } from '@/components/WsContext';
+
 import '@/scripts/axios';
 import 'tilty-ui/dist/theme/global.less';
 import 'tilty-ui/dist/theme/index.less';
@@ -32,9 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
       <React.StrictMode>
         <RecoilRoot>
           <ErrorBoundary>
-            <BrowserRouter>
-              <Router />
-            </BrowserRouter>
+            <WsProvider>
+              <BrowserRouter>
+                <Router />
+              </BrowserRouter>
+            </WsProvider>
             <ToastContainer
               position="bottom-right"
               autoClose={5000}

@@ -27,6 +27,13 @@ interface iMPlayerLocation {
   updatedAt: number;
 }
 
+interface OtherFileType {
+  [key: string]: {
+    filename: string;
+    updatedAt: string;
+  };
+}
+
 const Index = (props: PlayerLocationProps & InteractiveMap.UtilProps) => {
   const {
     activeMapId,
@@ -43,8 +50,13 @@ const Index = (props: PlayerLocationProps & InteractiveMap.UtilProps) => {
     [key: string]: iMPlayerLocation;
   }>();
 
+  const [otherLocations, setOtherLocations] = useState<{
+    [key: string]: iMPlayerLocation;
+  }>();
+
+
   useEffect(() => {
-    (window as any).interactUpdateLocation = (filename: string) => {
+    (window as any).interactUpdateLocalLocation = (filename: string) => {
       const regexp =
         /([0-9.-]+), ([0-9.-]+), ([0-9.-]+)_([0-9.-]+), ([0-9.-]+), ([0-9.-]+), ([0-9.-]+)/i;
       const location = filename.match(regexp);
@@ -67,18 +79,46 @@ const Index = (props: PlayerLocationProps & InteractiveMap.UtilProps) => {
         });
       }
     };
+    (window as any).interactUpdateOtherLocation = (otherFiles: OtherFileType) => {
+      const otherFilesGroup = Object.entries(otherFiles);
+      if (otherFilesGroup.length <= 0) return;
+      const regexp =
+        /([0-9.-]+), ([0-9.-]+), ([0-9.-]+)_([0-9.-]+), ([0-9.-]+), ([0-9.-]+), ([0-9.-]+)/i;
+      const locations: any = {};
+      otherFilesGroup.forEach(([name, { filename, updatedAt }], index) => {
+        const location = filename.match(regexp);
+        if (activeMapId && location) {
+          const data = {
+            x: Number(location[1]),
+            y: Number(location[2]),
+            z: Number(location[3]),
+            quaternion: [location[4], location[5], location[6], location[7]].map((v) => Number(v)),
+            mapId: activeMapId,
+          };
+          locations[name] = {
+            uuid: `${index + 1}`,
+            member: true,
+            name,
+            ...data,
+            updatedAt,
+          };
+        }
+      });
+      setOtherLocations(locations);
+    };
   }, [activeMapId, onPlayerLocationChange]);
 
-  if (baseMapStatus === 'loaded' && playerLocations && show.length > 0) {
+  const compoundLocations = { ...playerLocations, ...otherLocations };
+  if (baseMapStatus === 'loaded' && (playerLocations || otherLocations) && show.length > 0) {
     return (
       <Group>
-        {Object.keys(playerLocations)
+        {Object.keys(compoundLocations)
           .filter((key) => {
-            const location = playerLocations[key];
+            const location = compoundLocations[key];
             return location.mapId === activeMapId;
           })
           .map((key) => {
-            const location = playerLocations[key];
+            const location = compoundLocations[key];
             let active = true;
             if (activeLayer) {
               if (location.y < heightRange[0] || location.y > heightRange[1]) {
@@ -119,7 +159,7 @@ const Index = (props: PlayerLocationProps & InteractiveMap.UtilProps) => {
                   opacity={active ? 1 : 0.1}
                   listening={active}
                 >
-                  {location.quaternion && (
+                  {location.quaternion && !location.name && (
                     <Path
                       x={real2imagePos.x(location.x)}
                       y={real2imagePos.y(location.z) - 16 / mapScale}
@@ -136,7 +176,7 @@ const Index = (props: PlayerLocationProps & InteractiveMap.UtilProps) => {
                     scale={{ x: 0.03 / mapScale, y: 0.03 / mapScale }}
                   >
                     {getIconPath('location-fill').map((p) => {
-                      return <Path fill="#00ff00" data={p} shadowColor="#000000" shadowBlur={50} />;
+                      return <Path fill={location.name ? '#ffffff' : '#00ff00'} data={p} shadowColor="#000000" shadowBlur={50} />;
                     })}
                   </Group>
                   <Text
@@ -144,9 +184,9 @@ const Index = (props: PlayerLocationProps & InteractiveMap.UtilProps) => {
                     x={real2imagePos.x(location.x)}
                     y={real2imagePos.y(location.z)}
                     fontFamily="JinBuTi"
-                    text="你的位置"
+                    text={location.name ? `${location.name}` : '你的位置'}
                     fontSize={12 / mapScale}
-                    fill="#00ff00"
+                    fill={location.name ? '#ffffff' : '#00ff00'}
                     width={600 / mapScale}
                     offsetX={300 / mapScale}
                     align="center"

@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 
 import { useInterval, useLocalStorageState } from 'ahooks';
 import classNames from 'classnames';
+import dayjs from 'dayjs';
 import numbro from 'numbro';
 import { useRecoilState } from 'recoil';
 import { message } from 'tilty-ui';
@@ -11,6 +12,8 @@ import { UAParser } from 'ua-parser-js';
 import dataImap from '@/data/interactive_maps';
 import langState from '@/store/lang';
 import { tarkovGamePathResolve } from '@/utils/tarkov';
+
+import { useWs } from '@/components/WsContext';
 
 import useI18N from '../../i18n';
 import Canvas from './components/Canvas';
@@ -109,6 +112,8 @@ const Index = () => {
 
   const { t } = useI18N(lang);
 
+  const ws = useWs();
+
   const resolveDirectories = async (initial = false) => {
     if (initial) {
       directoryFilesCache.current = [];
@@ -124,6 +129,12 @@ const Index = () => {
       if (diff.length > 0 && !initial) {
         const filename = diff[diff.length - 1];
         (window as any).interactUpdateLocalLocation(filename);
+        const username = localStorage.getItem('im-username');
+        ws.send({
+          username,
+          filename,
+          updatedAt: dayjs().valueOf(),
+        });
         if (autoDelete) {
           try {
             await directoryHandler.removeEntry(filename);
@@ -475,7 +486,6 @@ const Index = () => {
 
   useEffect(() => {
     setMapList(dataImap as any);
-    localStorage.getItem('im-username') ?? localStorage.setItem('im-username', 'default');
   }, []);
 
   useEffect(() => {
@@ -496,20 +506,12 @@ const Index = () => {
       const _isMobile = ['mobile', 'tablet'].includes(userAgent.getDevice().type || '');
       setIsMobile(_isMobile);
     };
-    const unload = (e: BeforeUnloadEvent) => {
-      if (self === top) {
-        e.preventDefault();
-        return false;
-      }
-    };
     resize();
     window.addEventListener('keydown', keydown);
     window.addEventListener('resize', resize);
-    window.addEventListener('beforeunload', unload);
     return () => {
       window.removeEventListener('keydown', keydown);
       window.removeEventListener('resize', resize);
-      window.removeEventListener('beforeunload', unload);
     };
   }, [simpleUIMode]);
 
