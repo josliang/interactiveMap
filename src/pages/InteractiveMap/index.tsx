@@ -486,6 +486,9 @@ const Index = () => {
 
   useEffect(() => {
     setMapList(dataImap as any);
+    ['im-hazards', 'im-locks', 'im-lootKeys', 'im-spawns', 'im-stationaryWeapons'].forEach((item) => {
+        localStorage.setItem(item, `[]`);
+    })
   }, []);
 
   useEffect(() => {
