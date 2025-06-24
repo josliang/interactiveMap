@@ -60,7 +60,7 @@ class Ws {
   }
 
   onopen(): void {
-    console.log('websocket连接成功', this.ws);
+    console.log(':::websocket连接成功:::', this.ws);
     this.socketStatus = true;
     this.lastPongTimestamp = Date.now();
     this.startHeartbeat();
@@ -76,9 +76,8 @@ class Ws {
 
     if (
       data?.type === 'broadcast' &&
-      data.data?.username &&
-      data.data?.filename &&
-      data.data?.updatedAt
+      data.data?.category &&
+      data.data?.value
     ) {
       this.listeners.forEach((fn) => fn(data.data));
     } else {
@@ -139,7 +138,7 @@ class Ws {
     this.ws?.close();
     this.stopHeartbeat();
     this.socketStatus = false;
-    window.location.reload(); // 仅心跳异常时刷新页面
+    window.location.reload();
   }
 }
 

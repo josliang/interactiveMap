@@ -9,10 +9,9 @@ const WsContext = createContext<WsContextType | null>(null);
 export const WsProvider = ({ children }: { children: React.ReactNode }) => {
   const [connected, setConnected] = useState(false);
   const latestUserMessages = useRef<Map<string, any>>(new Map());
-  const writeLock = useRef(false); // 防止频繁写入
+  const writeLock = useRef(false);
 
-  // 节流写入 localStorage，每秒最多一次
-  const throttleWriteToLocalStorage = () => {
+  const writeLocationToMapThrottle = () => {
     if (writeLock.current) return;
     writeLock.current = true;
 
@@ -24,7 +23,11 @@ export const WsProvider = ({ children }: { children: React.ReactNode }) => {
 
     setTimeout(() => {
       writeLock.current = false;
-    }, 1000); // 1秒节流
+    }, 1000);
+  };
+
+  const writeLineToMap = (data: any) => {
+    (window as any).interactUpdateOtherDraw(data);
   };
 
   useEffect(() => {
@@ -38,9 +41,16 @@ export const WsProvider = ({ children }: { children: React.ReactNode }) => {
     }, 500);
 
     const handleMessage = (data: any) => {
-      if (!data?.username) return;
-      latestUserMessages.current.set(data.username, data);
-      throttleWriteToLocalStorage();
+      if (!data?.category) return;
+      if (data.category === 'location') {
+        const { username } = data.value;
+        latestUserMessages.current.set(username, data.value);
+        writeLocationToMapThrottle();
+      } else if (data.category === 'line') {
+        writeLineToMap([data.value]);
+      } else if (data.category === 'initLines') {
+        writeLineToMap(data.value);
+      }
     };
 
     wsInstance.onMessage(handleMessage);

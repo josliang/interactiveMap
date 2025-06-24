@@ -95,13 +95,13 @@ const Index = () => {
 
   const [strokeType, setStrokeType] = useState<InteractiveMap.StrokeType>('drag');
   const [strokeColor, setStrokeColor] = useLocalStorageState<string>('im-strokeColor', {
-    defaultValue: '#9a8866',
+    defaultValue: '#0088ff',
   });
   const [strokeWidth, setStrokeWidth] = useLocalStorageState<number>('im-strokeWidth', {
-    defaultValue: 1,
+    defaultValue: 2.5,
   });
   const [eraserWidth, setEraserWidth] = useLocalStorageState<number>('im-eraserWidth', {
-    defaultValue: 5,
+    defaultValue: 20,
   });
 
   const [quickSearchShow, setQuickSearchShow] = useState(false);
@@ -131,9 +131,12 @@ const Index = () => {
         (window as any).interactUpdateLocalLocation(filename);
         const username = localStorage.getItem('im-username');
         ws.send({
-          username,
-          filename,
-          updatedAt: dayjs().valueOf(),
+          category: 'location',
+          value: {
+            username,
+            filename,
+            updatedAt: dayjs().valueOf(),
+          },
         });
         if (autoDelete) {
           try {
@@ -487,8 +490,8 @@ const Index = () => {
   useEffect(() => {
     setMapList(dataImap as any);
     ['im-hazards', 'im-locks', 'im-lootKeys', 'im-spawns', 'im-stationaryWeapons'].forEach((item) => {
-        localStorage.setItem(item, `[]`);
-    })
+      localStorage.setItem(item, '[]');
+    });
   }, []);
 
   useEffect(() => {
