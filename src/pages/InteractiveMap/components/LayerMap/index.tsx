@@ -11,7 +11,18 @@ const Index = (props: LayerMapProps) => {
   const { id, baseMap, imageSrc, coordinateRotation = 180 } = props;
 
   if (baseMap && imageSrc) {
-    if (coordinateRotation === 90) {
+    if (coordinateRotation === 0) {
+      return (
+        <Image
+          id={id}
+          imageSrc={imageSrc}
+          rotation={coordinateRotation}
+          offset={{ x: 0, y: -18 }}
+          scaleX={1}
+          scaleY={0.81}
+        />
+      );
+    } else if (coordinateRotation === 90) {
       return (
         <Image
           id={id}

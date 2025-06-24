@@ -13,7 +13,19 @@ const Index = (props: BaseMapProps) => {
   const { id, baseMap, activeLayer, status, coordinateRotation = 180, resolution } = props;
 
   if (baseMap && status === 'loaded') {
-    if (coordinateRotation === 90) {
+    if (coordinateRotation === 0) {
+      return (
+        <Image
+          id={id}
+          image={baseMap}
+          rotation={coordinateRotation}
+          offset={{ x: 0, y: -18 }}
+          scaleX={1}
+          scaleY={0.81}
+          opacity={activeLayer ? 0.1 : 1}
+        />
+      );
+    } else if (coordinateRotation === 90) {
       return (
         <Image
           id={id}

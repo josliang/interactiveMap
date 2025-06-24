@@ -120933,7 +120933,7 @@ export default [
       0.268,
       0,
     ],
-    coordinateRotation: 180,
+    coordinateRotation: 0,
     bounds: [
       [
         289,
@@ -123550,9 +123550,9 @@ export default [
           },
         ],
         position: {
-          x: -121.7,
+          x: -121.479065,
           y: -17.0010071,
-          z: 211.0,
+          z: 172.24913,
         },
         outline: [
           {
@@ -123616,9 +123616,9 @@ export default [
           },
         ],
         position: {
-          x: 61.6,
+          x: 61.9206619,
           y: -5.257,
-          z: -228.8,
+          z: -190.541931,
         },
         outline: [
           {
@@ -123651,9 +123651,9 @@ export default [
         faction: 'pmc',
         switches: [],
         position: {
-          x: -11.6,
+          x: -9.24,
           y: 20.93,
-          z: 254.9,
+          z: 208.43,
         },
         outline: [
           {
@@ -123686,9 +123686,9 @@ export default [
         faction: 'shared',
         switches: [],
         position: {
-          x: 33.4,
+          x: 37.3,
           y: 5,
-          z: -272.8,
+          z: -223.1,
         },
         outline: [],
         top: 24.5250015,
@@ -123700,9 +123700,9 @@ export default [
         faction: 'shared',
         switches: [],
         position: {
-          x: -126.1,
+          x: -127.9,
           y: -3.28,
-          z: -172.1,
+          z: -142.59,
         },
         outline: [
           {
@@ -123735,9 +123735,9 @@ export default [
         faction: 'shared',
         switches: [],
         position: {
-          x: 41.5,
+          x: 40.18,
           y: -5.12,
-          z: 91.5,
+          z: 76.45,
         },
         outline: [
           {
@@ -123780,9 +123780,9 @@ export default [
         faction: 'scav',
         switches: [],
         position: {
-          x: -261.7,
+          x: -261.43,
           y: -6.34,
-          z: 59.4,
+          z: 48.52,
         },
         outline: [
           {
@@ -123815,9 +123815,9 @@ export default [
         faction: 'scav',
         switches: [],
         position: {
-          x: -38.2,
+          x: -35.26,
           y: -5.15,
-          z: -224.3,
+          z: -180.12,
         },
         outline: [
           {
@@ -123850,9 +123850,9 @@ export default [
         faction: 'scav',
         switches: [],
         position: {
-          x: 120.5,
+          x: 120.78,
           y: -10.27,
-          z: -149.9,
+          z: -120.352,
         },
         outline: [
           {
@@ -123885,9 +123885,9 @@ export default [
         faction: 'scav',
         switches: [],
         position: {
-          x: 66.5,
+          x: 61.97,
           y: -4.43,
-          z: 171.1,
+          z: 134.31,
         },
         outline: [
           {
@@ -123920,9 +123920,9 @@ export default [
         faction: 'shared',
         switches: [],
         position: {
-          x: 120.9,
+          x: 144.986,
           y: -3.92,
-          z: -174.2,
+          z: -147.352,
         },
         outline: [
           {
@@ -123955,9 +123955,9 @@ export default [
         faction: 'transit',
         switches: [],
         position: {
-          x: 215.4,
+          x: 217.7,
           y: 1,
-          z: -249.9,
+          z: -202.7,
         },
         outline: [],
         top: 14.4583473,
@@ -123969,9 +123969,9 @@ export default [
         faction: 'transit',
         switches: [],
         position: {
-          x: 237.1,
+          x: 239.5,
           y: 1,
-          z: -160.0,
+          z: -129.6,
         },
         outline: [],
         top: 14.4583473,
@@ -123983,9 +123983,9 @@ export default [
         faction: 'transit',
         switches: [],
         position: {
-          x: -194.0,
+          x: -195.8,
           y: 1,
-          z: -141.8,
+          z: -119.4,
         },
         outline: [],
         top: 14.4583473,

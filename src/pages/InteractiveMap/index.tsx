@@ -489,9 +489,6 @@ const Index = () => {
 
   useEffect(() => {
     setMapList(dataImap as any);
-    ['im-hazards', 'im-locks', 'im-lootKeys', 'im-spawns', 'im-stationaryWeapons'].forEach((item) => {
-      localStorage.setItem(item, '[]');
-    });
   }, []);
 
   useEffect(() => {
@@ -546,9 +543,10 @@ const Index = () => {
     }
   }, [notificationsLogsHandler]);
 
-  /*   useEffect(() => {
-    toast.info(t('toast.alert'), { autoClose: 10000 });
-  }, []); */
+  useEffect(() => {
+    // toast.info(t('toast.alert'), { autoClose: 10000 });
+    localStorage.getItem('im-username') ?? localStorage.setItem('im-username', 'default');
+  }, []);
 
   useInterval(() => {
     if (directoryHandler) {
