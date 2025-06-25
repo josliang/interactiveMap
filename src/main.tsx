@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
 import { RecoilRoot } from 'recoil';
@@ -35,9 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <RecoilRoot>
           <ErrorBoundary>
             <WsProvider>
-              <BrowserRouter>
+              <HashRouter>
                 <Router />
-              </BrowserRouter>
+              </HashRouter>
             </WsProvider>
             <ToastContainer
               position="bottom-right"
