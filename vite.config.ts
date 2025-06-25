@@ -7,7 +7,7 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   root: './',
-  base: './',
+  base: '/tar-im/', // 在根目录部署时修改为'./'
   publicDir: './src/assets',
   resolve: {
     alias: {

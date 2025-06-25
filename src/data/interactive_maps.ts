@@ -27,11 +27,11 @@ export default [
     ],
     author: 'Shebuka',
     authorLink: 'https://github.com/TarkovTracker/tarkovdata/',
-    svgPath: '/mapSvg/StreetsOfTarkov-Ground_Level.svg',
+    svgPath: 'mapSvg/StreetsOfTarkov-Ground_Level.svg',
     layers: [
       {
         name: 'Underground',
-        svgPath: '/mapSvg/StreetsOfTarkov-Underground_Level.svg',
+        svgPath: 'mapSvg/StreetsOfTarkov-Underground_Level.svg',
         show: false,
         extents: [
           {
@@ -44,7 +44,7 @@ export default [
       },
       {
         name: '2nd Floor',
-        svgPath: '/mapSvg/StreetsOfTarkov-Second_Floor.svg',
+        svgPath: 'mapSvg/StreetsOfTarkov-Second_Floor.svg',
         show: false,
         extents: [
           {
@@ -57,7 +57,7 @@ export default [
       },
       {
         name: '3rd Floor',
-        svgPath: '/mapSvg/StreetsOfTarkov-Third_Floor.svg',
+        svgPath: 'mapSvg/StreetsOfTarkov-Third_Floor.svg',
         show: false,
         extents: [
           {
@@ -70,7 +70,7 @@ export default [
       },
       {
         name: '4th Floor',
-        svgPath: '/mapSvg/StreetsOfTarkov-Fourth_Floor.svg',
+        svgPath: 'mapSvg/StreetsOfTarkov-Fourth_Floor.svg',
         show: false,
         extents: [
           {
@@ -83,7 +83,7 @@ export default [
       },
       {
         name: '5th Floor',
-        svgPath: '/mapSvg/StreetsOfTarkov-Fifth_Floor.svg',
+        svgPath: 'mapSvg/StreetsOfTarkov-Fifth_Floor.svg',
         show: false,
         extents: [
           {
@@ -31826,12 +31826,12 @@ export default [
     ],
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev',
-    svgPath: '/mapSvg/GroundZero-Ground_Level.svg',
+    svgPath: 'mapSvg/GroundZero-Ground_Level.svg',
     tilePath: '/uselessPath/maps/groundzero/main/{z}/{x}/{y}.png',
     layers: [
       {
         name: 'Garage',
-        svgPath: '/mapSvg/GroundZero-Underground_Level.svg',
+        svgPath: 'mapSvg/GroundZero-Underground_Level.svg',
         tilePath: '/uselessPath/maps/groundzero/garage/{z}/{x}/{y}.png',
         show: false,
         extents: [
@@ -31869,7 +31869,7 @@ export default [
       },
       {
         name: '2nd Floor',
-        svgPath: '/mapSvg/GroundZero-Second_Floor.svg',
+        svgPath: 'mapSvg/GroundZero-Second_Floor.svg',
         tilePath: '/uselessPath/maps/groundzero/2nd/{z}/{x}/{y}.png',
         show: false,
         extents: [
@@ -31902,7 +31902,7 @@ export default [
       },
       {
         name: '3rd Floor',
-        svgPath: '/mapSvg/GroundZero-Third_Floor.svg',
+        svgPath: 'mapSvg/GroundZero-Third_Floor.svg',
         tilePath: '/uselessPath/maps/groundzero/3rd/{z}/{x}/{y}.png',
         show: false,
         extents: [
@@ -41354,12 +41354,12 @@ export default [
     ],
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev',
-    svgPath: '/mapSvg/GroundZero-Ground_Level.svg',
+    svgPath: 'mapSvg/GroundZero-Ground_Level.svg',
     tilePath: '/uselessPath/maps/groundzero/main/{z}/{x}/{y}.png',
     layers: [
       {
         name: 'Garage',
-        svgPath: '/mapSvg/GroundZero-Underground_Level.svg',
+        svgPath: 'mapSvg/GroundZero-Underground_Level.svg',
         tilePath: '/uselessPath/maps/groundzero/garage/{z}/{x}/{y}.png',
         show: false,
         extents: [
@@ -41397,7 +41397,7 @@ export default [
       },
       {
         name: '2nd Floor',
-        svgPath: '/mapSvg/GroundZero-Second_Floor.svg',
+        svgPath: 'mapSvg/GroundZero-Second_Floor.svg',
         tilePath: '/uselessPath/maps/groundzero/2nd/{z}/{x}/{y}.png',
         show: false,
         extents: [
@@ -41430,7 +41430,7 @@ export default [
       },
       {
         name: '3rd Floor',
-        svgPath: '/mapSvg/GroundZero-Third_Floor.svg',
+        svgPath: 'mapSvg/GroundZero-Third_Floor.svg',
         tilePath: '/uselessPath/maps/groundzero/3rd/{z}/{x}/{y}.png',
         show: false,
         extents: [
@@ -50987,12 +50987,12 @@ export default [
     ],
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev/',
-    svgPath: '/mapSvg/Customs-Ground_Level.svg',
+    svgPath: 'mapSvg/Customs-Ground_Level.svg',
     tilePath: '/uselessPath/maps/customs_v4/main/{z}/{x}/{y}.png',
     layers: [
       {
         name: 'Underground',
-        svgPath: '/mapSvg/Customs-Underground_Level.svg',
+        svgPath: 'mapSvg/Customs-Underground_Level.svg',
         tilePath: '/uselessPath/maps/customs_v4/underground/{z}/{x}/{y}.png',
         show: false,
         extents: [
@@ -51063,7 +51063,7 @@ export default [
       },
       {
         name: '2nd Floor',
-        svgPath: '/mapSvg/Customs-Second_Floor.svg',
+        svgPath: 'mapSvg/Customs-Second_Floor.svg',
         tilePath: '/uselessPath/maps/customs_v4/2nd/{z}/{x}/{y}.png',
         show: false,
         extents: [
@@ -51249,7 +51249,7 @@ export default [
       },
       {
         name: '3rd Floor',
-        svgPath: '/mapSvg/Customs-Third_Floor.svg',
+        svgPath: 'mapSvg/Customs-Third_Floor.svg',
         tilePath: '/uselessPath/maps/customs_v4/3rd/{z}/{x}/{y}.png',
         show: false,
         extents: [
@@ -62318,12 +62318,12 @@ export default [
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev',
     tilePath: '/uselessPath/maps/factory_v2/main/{z}/{x}/{y}.png',
-    svgPath: '/mapSvg/Factory-Ground_Floor.svg',
+    svgPath: 'mapSvg/Factory-Ground_Floor.svg',
     layers: [
       {
         name: '2nd Floor',
         tilePath: '/uselessPath/maps/factory_v2/2nd_notint/{z}/{x}/{y}.png',
-        svgPath: '/mapSvg/Factory-Second_Floor.svg',
+        svgPath: 'mapSvg/Factory-Second_Floor.svg',
         show: false,
         extents: [
           {
@@ -62337,7 +62337,7 @@ export default [
       {
         name: '3rd Floor',
         tilePath: '/uselessPath/maps/factory_v2/3rd_notint/{z}/{x}/{y}.png',
-        svgPath: '/mapSvg/Factory-Third_Floor.svg',
+        svgPath: 'mapSvg/Factory-Third_Floor.svg',
         show: false,
         extents: [
           {
@@ -62351,7 +62351,7 @@ export default [
       {
         name: 'Tunnels',
         tilePath: '/uselessPath/maps/factory_v2/tunnels_notint/{z}/{x}/{y}.png',
-        svgPath: '/mapSvg/Factory-Basement.svg',
+        svgPath: 'mapSvg/Factory-Basement.svg',
         show: false,
         extents: [
           {
@@ -65506,12 +65506,12 @@ export default [
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev',
     tilePath: '/uselessPath/maps/factory_v2/main/{z}/{x}/{y}.png',
-    svgPath: '/mapSvg/Factory-Ground_Floor.svg',
+    svgPath: 'mapSvg/Factory-Ground_Floor.svg',
     layers: [
       {
         name: '2nd Floor',
         tilePath: '/uselessPath/maps/factory_v2/2nd_notint/{z}/{x}/{y}.png',
-        svgPath: '/mapSvg/Factory-Second_Floor.svg',
+        svgPath: 'mapSvg/Factory-Second_Floor.svg',
         show: false,
         extents: [
           {
@@ -65525,7 +65525,7 @@ export default [
       {
         name: '3rd Floor',
         tilePath: '/uselessPath/maps/factory_v2/3rd_notint/{z}/{x}/{y}.png',
-        svgPath: '/mapSvg/Factory-Third_Floor.svg',
+        svgPath: 'mapSvg/Factory-Third_Floor.svg',
         show: false,
         extents: [
           {
@@ -65539,7 +65539,7 @@ export default [
       {
         name: 'Tunnels',
         tilePath: '/uselessPath/maps/factory_v2/tunnels_notint/{z}/{x}/{y}.png',
-        svgPath: '/mapSvg/Factory-Basement.svg',
+        svgPath: 'mapSvg/Factory-Basement.svg',
         show: false,
         extents: [
           {
@@ -68705,7 +68705,7 @@ export default [
     ],
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev',
-    svgPath: '/mapSvg/Interchange-Ground_Level.svg',
+    svgPath: 'mapSvg/Interchange-Ground_Level.svg',
     tilePath: '/uselessPath/maps/interchange/main/{z}/{x}/{y}.png',
     _heightRange: [
       -1000,
@@ -68714,7 +68714,7 @@ export default [
     layers: [
       {
         name: '2nd Floor',
-        svgPath: '/mapSvg/Interchange-First_Floor.svg',
+        svgPath: 'mapSvg/Interchange-First_Floor.svg',
         show: true,
         extents: [
           {
@@ -68740,7 +68740,7 @@ export default [
       },
       {
         name: '3rd Floor',
-        svgPath: '/mapSvg/Interchange-Second_Floor.svg',
+        svgPath: 'mapSvg/Interchange-Second_Floor.svg',
         show: false,
         extents: [
           {
@@ -86281,7 +86281,7 @@ export default [
     ],
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev',
-    svgPath: '/mapSvg/the-lab-temp.jpg',
+    svgPath: 'mapSvg/the-lab-temp.jpg',
     tilePath: '/uselessPath/maps/labs_v3/1st/{z}/{x}/{y}.png',
     heightRange: [
       -0.9,
@@ -93410,7 +93410,7 @@ export default [
     ],
     author: 'Shebuka',
     authorLink: 'https://github.com/TarkovTracker/tarkovdata/',
-    svgPath: '/mapSvg/Lighthouse.svg',
+    svgPath: 'mapSvg/Lighthouse.svg',
     labels: [
       {
         position: [
@@ -120926,7 +120926,7 @@ export default [
     ],
     author: 'Shebuka',
     authorLink: 'https://github.com/TarkovTracker/tarkovdata/',
-    svgPath: '/mapSvg/Reserve-Ground_Level.svg',
+    svgPath: 'mapSvg/Reserve-Ground_Level.svg',
     heightRange: [
       -7,
       10000,
@@ -120934,7 +120934,7 @@ export default [
     layers: [
       {
         name: 'Bunkers',
-        svgPath: '/mapSvg/Reserve-Bunkers.svg',
+        svgPath: 'mapSvg/Reserve-Bunkers.svg',
         show: false,
         extents: [
           {
@@ -137562,12 +137562,12 @@ export default [
     ],
     author: 'Shebuka',
     authorLink: 'https://github.com/TarkovTracker/tarkovdata/',
-    svgPath: '/mapSvg/Shoreline-Ground_Level.svg',
+    svgPath: 'mapSvg/Shoreline-Ground_Level.svg',
     tilePath: '/uselessPath/maps/shoreline/main_spring/{z}/{x}/{y}.png',
     layers: [
       {
         name: 'Underground',
-        svgPath: '/mapSvg/Shoreline-Underground_Level.svg',
+        svgPath: 'mapSvg/Shoreline-Underground_Level.svg',
         show: false,
         extents: [
           {
@@ -137604,7 +137604,7 @@ export default [
       },
       {
         name: '2nd Floor',
-        svgPath: '/mapSvg/Shoreline-Second_Floor.svg',
+        svgPath: 'mapSvg/Shoreline-Second_Floor.svg',
         show: false,
         extents: [
           {
@@ -137617,7 +137617,7 @@ export default [
       },
       {
         name: '3rd Floor',
-        svgPath: '/mapSvg/Shoreline-Third_Floor.svg',
+        svgPath: 'mapSvg/Shoreline-Third_Floor.svg',
         show: false,
         extents: [
           {
@@ -153151,7 +153151,7 @@ export default [
     ],
     author: 'Shebuka',
     authorLink: 'https://github.com/TarkovTracker/tarkovdata/',
-    svgPath: '/mapSvg/Woods.svg',
+    svgPath: 'mapSvg/Woods.svg',
     tilePath: '/uselessPath/maps/woods/main/{z}/{x}/{y}.png',
     labels: [
       {

@@ -20,7 +20,7 @@ export const pushNotification = (data: NotificationTimer) => {
 };
 
 export const removeNotification = (id: string) => {
-  for (let i = notificationQueue.length - 1; i >= 0; i--) {
+  for (let i = notificationQueue.length - 1;i >= 0;i--) {
     if (notificationQueue[i].id === id) {
       notificationQueue.splice(i, 1);
     }
@@ -32,7 +32,7 @@ export const showNotification = (data: NotificationData) => {
     // eslint-disable-next-line
     new Notification(data.title, {
       body: data.body,
-      icon: '/images/tilty_logo_round_white.png',
+      icon: 'images/tilty_logo_round_white.png',
     });
   } else {
     toast.info(`${data.title}: ${data.body}`);
@@ -40,7 +40,7 @@ export const showNotification = (data: NotificationData) => {
 };
 
 setInterval(() => {
-  for (let i = notificationQueue.length - 1; i >= 0; i--) {
+  for (let i = notificationQueue.length - 1;i >= 0;i--) {
     if (dayjs().diff(dayjs(notificationQueue[i].timer)) > 0) {
       showNotification(notificationQueue[i]);
       notificationQueue.splice(i, 1);

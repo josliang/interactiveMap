@@ -703,7 +703,7 @@ const Index = () => {
   } else {
     return (
       <div className="im-loading">
-        <img src="/images/tilty_logo_round_white.png" />
+        <img src="images/tilty_logo_round_white.png" />
         <span>{t('interactive.mapLoading')}</span>
       </div>
     );
