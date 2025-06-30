@@ -1,9 +1,12 @@
 import { ChangeEvent, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import { useRecoilState } from 'recoil';
 
 import useI18N from '@/i18n';
 import langState from '@/store/lang';
+
+import { clearSavedHandle } from '../../../utils';
 
 import './style.less';
 
@@ -42,6 +45,19 @@ const Index = (props: SettingProps) => {
     onClickTarkovGamePathPath();
   };
 
+  const handleDeleteHandler = async () => {
+    try {
+      await clearSavedHandle('eftWatcherDir');
+      await clearSavedHandle('tarkovGameDir');
+      toast.info('重置目录成功，稍后刷新页面');
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
+    } catch (e) {
+      toast.info('重置目录失败，请刷新重试');
+    }
+  };
+
   const handleToggleLocationScale = () => {
     onLocationScaleChange(!locationScale);
   };
@@ -50,7 +66,7 @@ const Index = (props: SettingProps) => {
     onAutoDeleteChange(!autoDelete);
   };
 
-  const [value, setValue] = useState(localStorage.getItem('im-username') ?? 'default');
+  const [value, setValue] = useState(localStorage.getItem('im-username') ?? '默认用户');
 
   const handleValueChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
@@ -86,6 +102,12 @@ const Index = (props: SettingProps) => {
               : t('setting.enableTarkovGamePath')}
           </button>
         )}
+        <button
+          className="im-quicktools-modal-setting-button"
+          onClick={handleDeleteHandler}
+        >
+          {'重置目录'}
+        </button>
         <button
           style={{ color: !autoDelete ? '#882828' : '#288828' }}
           className="im-quicktools-modal-setting-button"

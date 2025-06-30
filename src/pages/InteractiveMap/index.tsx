@@ -547,7 +547,7 @@ const Index = () => {
 
   useEffect(() => {
     // toast.info(t('toast.alert'), { autoClose: 10000 });
-    localStorage.getItem('im-username') ?? localStorage.setItem('im-username', 'default');
+    localStorage.getItem('im-username') ?? localStorage.setItem('im-username', '默认用户');
   }, []);
 
   useInterval(() => {

@@ -108,7 +108,7 @@ const Index = (props: PlayerLocationProps & InteractiveMap.UtilProps) => {
               ...data,
               updatedAt,
             };
-          } else if (name !== 'default' && isMobile) (window as any).interactUpdateLocalLocation(filename);
+          } else if (name !== '默认用户' && isMobile) (window as any).interactUpdateLocalLocation(filename);
         }
       });
       setOtherLocations(locations);

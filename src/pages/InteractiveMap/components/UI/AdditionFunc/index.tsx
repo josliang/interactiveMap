@@ -9,9 +9,13 @@ interface AdditionfuncProps {
 }
 
 const openPip = async () => {
-  const video = document.querySelector('.im-additionfunc-video') as HTMLVideoElement;
-  await video.requestPictureInPicture();
-  toast.info('已开启画中画，支持最小化浏览器后台监听，请勿关闭黑色画中画窗口！');
+  try {
+    const video = document.querySelector('.im-additionfunc-video') as HTMLVideoElement;
+    await video.requestPictureInPicture();
+    toast.info('已开启画中画，支持最小化浏览器后台监听，请勿关闭黑色画中画窗口！');
+  } catch (e) {
+    toast.info('开启画中画失败，请稍后重试');
+  }
 };
 
 const Index = (props: AdditionfuncProps) => {
@@ -27,7 +31,7 @@ const Index = (props: AdditionfuncProps) => {
           <Icon type="icon-bilibili-fill" />
         </div>
       </div>
-      <video className="im-additionfunc-video" src="/videos/PIP.mp4" autoPlay muted loop />
+      <video className="im-additionfunc-video" src="videos/PIP.mp4" autoPlay muted loop />
     </div >
   );
 };
