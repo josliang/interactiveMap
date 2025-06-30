@@ -19,6 +19,11 @@ class Ws {
   private lastPongTimestamp = Date.now();
   private pongTimeoutChecker: NodeJS.Timeout | null = null;
 
+  // 新增：用于自动重连
+  private reconnectAttempts = 0;
+  private reconnectTimer: NodeJS.Timeout | null = null;
+  private connectUrl = '';
+
   onMessage(fn: MessageListener) {
     this.listeners.add(fn);
   }
@@ -28,6 +33,7 @@ class Ws {
   }
 
   connect(url: string) {
+    this.connectUrl = url; // 保存连接地址以供重连使用
     this.ws = new WebSocket(url);
     this.ws.onopen = this.onopen.bind(this);
     this.ws.onmessage = this.onmessage.bind(this);
@@ -62,6 +68,7 @@ class Ws {
   onopen(): void {
     console.log(':::websocket连接成功:::', this.ws);
     this.socketStatus = true;
+    this.reconnectAttempts = 0; // 重置重连次数
     this.lastPongTimestamp = Date.now();
     this.startHeartbeat();
   }
@@ -74,11 +81,7 @@ class Ws {
       return;
     }
 
-    if (
-      data?.type === 'broadcast' &&
-      data.data?.category &&
-      data.data?.value
-    ) {
+    if (data?.type === 'broadcast' && data.data?.category && data.data?.value) {
       this.listeners.forEach((fn) => fn(data.data));
     } else {
       console.warn('接收到无效消息，已忽略:', data);
@@ -89,12 +92,14 @@ class Ws {
     console.log(':::websocket连接关闭:::');
     this.socketStatus = false;
     this.stopHeartbeat();
+    this.tryReconnect();
   }
 
   onerror(e: Event): void {
     console.log(':::websocket连接失败:::', e);
     this.socketStatus = false;
     this.stopHeartbeat();
+    this.tryReconnect();
   }
 
   send(message: WebSocketMessage): void {
@@ -106,19 +111,17 @@ class Ws {
   private startHeartbeat() {
     this.stopHeartbeat();
 
-    // 启动心跳发送
     this.heartbeatInterval = setInterval(() => {
       if (this.ws && this.socketStatus) {
         this.send({ type: 'ping' });
       }
     }, this.heartbeatTimeout);
 
-    // 启动pong检查
     this.pongTimeoutChecker = setInterval(() => {
       const now = Date.now();
       if (now - this.lastPongTimestamp > this.heartbeatTimeout * 2) {
-        console.error('心跳超时，刷新页面');
-        this.closeAndReload();
+        console.error('心跳超时，尝试重连');
+        this.tryReconnect();
       }
     }, this.heartbeatTimeout);
   }
@@ -134,11 +137,21 @@ class Ws {
     }
   }
 
-  private closeAndReload() {
-    this.ws?.close();
-    this.stopHeartbeat();
-    this.socketStatus = false;
-    window.location.reload();
+  private tryReconnect() {
+    if (this.reconnectTimer) return; // 避免重复重连
+
+    if (this.ws) {
+      this.ws.close();
+      this.ws = null;
+    }
+
+    const delay = Math.min(1000 * Math.pow(2, this.reconnectAttempts), 10000);
+    console.warn(`WebSocket断开，${delay / 1000}s后尝试重连...`);
+    this.reconnectTimer = setTimeout(() => {
+      this.reconnectAttempts++;
+      this.reconnectTimer = null;
+      this.connect(this.connectUrl);
+    }, delay);
   }
 }
 

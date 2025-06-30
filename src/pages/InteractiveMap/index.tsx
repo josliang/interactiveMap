@@ -26,6 +26,7 @@ import MapSelect from './components/UI/MapSelect';
 import QuickSearch from './components/UI/QuickSearch';
 import QuickTools from './components/UI/QuickTools';
 import RulerPosition from './components/UI/RulerPosition';
+import SocketStatus from './components/UI/SocketStatus';
 import Title from './components/UI/Title';
 import Tooltip from './components/UI/Tooltip';
 import Warning from './components/UI/Warning';
@@ -84,13 +85,13 @@ const Index = () => {
     },
   );
   const [mapInfoActive, setMapInfoActive] = useLocalStorageState<boolean>('im-mapInfoActive', {
-    defaultValue: true,
+    defaultValue: false,
   });
   const [locationScale, setLocationScale] = useLocalStorageState<boolean>('im-locationScale', {
-    defaultValue: true,
+    defaultValue: false,
   });
   const [autoDelete, setAutoDelete] = useLocalStorageState<boolean>('im-autoDelete', {
-    defaultValue: false,
+    defaultValue: true,
   });
 
   const [strokeType, setStrokeType] = useState<InteractiveMap.StrokeType>('drag');
@@ -112,7 +113,7 @@ const Index = () => {
 
   const { t } = useI18N(lang);
 
-  const ws = useWs();
+  const { ws } = useWs();
 
   const resolveDirectories = async (initial = false) => {
     if (initial) {
@@ -135,6 +136,7 @@ const Index = () => {
           value: {
             username,
             filename,
+            mapId: activeMapId,
             updatedAt: dayjs().valueOf(),
           },
         });
@@ -578,6 +580,7 @@ const Index = () => {
         <div onContextMenu={(e) => e.preventDefault()}>
           <Canvas
             {...resolution}
+            isMobile={isMobile}
             mapData={activeMap}
             activeLayer={activeLayer}
             markerExtracts={extracts}
@@ -663,10 +666,11 @@ const Index = () => {
                   onAutoDeleteChange={handleToggleAutoDelete}
                   onMapInfoActive={handleMapInfoActive}
                 />
+                {resolution.width > 1280 && <SocketStatus />}
                 {resolution.width > 1280 && <Coordinate {...utils} position={cursorPosition} />}
               </div>
               <div className="im-header-right-2">
-                <AdditionFunc />
+                <AdditionFunc isMobile={isMobile} />
               </div>
             </div>
           </div>
@@ -684,6 +688,7 @@ const Index = () => {
             </div>
             <div className="im-footer-right">
               <RulerPosition {...utils} rulerPosition={rulerPosition} />
+              {resolution.width <= 1280 && <SocketStatus />}
               {resolution.width <= 1280 && <Coordinate {...utils} position={cursorPosition} />}
             </div>
           </div>

@@ -31,6 +31,7 @@ import StationaryWeapons from '../StationaryWeapons';
 import './style.less';
 
 interface CanvasProps {
+  isMobile: boolean;
   mapData: InteractiveMap.Data;
   activeLayer: InteractiveMap.Layer | undefined;
   markerExtracts: InteractiveMap.Faction[];
@@ -51,6 +52,7 @@ interface CanvasProps {
 
 const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
   const {
+    isMobile,
     mapData,
     activeLayer,
     markerExtracts,
@@ -89,7 +91,7 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
   const operationInitialVal = useRef([{ x: 0, y: 0, pageX: 0, pageY: 0 }]);
   const touchTouches = useRef(0);
 
-  const ws = useWs();
+  const { ws } = useWs();
   const [baseMap, baseMapStatus] = useImage(mapData.svgPath);
 
   const baseScale = baseMap ? (baseMap.width + baseMap.height) / 1024 : 1;
@@ -539,6 +541,7 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
         <Locks {...utils} locks={mapData.locks} show={markerLocks} />
         <PlayerLocation
           {...utils}
+          isMobile={isMobile}
           activeMapId={mapData.id}
           show={['playerLocation']}
           onPlayerLocationChange={handlePlayerLocationChange}

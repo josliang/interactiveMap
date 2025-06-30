@@ -10,6 +10,7 @@ import { getIconPath, mouseClickEvent, mouseHoverEvent } from '@/pages/Interacti
 import './style.less';
 
 interface PlayerLocationProps {
+  isMobile: boolean;
   activeMapId?: string;
   show: string[];
   onPlayerLocationChange?: (pl: InteractiveMap.Position & { mapId: string }) => void;
@@ -30,12 +31,14 @@ interface iMPlayerLocation {
 interface OtherFileType {
   [key: string]: {
     filename: string;
+    mapId: string;
     updatedAt: string;
   };
 }
 
 const Index = (props: PlayerLocationProps & InteractiveMap.UtilProps) => {
   const {
+    isMobile,
     activeMapId,
     baseMapStatus,
     mapScale,
@@ -84,24 +87,28 @@ const Index = (props: PlayerLocationProps & InteractiveMap.UtilProps) => {
       if (otherFilesGroup.length <= 0) return;
       const regexp =
         /([0-9.-]+), ([0-9.-]+), ([0-9.-]+)_([0-9.-]+), ([0-9.-]+), ([0-9.-]+), ([0-9.-]+)/i;
+      const username = localStorage.getItem('im-username');
       const locations: any = {};
-      otherFilesGroup.forEach(([name, { filename, updatedAt }], index) => {
+      otherFilesGroup.forEach(([name, { filename, mapId, updatedAt }], index) => {
         const location = filename.match(regexp);
-        if (activeMapId && location) {
-          const data = {
-            x: Number(location[1]),
-            y: Number(location[2]),
-            z: Number(location[3]),
-            quaternion: [location[4], location[5], location[6], location[7]].map((v) => Number(v)),
-            mapId: activeMapId,
-          };
-          locations[name] = {
-            uuid: `${index + 1}`,
-            member: true,
-            name,
-            ...data,
-            updatedAt,
-          };
+        if (activeMapId && (activeMapId === mapId) && location) {
+          if (name !== username) {
+            const data = {
+              x: Number(location[1]),
+              y: Number(location[2]),
+              z: Number(location[3]),
+              quaternion:
+                [location[4], location[5], location[6], location[7]].map((v) => Number(v)),
+              mapId: activeMapId,
+            };
+            locations[name] = {
+              uuid: `${index + 1}`,
+              member: true,
+              name,
+              ...data,
+              updatedAt,
+            };
+          } else if (name !== 'default' && isMobile) (window as any).interactUpdateLocalLocation(filename);
         }
       });
       setOtherLocations(locations);

@@ -2,7 +2,10 @@ import React, { createContext, useContext, useEffect, useRef, useState } from 'r
 
 import { wsInstance } from '@/utils/socket';
 
-type WsContextType = typeof wsInstance;
+interface WsContextType {
+  ws: typeof wsInstance;
+  connected: boolean;
+}
 
 const WsContext = createContext<WsContextType | null>(null);
 
@@ -57,13 +60,15 @@ export const WsProvider = ({ children }: { children: React.ReactNode }) => {
 
     return () => {
       clearInterval(checkConnected);
-      console.log('socket状态', connected);
       wsInstance.offMessage(handleMessage);
-      wsInstance.ws?.close();
     };
   }, []);
 
-  return <WsContext.Provider value={wsInstance}>{children}</WsContext.Provider>;
+  return (
+    <WsContext.Provider value={{ ws: wsInstance, connected }}>
+      {children}
+    </WsContext.Provider>
+  );
 };
 
 export const useWs = () => {

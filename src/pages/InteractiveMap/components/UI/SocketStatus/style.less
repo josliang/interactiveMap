@@ -1,0 +1,35 @@
+.im-socketStatus {
+  position: relative;
+  display: inline-block;
+  height: 20px;
+  padding: 8px 16px;
+  border: 3px solid #2c2c2c;
+  border-radius: 8px;
+  color: #ffffff;
+  background-color: #1c1c1c;
+  text-align: center;
+
+  .connected {
+    color: #00da92; // 绿色
+  }
+
+  .disconnected {
+    color: #e53500; // 红色
+  }
+
+  span {
+    display: inline-block;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .im-socketStatus {
+    height: 24px;
+    padding: 4px 16px;
+
+    span {
+      font-size: 12px;
+    }
+  }
+}
