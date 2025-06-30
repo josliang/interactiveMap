@@ -61,8 +61,10 @@ export default {
     enableMarker: '选择塔科夫截图目录',
     tarkovGamePath: '游戏目录:',
     enableTarkovGamePath: '选择塔科夫游戏目录',
+    resetPath: '重置目录',
     markerScale: '标点缩放',
     autoDelete: '删除截图',
+    usernamePlaceholder: '请输入用户名',
   },
 
   // 登录
@@ -89,8 +91,8 @@ export default {
     tips1: '现已支持自动获取坐标，您只需选择您的塔科夫截图目录即可！',
     tips2: '现已支持自动切换地图，只需选择您的塔科夫游戏目录/日志目录即可！',
     tips3: '请注意，您仍需使用游戏内的截图按键才可获取您当前的位置信息。',
-    tips4: '参考截图目录: C:\\Users\\[User]\\Documents\\Escape from Tarkov',
-    tips5: '参考游戏目录: C:\\Games\\EFT\\Logs',
+    tips4: '参考截图目录: C:\\Users\\[User]\\Documents\\Escape from Tarkov\\Screenshots',
+    tips5: '参考游戏目录: C:\\Games\\EFT',
     enableScrPath: '选择塔科夫截图目录',
     disableScrPath: '已监听塔科夫截图目录',
     enableGamePath: '选择塔科夫游戏目录',

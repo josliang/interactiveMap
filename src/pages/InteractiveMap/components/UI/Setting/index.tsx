@@ -104,10 +104,12 @@ const Index = (props: SettingProps) => {
         )}
         <button
           className="im-quicktools-modal-setting-button"
+          style={{ color: '#e59400' }}
           onClick={handleDeleteHandler}
         >
-          {'重置目录'}
+          {t('setting.resetPath')}
         </button>
+        <div className="im-quicktools-modal-setting-divider" />
         <button
           style={{ color: !autoDelete ? '#882828' : '#288828' }}
           className="im-quicktools-modal-setting-button"
@@ -122,11 +124,12 @@ const Index = (props: SettingProps) => {
         >
           {t('setting.markerScale')} ({locationScale ? t('common.enable') : t('common.disable')})
         </button>
+        <div className="im-quicktools-modal-setting-divider" />
         <div className="im-quicktools-modal-setting-input">
           <input
             value={value}
             onChange={handleValueChange}
-            placeholder="请输入用户名"
+            placeholder={t('setting.usernamePlaceholder')}
           />
         </div>
       </div>
