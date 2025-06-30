@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+
 import Icon from '@/components/Icon';
 
 import './style.less';
@@ -6,10 +8,10 @@ interface AdditionfuncProps {
   isMobile: boolean;
 }
 
-
 const openPip = async () => {
   const video = document.querySelector('.im-additionfunc-video') as HTMLVideoElement;
   await video.requestPictureInPicture();
+  toast.info('已开启画中画，支持最小化浏览器后台监听，请勿关闭黑色画中画窗口！');
 };
 
 const Index = (props: AdditionfuncProps) => {
