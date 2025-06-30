@@ -37,10 +37,7 @@ export const WsProvider = ({ children }: { children: React.ReactNode }) => {
     wsInstance.init();
 
     const checkConnected = setInterval(() => {
-      if (wsInstance.socketStatus) {
-        setConnected(true);
-        clearInterval(checkConnected);
-      }
+      setConnected(wsInstance.socketStatus);
     }, 500);
 
     const handleMessage = (data: any) => {
