@@ -44,7 +44,7 @@ const Index = () => {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [rulerPosition, setRulerPosition] = useState<InteractiveMap.Position2D[]>();
   const [resolution, setResolution] = useState({ width: 0, height: 0 });
-  const [simpleUIMode, setSimpleUIMode] = useState(false);
+  const [simpleUIMode, setSimpleUIMode] = useState(self !== top);
   const [isMobile, setIsMobile] = useState(false);
 
   const [directoryHandler, setDirectoryHandler] = useState<FileSystemDirectoryHandle>();
@@ -188,54 +188,139 @@ const Index = () => {
   const parseRaidInfo = (log: InteractiveMap.RaidLogProps) => {
     setRaidInfo(log);
     toast.info(`载入战局信息: ${log.shortId}`);
+    const username = localStorage.getItem('im-username');
     switch (log.location) {
       case 'TarkovStreets':
         setActiveMapId('5714dc692459777137212e12');
         setActiveLayer(undefined);
+        ws.send({
+          category: 'switchMap',
+          value: {
+            mapId: '5714dc692459777137212e12',
+            username,
+          },
+        });
         break;
       case 'Sandbox':
         setActiveMapId('653e6760052c01c1c805532f');
         setActiveLayer(undefined);
+        ws.send({
+          category: 'switchMap',
+          value: {
+            mapId: '653e6760052c01c1c805532f',
+            username,
+          },
+        });
         break;
       case 'Sandbox_high':
         setActiveMapId('65b8d6f5cdde2479cb2a3125');
         setActiveLayer(undefined);
+        ws.send({
+          category: 'switchMap',
+          value: {
+            mapId: '65b8d6f5cdde2479cb2a3125',
+            username,
+          },
+        });
         break;
       case 'bigmap':
         setActiveMapId('56f40101d2720b2a4d8b45d6');
         setActiveLayer(undefined);
+        ws.send({
+          category: 'switchMap',
+          value: {
+            mapId: '56f40101d2720b2a4d8b45d6',
+            username,
+          },
+        });
         break;
       case 'factory4_day':
         setActiveMapId('55f2d3fd4bdc2d5f408b4567');
         setActiveLayer(undefined);
+        ws.send({
+          category: 'switchMap',
+          value: {
+            mapId: '55f2d3fd4bdc2d5f408b4567',
+            username,
+          },
+        });
         break;
       case 'factory4_night':
         setActiveMapId('59fc81d786f774390775787e');
         setActiveLayer(undefined);
+        ws.send({
+          category: 'switchMap',
+          value: {
+            mapId: '59fc81d786f774390775787e',
+            username,
+          },
+        });
         break;
       case 'Interchange':
         setActiveMapId('5714dbc024597771384a510d');
         setActiveLayer(undefined);
+        ws.send({
+          category: 'switchMap',
+          value: {
+            mapId: '5714dbc024597771384a510d',
+            username,
+          },
+        });
         break;
       case 'laboratory':
         setActiveMapId('5b0fc42d86f7744a585f9105');
         setActiveLayer(undefined);
+        ws.send({
+          category: 'switchMap',
+          value: {
+            mapId: '5b0fc42d86f7744a585f9105',
+            username,
+          },
+        });
         break;
       case 'Lighthouse':
         setActiveMapId('5704e4dad2720bb55b8b4567');
         setActiveLayer(undefined);
+        ws.send({
+          category: 'switchMap',
+          value: {
+            mapId: '5704e4dad2720bb55b8b4567',
+            username,
+          },
+        });
         break;
       case 'RezervBase':
         setActiveMapId('5704e5fad2720bc05b8b4567');
         setActiveLayer(undefined);
+        ws.send({
+          category: 'switchMap',
+          value: {
+            mapId: '5704e5fad2720bc05b8b4567',
+            username,
+          },
+        });
         break;
       case 'Shoreline':
         setActiveMapId('5704e554d2720bac5b8b456e');
         setActiveLayer(undefined);
+        ws.send({
+          category: 'switchMap',
+          value: {
+            mapId: '5704e554d2720bac5b8b456e',
+            username,
+          },
+        });
         break;
       case 'Woods':
         setActiveMapId('5704e3c2d2720bac5b8b4567');
         setActiveLayer(undefined);
+        ws.send({
+          category: 'switchMap',
+          value: {
+            mapId: '5704e3c2d2720bac5b8b4567',
+            username,
+          },
+        });
         break;
       default:
         break;
@@ -548,7 +633,10 @@ const Index = () => {
   useEffect(() => {
     // toast.info(t('toast.alert'), { autoClose: 10000 });
     localStorage.getItem('im-username') ?? localStorage.setItem('im-username', '默认用户');
-  }, []);
+    (window as any).interactUpdateActiveMap = (mapId: string) => {
+      if (isMobile || (self !== top)) setActiveMapId(mapId);
+    };
+  }, [isMobile]);
 
   useInterval(() => {
     if (directoryHandler) {

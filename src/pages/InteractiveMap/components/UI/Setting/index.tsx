@@ -102,21 +102,27 @@ const Index = (props: SettingProps) => {
               : t('setting.enableTarkovGamePath')}
           </button>
         )}
-        <button
-          className="im-quicktools-modal-setting-button"
-          style={{ color: '#e59400' }}
-          onClick={handleDeleteHandler}
-        >
-          {t('setting.resetPath')}
-        </button>
-        <div className="im-quicktools-modal-setting-divider" />
-        <button
-          style={{ color: !autoDelete ? '#882828' : '#288828' }}
-          className="im-quicktools-modal-setting-button"
-          onClick={handleToggleAutoDelete}
-        >
-          {t('setting.autoDelete')} ({autoDelete ? t('common.enable') : t('common.disable')})
-        </button>
+        {self === top && (
+          <button
+            className="im-quicktools-modal-setting-button"
+            style={{ color: '#e59400' }}
+            onClick={handleDeleteHandler}
+          >
+            {t('setting.resetPath')}
+          </button>
+        )}
+        {self === top && (
+          <div className="im-quicktools-modal-setting-divider" />
+        )}
+        {self === top && (
+          <button
+            style={{ color: !autoDelete ? '#882828' : '#288828' }}
+            className="im-quicktools-modal-setting-button"
+            onClick={handleToggleAutoDelete}
+          >
+            {t('setting.autoDelete')} ({autoDelete ? t('common.enable') : t('common.disable')})
+          </button>
+        )}
         <button
           style={{ color: !locationScale ? '#882828' : '#288828' }}
           className="im-quicktools-modal-setting-button"

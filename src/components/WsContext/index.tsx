@@ -33,6 +33,12 @@ export const WsProvider = ({ children }: { children: React.ReactNode }) => {
     (window as any).interactUpdateOtherDraw(data);
   };
 
+  const switchActiveMap = (data: any) => {
+    const { username, mapId } = data;
+    const name = localStorage.getItem('im-username');
+    if (name === username) (window as any).interactUpdateActiveMap(mapId);
+  };
+
   useEffect(() => {
     wsInstance.init();
 
@@ -50,6 +56,8 @@ export const WsProvider = ({ children }: { children: React.ReactNode }) => {
         writeLineToMap([data.value]);
       } else if (data.category === 'initLines') {
         writeLineToMap(data.value);
+      } else if (data.category === 'switchMap') {
+        switchActiveMap(data.value);
       }
     };
 

@@ -10,11 +10,40 @@ interface AdditionfuncProps {
 
 const openPip = async () => {
   try {
-    const video = document.querySelector('.im-additionfunc-video') as HTMLVideoElement;
-    await video.requestPictureInPicture();
-    toast.info('已开启画中画，支持最小化浏览器后台监听，请勿关闭黑色画中画窗口！');
+    if (!('documentPictureInPicture' in window)) {
+      toast.info('当前浏览器不支持实验性画中画');
+      return;
+    }
+
+    const pipWindow = await (window as any).documentPictureInPicture.requestWindow({
+      width: 500,
+      height: 500,
+    });
+
+    const pipDoc = pipWindow.document;
+    const style = pipDoc.createElement('style');
+    style.textContent = `
+      html, body {
+        height: 100%;
+        overflow: hidden;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    `;
+    pipDoc.head.appendChild(style);
+
+    const iframe = pipDoc.createElement('iframe');
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = 'none';
+    iframe.style.display = 'block';
+    iframe.src = location.href;
+
+    pipDoc.body.appendChild(iframe);
   } catch (e) {
-    toast.info('开启画中画失败，请稍后重试');
+    toast.info('开启画中画失败，请刷新重试');
   }
 };
 
@@ -23,15 +52,16 @@ const Index = (props: AdditionfuncProps) => {
   return (
     <div className="im-additionfunc">
       <div className="im-additionfunc-list">
-        <div
-          style={{ display: isMobile ? 'none' : 'block' }}
-          className="im-additionfunc-list-item"
-          onClick={() => openPip()}
-        >
-          <Icon type="icon-bilibili-fill" />
-        </div>
+        {self === top && (
+          <div
+            style={{ display: isMobile ? 'none' : 'block' }}
+            className="im-additionfunc-list-item"
+            onClick={() => openPip()}
+          >
+            <Icon type="icon-bilibili-fill" />
+          </div>
+        )}
       </div>
-      <video className="im-additionfunc-video" src="videos/PIP.mp4" autoPlay muted loop />
     </div >
   );
 };
