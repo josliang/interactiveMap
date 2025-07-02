@@ -402,7 +402,7 @@ export async function clearSavedHandle(key: string) {
   await tx.done;
 }
 
-async function getDB(): Promise<IDBPDatabase> {
+async function getDB(): Promise<any> {
   return await openDB(DB_NAME, 1, {
     upgrade(db) {
       if (!db.objectStoreNames.contains(STORE_NAME)) {
