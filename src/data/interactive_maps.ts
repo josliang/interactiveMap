@@ -120913,15 +120913,15 @@ export default [
       0.268,
       0,
     ],
-    coordinateRotation: 0,
+    coordinateRotation: 180,
     bounds: [
       [
         289,
-        -338,
+        -273,
       ],
       [
         -303,
-        336,
+        271,
       ],
     ],
     author: 'Shebuka',
