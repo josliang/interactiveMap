@@ -162610,4 +162610,75 @@ export default [
       },
     ],
   },
+  {
+    key: 'the-labyrinth',
+    projection: 'interactive',
+    tileSize: 175,
+    minZoom: 1,
+    maxZoom: 6,
+    transform: [2.115, 85.5, 2.115, 128.0],
+    coordinateRotation: 270,
+    bounds: [
+      [-52, -37],
+      [53, 76],
+    ],
+    author: 'Tarkov.dev',
+    authorLink: 'https://tarkov.dev',
+    svgPath: 'mapSvg/the-labyrinth-temp.jpg',
+    tilePath: '/uselessPath/maps/labyrinth/main/{z}/{x}/{y}.png',
+    heightRange: [
+      1,
+      1,
+    ],
+    layers: [
+    ],
+    labels: [
+    ],
+    id: '6733700029c367a3d40b02af',
+    tarkovDataId: null,
+    name: 'The Labyrinth',
+    normalizedName: 'the-labyrinth',
+    wiki: 'https://escapefromtarkov.fandom.com/wiki/The_Labyrinth',
+    description: 'TerraGroup的承包商之一Knossos公司的设施。据公共消息来源称，他们建造了游乐园和主题公园。然而，这个地方看起来更像是一个戒备森严的地堡，而不是一个新的主题公园。',
+    enemies: [
+      'Scav',
+      'Shadow of Tagilla',
+      'Vengeful Killa',
+    ],
+    raidDuration: 40,
+    players: '5-5',
+    bosses: [
+      {
+        boss: {
+          id: 'bossTagilla',
+          name: 'Shadow of Tagilla',
+          normalizedName: 'shadow-of-tagilla',
+        },
+        spawnChance: 0.4,
+        spawnLocations: [],
+        escorts: [
+          {
+            amount: [{ count: 1, chance: 0.3 }],
+            name: 'Vengeful Killa',
+            normalizedName: 'vengeful-killa',
+          },
+        ],
+      },
+    ],
+    nameId: 'the-labyrinth',
+    spawns: [
+    ],
+    extracts: [
+    ],
+    locks: [
+    ],
+    switches: [
+    ],
+    hazards: [
+    ],
+    lootContainers: [
+    ],
+    stationaryWeapons: [
+    ],
+  },
 ];

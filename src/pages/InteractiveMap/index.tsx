@@ -322,6 +322,17 @@ const Index = () => {
           },
         });
         break;
+      case 'the-labyrinth':
+        setActiveMapId('6733700029c367a3d40b02af');
+        setActiveLayer(undefined);
+        ws.send({
+          category: 'switchMap',
+          value: {
+            mapId: '6733700029c367a3d40b02af',
+            username,
+          },
+        });
+        break;
       default:
         break;
     }
