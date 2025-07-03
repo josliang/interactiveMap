@@ -162619,8 +162619,8 @@ export default [
     transform: [2.115, 85.5, 2.115, 128.0],
     coordinateRotation: 270,
     bounds: [
-      [-52, -37],
-      [53, 76],
+      [52, -37],
+      [-53, 76],
     ],
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev',
