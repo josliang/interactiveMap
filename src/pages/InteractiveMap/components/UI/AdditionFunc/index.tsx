@@ -58,7 +58,7 @@ const Index = (props: AdditionfuncProps) => {
             className="im-additionfunc-list-item"
             onClick={() => openPip()}
           >
-            <Icon type="icon-bilibili-fill" />
+            <Icon type="icon-picture-in-picture-2-fill" />
           </div>
         )}
       </div>
