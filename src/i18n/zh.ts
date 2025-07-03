@@ -65,6 +65,7 @@ export default {
     markerScale: '标点缩放',
     autoDelete: '删除截图',
     usernamePlaceholder: '请输入用户名',
+    username: '用户名',
   },
 
   // 登录

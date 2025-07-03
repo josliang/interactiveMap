@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 
+// import { useNavigate } from 'react-router-dom';
 import './style.less';
 
 const Index = () => {
-  const navigate = useNavigate();
-
-  const handleReturn = () => {
-    navigate('/');
-  };
-
+  /*
+    const navigate = useNavigate();
+    const handleReturn = () => {
+      navigate('/');
+    };
+  */
   useEffect(() => {
     const resizeEvent = () => {
       const doc = document.documentElement;
@@ -36,11 +36,15 @@ const Index = () => {
             Not Found。
           </span>
         </div>
-        <div className="notfound-button">
-          <button className="button button-default" onClick={handleReturn}>
-            返回首页
-          </button>
-        </div>
+        {
+          /*
+          <div className="notfound-button">
+            <button className="button button-default" onClick={handleReturn}>
+              返回首页
+            </button>
+          </div>
+          */
+        }
       </div>
     </div>
   );

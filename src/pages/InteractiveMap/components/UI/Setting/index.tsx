@@ -132,6 +132,7 @@ const Index = (props: SettingProps) => {
         </button>
         <div className="im-quicktools-modal-setting-divider" />
         <div className="im-quicktools-modal-setting-input">
+          <div className="im-quicktools-modal-setting-input-label">{t('setting.username')}</div>
           <input
             value={value}
             onChange={handleValueChange}
