@@ -576,11 +576,15 @@ const Index = () => {
       const data = dataImap.filter((v) => v.id === activeMapId)?.[0] as any;
       setActiveMap(data);
       toast.success(`地图已切换至${data.name}`);
+      localStorage.setItem('im-activeMap', activeMapId);
     }
   }, [activeMapId]);
 
   useEffect(() => {
-    if (mapList[0]?.id) {
+    const saveMapId = localStorage.getItem('im-activeMap');
+    if (saveMapId) {
+      setActiveMapId(saveMapId);
+    } else if (mapList[0]?.id) {
       setActiveMapId(mapList[0].id);
     }
   }, [mapList]);
