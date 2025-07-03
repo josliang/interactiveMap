@@ -55,7 +55,7 @@ class Ws {
         } else if (connectionCount >= 3) {
           clearInterval(timerID);
           if (!this.once) {
-            toast.error('socket服务器连接失败');
+            toast.error('socket服务器连接失败', { autoClose: 2000 });
             this.once = true;
           }
           reject(new Error('网络异常'));

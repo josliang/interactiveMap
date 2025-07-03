@@ -11,7 +11,7 @@ interface AdditionfuncProps {
 const openPip = async () => {
   try {
     if (!('documentPictureInPicture' in window)) {
-      toast.info('当前浏览器不支持实验性画中画');
+      toast.info('当前浏览器不支持实验性画中画', { autoClose: 2000 });
       return;
     }
 
@@ -43,7 +43,7 @@ const openPip = async () => {
 
     pipDoc.body.appendChild(iframe);
   } catch (e) {
-    toast.info('开启画中画失败，请刷新重试');
+    toast.info('开启画中画失败，请刷新重试', { autoClose: 2000 });
   }
 };
 

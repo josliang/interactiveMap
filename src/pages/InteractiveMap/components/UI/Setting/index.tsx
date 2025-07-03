@@ -49,12 +49,12 @@ const Index = (props: SettingProps) => {
     try {
       await clearSavedHandle('eftWatcherDir');
       await clearSavedHandle('tarkovGameDir');
-      toast.info('重置目录成功，稍后刷新页面');
+      toast.info('重置目录成功，稍后刷新页面', { autoClose: 1500 });
       setTimeout(() => {
         window.location.reload();
       }, 1500);
     } catch (e) {
-      toast.info('重置目录失败，请刷新重试');
+      toast.info('重置目录失败，请刷新重试', { autoClose: 2000 });
     }
   };
 

@@ -120,7 +120,7 @@ const Index = () => {
       directoryFilesCache.current = [];
     }
     if (directoryHandler) {
-      initial && toast.info(`开始监听截图目录: ${directoryHandler.name}`);
+      initial && toast.info(`开始监听截图目录: ${directoryHandler.name}`, { autoClose: 2000 });
       const entries = await (directoryHandler as any).entries();
       const files = [];
       for await (const [key] of entries) {
@@ -162,7 +162,7 @@ const Index = () => {
           if (applicationPathNameCache.current !== _applicationLogsHandler.name) {
             applicationPathNameCache.current = _applicationLogsHandler.name;
             setApplicationLogsHandler(_applicationLogsHandler);
-            toast.info(`开始监听日志文件: ${_applicationLogsHandler.name}`);
+            toast.info(`开始监听日志文件: ${_applicationLogsHandler.name}`, { autoClose: 2000 });
           }
         }
         const _notificationsLogsHandler = await resolveLogFile(logPathHandle, 'notifications');
@@ -170,7 +170,7 @@ const Index = () => {
           if (notificationsPathNameCache.current !== _notificationsLogsHandler.name) {
             notificationsPathNameCache.current = _notificationsLogsHandler.name;
             setNotificationsLogsHandler(_notificationsLogsHandler);
-            toast.info(`开始监听日志文件: ${_notificationsLogsHandler.name}`);
+            toast.info(`开始监听日志文件: ${_notificationsLogsHandler.name}`, { autoClose: 2000 });
           }
         }
       }
@@ -182,7 +182,7 @@ const Index = () => {
 
   const parseProfileInfo = (log: InteractiveMap.ProfileLogProps) => {
     setRaidInfo(undefined);
-    toast.info(`载入角色ID: ${log.profileId}, 账户ID: ${log.accountId}`);
+    toast.info(`载入角色ID: ${log.profileId}, 账户ID: ${log.accountId}`, { autoClose: 2000 });
   };
 
   const parseRaidInfo = (log: InteractiveMap.RaidLogProps) => {
@@ -562,7 +562,7 @@ const Index = () => {
   const handleMapChange = (mapId: string) => {
     setActiveMapId(mapId);
     setActiveLayer(undefined);
-    toast.info('正在切换地图，请稍候...');
+    toast.info('正在切换地图，请稍候...', { autoClose: 2000 });
   };
 
   const handleLayerChange = (name: string) => {
@@ -575,7 +575,7 @@ const Index = () => {
     if (activeMapId) {
       const data = dataImap.filter((v) => v.id === activeMapId)?.[0] as any;
       setActiveMap(data);
-      toast.success(`地图已切换至${data.name}`);
+      toast.success(`地图已切换至${data.name}`, { autoClose: 2000 });
       localStorage.setItem('im-activeMap', activeMapId);
     }
   }, [activeMapId]);

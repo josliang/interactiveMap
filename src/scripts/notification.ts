@@ -35,7 +35,7 @@ export const showNotification = (data: NotificationData) => {
       icon: 'images/tilty_logo_round_white.png',
     });
   } else {
-    toast.info(`${data.title}: ${data.body}`);
+    toast.info(`${data.title}: ${data.body}`, { autoClose: 2000 });
   }
 };
 
