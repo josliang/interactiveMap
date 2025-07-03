@@ -162669,6 +162669,34 @@ export default [
     spawns: [
     ],
     extracts: [
+      {
+        id: '761dedf3fefaf3526e0ce19c7d7b1a3d494fce9b',
+        name: 'The Way Up',
+        faction: 'pmc',
+        switches: [],
+        position: {
+          x: -7.6,
+          y: 0,
+          z: 40.0,
+        },
+        outline: [],
+        top: -0.8859234,
+        bottom: -4.035925,
+      },
+      {
+        id: '761dedf3fefaf3526e0ce19c7d7b1a3d494fce1c',
+        name: "Ariadne's Path",
+        faction: 'pmc',
+        switches: [],
+        position: {
+          x: 19.1,
+          y: 0,
+          z: 0.3,
+        },
+        outline: [],
+        top: -0.8859234,
+        bottom: -4.035925,
+      },
     ],
     locks: [
     ],
