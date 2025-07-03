@@ -86263,20 +86263,20 @@ export default [
     minZoom: 2,
     maxZoom: 6,
     transform: [
-      0.575,
       281.2,
       0.575,
       196.7,
+      0.575,
     ],
     coordinateRotation: 270,
     bounds: [
       [
-        -91,
-        -477,
+        -81,
+        -478,
       ],
       [
-        -287,
-        -193,
+        -283,
+        -197,
       ],
     ],
     author: 'Tarkov.dev',
@@ -89000,9 +89000,9 @@ export default [
         faction: 'transit',
         switches: [],
         position: {
-          x: -176.1,
+          x: -168.8,
           y: 1,
-          z: -419.8,
+          z: -421,
         },
         outline: [],
         top: 3.76233315,
@@ -162627,12 +162627,52 @@ export default [
     svgPath: 'mapSvg/the-labyrinth-temp.jpg',
     tilePath: '/uselessPath/maps/labyrinth/main/{z}/{x}/{y}.png',
     heightRange: [
-      1,
+      0,
       1,
     ],
     layers: [
     ],
     labels: [
+      {
+        position: [
+          -47.3,
+          53.6,
+        ],
+        text: '1号房',
+        size: 120,
+      },
+      {
+        position: [
+          2.7,
+          -28.6,
+        ],
+        text: '2号房',
+        size: 120,
+      },
+      {
+        position: [
+          -40,
+          -21.8,
+        ],
+        text: '3号房',
+        size: 120,
+      },
+      {
+        position: [
+          9.8,
+          66.8,
+        ],
+        text: '4号房',
+        size: 120,
+      },
+      {
+        position: [
+          39.6,
+          42.3,
+        ],
+        text: '5号房',
+        size: 120,
+      },
     ],
     id: '6733700029c367a3d40b02af',
     tarkovDataId: null,

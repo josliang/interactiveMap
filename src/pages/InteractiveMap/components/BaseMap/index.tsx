@@ -44,8 +44,8 @@ const Index = (props: BaseMapProps) => {
           image={baseMap}
           rotation={coordinateRotation - 180}
           offset={{ x: 0, y: baseMap.height }}
-          scaleX={Math.abs(baseMap.height / baseMap.width)}
-          scaleY={Math.abs(baseMap.width / baseMap.height)}
+          scaleX={1}
+          scaleY={1}
           opacity={activeLayer ? 0.1 : 1}
         />
       );

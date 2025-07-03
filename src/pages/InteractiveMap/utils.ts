@@ -270,7 +270,30 @@ export const calculateHypotenuse = (
 export const image2realPos = (
   image: InteractiveMap.ImageProps = { width: 1, height: 1 },
   bounds: number[][],
+  coordinateRotation?: number,
 ): InteractiveMap.ImageTransformProps => {
+  const [[minX, minY], [maxX, maxY]] = bounds as [[number, number], [number, number]];
+  const deltaX = maxX - minX;
+  const deltaY = maxY - minY;
+
+  if (coordinateRotation === 270) {
+    return {
+      x: (px: number) => {
+        const ratio = px / image.height;
+        return minX + ratio * deltaX;
+      },
+      y: (py: number) => {
+        const ratio = py / image.width;
+        return minY + ratio * deltaY;
+      },
+      p: (p: InteractiveMap.Position2D) => {
+        const rx = minX + (p.x / image.height) * deltaX;
+        const ry = minY + (p.y / image.width) * deltaY;
+        return { x: rx, y: ry };
+      },
+    };
+  }
+
   return {
     x: (pos: number) => {
       const xPer = pos / image.width;
@@ -295,7 +318,30 @@ export const image2realPos = (
 export const real2imagePos = (
   image: InteractiveMap.ImageProps = { width: 1, height: 1 },
   bounds: number[][],
+  coordinateRotation?: number,
 ): InteractiveMap.ImageTransformProps => {
+  const [[minX, minY], [maxX, maxY]] = bounds as [[number, number], [number, number]];
+  const deltaX = maxX - minX;
+  const deltaY = maxY - minY;
+
+  if (coordinateRotation === 270) {
+    return {
+      x: (realX: number) => {
+        const ratio = (realX - minX) / deltaX;
+        return ratio * image.height;
+      },
+      y: (realY: number) => {
+        const ratio = (realY - minY) / deltaY;
+        return ratio * image.width;
+      },
+      p: (p: InteractiveMap.Position2D) => {
+        const px = ((p.x - minX) / deltaX) * image.height;
+        const py = ((p.y - minY) / deltaY) * image.width;
+        return { x: px, y: py };
+      },
+    };
+  }
+
   return {
     x: (pos: number) => {
       const xPer = (pos - bounds[0][0]) / (bounds[1][0] - bounds[0][0]);

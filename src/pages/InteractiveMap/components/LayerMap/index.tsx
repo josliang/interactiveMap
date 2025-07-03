@@ -40,8 +40,8 @@ const Index = (props: LayerMapProps) => {
           imageSrc={imageSrc}
           rotation={coordinateRotation - 180}
           offset={{ x: 0, y: baseMap.height }}
-          scaleX={Math.abs(baseMap.height / baseMap.width)}
-          scaleY={Math.abs(baseMap.width / baseMap.height)}
+          scaleX={1}
+          scaleY={1}
         />
       );
     }

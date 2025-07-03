@@ -104,10 +104,10 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
   }, [activeLayer]);
 
   const image2realPos = useMemo(() => {
-    return _image2realPos(baseMap, mapData.bounds);
+    return _image2realPos(baseMap, mapData.bounds, mapData.coordinateRotation);
   }, [baseMap, mapData]);
   const real2imagePos = useMemo(() => {
-    return _real2imagePos(baseMap, mapData.bounds);
+    return _real2imagePos(baseMap, mapData.bounds, mapData.coordinateRotation);
   }, [baseMap, mapData]);
 
   const utils: InteractiveMap.UtilProps = {
@@ -400,14 +400,25 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
   useEffect(() => {
     if (stageRef.current) {
       if (baseMap && baseMapStatus === 'loaded') {
-        const scaleX = stageRef.current.width() / baseMap.width;
-        const scaleY = stageRef.current.height() / baseMap.height;
-        const newScale = scaleX < scaleY ? scaleX : scaleY;
-        setMapScale(newScale);
-        setMapPosition({
-          x: (stageRef.current.width() - baseMap.width * newScale) / 2,
-          y: (stageRef.current.height() - baseMap.height * newScale) / 2,
-        });
+        if (mapData.coordinateRotation !== 270) {
+          const scaleX = stageRef.current.width() / baseMap.width;
+          const scaleY = stageRef.current.height() / baseMap.height;
+          const newScale = scaleX < scaleY ? scaleX : scaleY;
+          setMapScale(newScale);
+          setMapPosition({
+            x: (stageRef.current.width() - baseMap.width * newScale) / 2,
+            y: (stageRef.current.height() - baseMap.height * newScale) / 2,
+          });
+        } else {
+          const scaleX = stageRef.current.width() / baseMap.height;
+          const scaleY = stageRef.current.height() / baseMap.width;
+          const newScale = scaleX < scaleY ? scaleX : scaleY;
+          setMapScale(newScale);
+          setMapPosition({
+            x: (stageRef.current.width() - baseMap.height * newScale) / 2,
+            y: (stageRef.current.height() - baseMap.width * newScale) / 2,
+          });
+        }
         setCursorPosition({ x: 0, y: 0 });
       } else {
         setMapScale(1);
@@ -510,14 +521,31 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
       ref={stageRef}
     >
       <Layer id="im-layer-basemap">
-        <Rect
-          id="im-background"
-          x={0}
-          y={0}
-          width={baseMap?.width}
-          height={baseMap?.height}
-          fill="#00000028"
-        />
+        {
+          mapData.coordinateRotation !== 270 && (
+            <Rect
+              id="im-background"
+              x={0}
+              y={0}
+              width={baseMap?.width}
+              height={baseMap?.height}
+              fill="#00000028"
+            />
+          )
+        }
+        {
+          mapData.coordinateRotation === 270 && (
+            <Rect
+              id="im-background"
+              x={baseMap?.height}
+              y={0}
+              width={baseMap?.width}
+              height={baseMap?.height}
+              fill="#00000028"
+              rotation={mapData.coordinateRotation - 180}
+            />
+          )
+        }
         <BaseMap
           id="im-basemap"
           baseMap={baseMap}
