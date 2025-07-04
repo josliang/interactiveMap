@@ -86340,6 +86340,26 @@ export default [
       },
       {
         position: [
+          -267.9,
+          -379.7,
+        ],
+        text: '北通',
+        top: 2,
+        bottom: -0.8,
+        size: 90,
+      },
+      {
+        position: [
+          -194.7,
+          -396.2,
+        ],
+        text: '南通',
+        top: 2,
+        bottom: -0.8,
+        size: 90,
+      },
+      {
+        position: [
           -172,
           -342,
         ],
@@ -86350,10 +86370,21 @@ export default [
       },
       {
         position: [
-          -148,
-          -398,
+          -172.3,
+          -370.9,
         ],
-        text: '谈判室',
+        text: '蒙古包',
+        top: 2,
+        bottom: -0.8,
+        size: 90,
+      },
+      {
+        position: [
+          -183.0,
+          -314.1,
+        ],
+        text: '武器房',
+        rotation: -90,
         top: 2,
         bottom: -0.8,
         size: 90,
@@ -86550,6 +86581,16 @@ export default [
       },
       {
         position: [
+          -172,
+          -342,
+        ],
+        text: '经理办',
+        top: 1000,
+        bottom: 3,
+        size: 90,
+      },
+      {
+        position: [
           -219,
           -302,
         ],
@@ -86566,6 +86607,16 @@ export default [
         text: 'B办',
         top: 1000,
         bottom: 3,
+        size: 90,
+      },
+      {
+        position: [
+          -149,
+          -401,
+        ],
+        text: 'C办',
+        top: 2,
+        bottom: -0.8,
         size: 90,
       },
       {
@@ -86613,9 +86664,19 @@ export default [
           -250,
           -281,
         ],
-        text: '实验室走廊 #2',
+        text: '一线天',
         top: 1000,
         bottom: 3,
+        size: 90,
+      },
+      {
+        position: [
+          -94.9,
+          -434.7,
+        ],
+        text: '新区',
+        top: 2,
+        bottom: -0.8,
         size: 90,
       },
     ],
