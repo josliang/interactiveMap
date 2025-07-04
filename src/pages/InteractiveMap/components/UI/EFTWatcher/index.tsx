@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import classNames from 'classnames';
 import { useRecoilState } from 'recoil';
@@ -19,11 +20,18 @@ const Index = (props: EFTWatcherProps) => {
   const { directoryHandler, tarkovGamePathHandler, onClickEftWatcherPath, onClickTarkovGamePath } =
     props;
 
+  const navigate = useNavigate();
+
   const [show, setShow] = useState(false);
+  const [username, setUsername] = useState('');
 
   const [lang] = useRecoilState(langState);
 
   const { t } = useI18N(lang);
+
+  const handleGoQA = () => {
+    navigate('/qa');
+  };
 
   const handleCloseModal = () => {
     if (!window.showDirectoryPicker) {
@@ -49,6 +57,7 @@ const Index = (props: EFTWatcherProps) => {
     if (self === top) {
       setShow(true);
     }
+    setUsername(localStorage.getItem('im-username') || '默认用户');
   }, []);
 
   return (
@@ -106,6 +115,19 @@ const Index = (props: EFTWatcherProps) => {
             {t('eftwatcher.later')}
           </button>
         </div>
+        {
+          username === '默认用户' && (
+            <div className="im-eftwatcher-first">
+              <div className="first-use-title">⬇{t('eftwatcher.first')}⬇</div>
+              <button
+                className="button button-default"
+                onClick={() => handleGoQA()}
+              >
+                {t('eftwatcher.doc')}
+              </button>
+            </div>
+          )
+        }
         {/*
         <div className="im-eftwatcher-contacts">
           <span>{t('contact.group')}</span>

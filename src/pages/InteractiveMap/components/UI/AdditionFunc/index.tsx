@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import Icon from '@/components/Icon';
@@ -49,12 +50,26 @@ const openPip = async () => {
 
 const Index = (props: AdditionfuncProps) => {
   const { isMobile } = props;
+
+  const navigate = useNavigate();
+
+  const handleGoQA = () => {
+    navigate('/qa');
+  };
+
   return (
     <div className="im-additionfunc">
       <div className="im-additionfunc-list">
-        {self === top && (
+        {self === top && !isMobile && (
           <div
-            style={{ display: isMobile ? 'none' : 'block' }}
+            className="im-additionfunc-list-item"
+            onClick={() => handleGoQA()}
+          >
+            <Icon type="icon-question-fill" />
+          </div>
+        )}
+        {self === top && !isMobile && (
+          <div
             className="im-additionfunc-list-item"
             onClick={() => openPip()}
           >

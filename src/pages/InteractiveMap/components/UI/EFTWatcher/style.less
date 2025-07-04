@@ -8,6 +8,7 @@
   border-radius: 8px;
   background-color: #1c1c1c;
   overflow: auto;
+
   &-modal {
     position: fixed;
     top: 0;
@@ -22,34 +23,60 @@
     pointer-events: none;
     transition: all 0.3s;
     z-index: 9;
+
     &.active {
       opacity: 1;
       pointer-events: auto;
     }
   }
+
   &-title {
     margin-bottom: 16px;
     color: #ffffff;
   }
+
   &-content {
     color: #ffffff;
     font-size: 12px;
+
     span {
       display: block;
+
       &:not(:first-child) {
         margin-top: 16px;
       }
     }
   }
+
   &-buttons {
     margin-top: 16px;
+
     .button {
       width: 100%;
       margin: 0;
     }
   }
+
+  &-first {
+    margin-top: 16px;
+
+    .first-use-title {
+      display: block;
+      margin: 0 0 8px 0;
+      color: #888888;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .button {
+      width: 100%;
+      margin: 0;
+    }
+  }
+
   &-contacts {
     margin-top: 16px;
+
     span {
       display: block;
       margin-top: 8px;

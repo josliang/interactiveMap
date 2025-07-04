@@ -100,6 +100,8 @@ export default {
     disableGamePath: '已监听塔科夫游戏目录',
     unsupport: '您的浏览器版本不支持',
     later: '我已知晓，可在设置中启用',
+    first: '新手上路',
+    doc: '使用方法',
     unsupportMsg: '您的浏览器版本不支援该功能，请使用Chrome或Edge！',
   },
 
