@@ -226,11 +226,27 @@ export default [
       },
       {
         position: [
-          99,
-          -71,
+          -58.8,
+          -143.4,
+        ],
+        text: '情报楼',
+        size: 60,
+      },
+      {
+        position: [
+          55.6,
+          -142.0,
         ],
         text: '主教公寓',
         size: 90,
+      },
+      {
+        position: [
+          54.8,
+          -108.4,
+        ],
+        text: '泰拉楼',
+        size: 60,
       },
       {
         position: [
@@ -298,8 +314,24 @@ export default [
       },
       {
         position: [
-          89,
-          -20,
+          270.9,
+          384.0,
+        ],
+        text: '短边',
+        size: 60,
+      },
+      {
+        position: [
+          -83.9,
+          476.6,
+        ],
+        text: '不动产',
+        size: 70,
+      },
+      {
+        position: [
+          98.6,
+          -35.1,
         ],
         text: '主教银行',
         size: 70,
@@ -327,6 +359,14 @@ export default [
         ],
         text: '汉堡王',
         size: 70,
+      },
+      {
+        position: [
+          63.0,
+          29.0,
+        ],
+        text: '电器店',
+        size: 60,
       },
       {
         position: [
@@ -386,6 +426,30 @@ export default [
       },
       {
         position: [
+          163.3,
+          151.8,
+        ],
+        text: '调解室',
+        size: 70,
+      },
+      {
+        position: [
+          143.4,
+          87.7,
+        ],
+        text: '网吧',
+        size: 60,
+      },
+      {
+        position: [
+          186.9,
+          65.3,
+        ],
+        text: '血色房',
+        size: 60,
+      },
+      {
+        position: [
           211,
           129,
         ],
@@ -394,10 +458,26 @@ export default [
       },
       {
         position: [
+          188.0,
+          111.8,
+        ],
+        text: 'X光',
+        size: 60,
+      },
+      {
+        position: [
           222,
           173,
         ],
         text: '宠物医院',
+        size: 70,
+      },
+      {
+        position: [
+          126.8,
+          231.5,
+        ],
+        text: '15号公寓',
         size: 70,
       },
       {
@@ -86371,7 +86451,7 @@ export default [
       {
         position: [
           -172.3,
-          -370.9,
+          -371.5,
         ],
         text: '蒙古包',
         top: 2,
@@ -86380,11 +86460,10 @@ export default [
       },
       {
         position: [
-          -183.0,
+          -182.5,
           -314.1,
         ],
         text: '武器房',
-        rotation: -90,
         top: 2,
         bottom: -0.8,
         size: 90,
@@ -86481,22 +86560,24 @@ export default [
       },
       {
         position: [
-          -241,
+          -241.5,
           -280,
         ],
         text: '男更衣',
         top: 2,
         bottom: -0.8,
+        rotation: -90,
         size: 90,
       },
       {
         position: [
-          -232,
+          -232.5,
           -280,
         ],
         text: '女更衣',
         top: 2,
         bottom: -0.8,
+        rotation: -90,
         size: 90,
       },
       {
