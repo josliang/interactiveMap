@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import Icon from '@/components/Icon';
@@ -40,7 +39,7 @@ const openPip = async () => {
     iframe.style.height = '100%';
     iframe.style.border = 'none';
     iframe.style.display = 'block';
-    iframe.src = location.href;
+    iframe.src = (window as any).location.href;
 
     pipDoc.body.appendChild(iframe);
   } catch (e) {
@@ -48,14 +47,13 @@ const openPip = async () => {
   }
 };
 
+const handleGoQA = () => {
+  const url = (window as any).location.href.replaceAll('interactive', 'qa');
+  window.open(url, '_blank');
+};
+
 const Index = (props: AdditionfuncProps) => {
   const { isMobile } = props;
-
-  const navigate = useNavigate();
-
-  const handleGoQA = () => {
-    navigate('/qa');
-  };
 
   return (
     <div className="im-additionfunc">

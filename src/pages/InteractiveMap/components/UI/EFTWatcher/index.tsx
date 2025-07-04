@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import classNames from 'classnames';
 import { useRecoilState } from 'recoil';
@@ -20,18 +19,12 @@ const Index = (props: EFTWatcherProps) => {
   const { directoryHandler, tarkovGamePathHandler, onClickEftWatcherPath, onClickTarkovGamePath } =
     props;
 
-  const navigate = useNavigate();
-
   const [show, setShow] = useState(false);
   const [username, setUsername] = useState('');
 
   const [lang] = useRecoilState(langState);
 
   const { t } = useI18N(lang);
-
-  const handleGoQA = () => {
-    navigate('/qa');
-  };
 
   const handleCloseModal = () => {
     if (!window.showDirectoryPicker) {
@@ -45,6 +38,11 @@ const Index = (props: EFTWatcherProps) => {
 
   const handleClickTarkovGamePath = () => {
     onClickTarkovGamePath();
+  };
+
+  const handleGoQA = () => {
+    const url = (window as any).location.href.replaceAll('interactive', 'qa');
+    window.open(url, '_blank');
   };
 
   useEffect(() => {

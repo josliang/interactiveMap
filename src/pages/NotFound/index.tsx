@@ -26,7 +26,7 @@ const Index = () => {
     <div className="notfound">
       <div className="notfound-flex">
         <div className="notfound-logo">
-          <img alt="logo" src="images/tilty_logo_round_white.png" />
+          <img alt="logo" src="images/logo.png" />
         </div>
         <div className="notfound-header">
           <span>404</span>

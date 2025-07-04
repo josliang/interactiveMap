@@ -34,8 +34,8 @@ export default {
 
   // 联系信息
   contact: {
-    group: '缇尔蒂的粉丝群: 978276396',
-    email: '联系邮箱: tilty.sola#gmail.com',
+    group: 'QQ群: 641178437',
+    email: '联系邮箱: 571585743@qq.com',
   },
 
   // 地图信息
@@ -68,27 +68,9 @@ export default {
     username: '用户名',
   },
 
-  // 登录
-  login: {
-    title: 'いらっしゃい',
-    text: '当前功能需要缇尔蒂·领域账户，请登录后继续。',
-    textClient: '请使用客户端提供的账户登录功能。',
-    account: '邮箱/昵称',
-    password: '密码',
-    loginBtn: '登入',
-    registerBtn: '注册账户',
-    recoveryBtn: '找回密码',
-    returnBtn: '返回',
-  },
-
-  // Toast
-  toast: {
-    alert: '您正在使用逃离塔科夫·缇尔蒂助手开源版本，请勿删除此条消息',
-  },
-
   // EFT Watcher
   eftwatcher: {
-    title: '重磅更新！',
+    title: '欢迎使用塔科夫互动地图',
     tips1: '现已支持自动获取坐标，您只需选择您的塔科夫截图目录即可！',
     tips2: '现已支持自动切换地图，只需选择您的塔科夫游戏目录/日志目录即可！',
     tips3: '请注意，您仍需使用游戏内的截图按键才可获取您当前的位置信息。',
@@ -107,8 +89,8 @@ export default {
 
   // 警告和说明
   warning: {
-    title: '您正在使用缇尔蒂助手开源版本',
-    tips1: '请严格遵守使用协议，如有任何疑问请联系缇尔蒂。',
+    title: '欢迎使用塔科夫互动地图',
+    tips1: '请严格遵守使用协议，如有任何疑问请联系管理员。',
     move_w: '向上移动',
     move_a: '向左移动',
     move_s: '向下移动',

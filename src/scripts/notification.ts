@@ -32,7 +32,7 @@ export const showNotification = (data: NotificationData) => {
     // eslint-disable-next-line
     new Notification(data.title, {
       body: data.body,
-      icon: 'images/tilty_logo_round_white.png',
+      icon: 'images/logo.png',
     });
   } else {
     toast.info(`${data.title}: ${data.body}`, { autoClose: 2000 });

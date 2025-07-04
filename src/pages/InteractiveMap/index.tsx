@@ -646,7 +646,6 @@ const Index = () => {
   }, [notificationsLogsHandler]);
 
   useEffect(() => {
-    // toast.info(t('toast.alert'), { autoClose: 10000 });
     localStorage.getItem('im-username') ?? localStorage.setItem('im-username', '默认用户');
     (window as any).interactUpdateActiveMap = (mapId: string) => {
       if (isMobile || (self !== top)) setActiveMapId(mapId);
@@ -811,7 +810,7 @@ const Index = () => {
   } else {
     return (
       <div className="im-loading">
-        <img src="images/tilty_logo_round_white.png" />
+        <img src="images/logo.png" />
         <span>{t('interactive.mapLoading')}</span>
       </div>
     );
