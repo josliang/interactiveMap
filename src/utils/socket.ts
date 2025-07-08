@@ -114,6 +114,20 @@ class Ws {
     }
   }
 
+  allowReconnect() {
+    this.shouldReconnect = true;
+    this.init();
+  }
+
+  close() {
+    this.shouldReconnect = false;
+    this.stopHeartbeat();
+    if (this.ws) {
+      this.ws.close();
+      this.ws = null;
+    }
+  }
+
   private startHeartbeat() {
     this.stopHeartbeat();
 
@@ -160,22 +174,6 @@ class Ws {
       this.reconnectTimer = null;
       this.connect(this.connectUrl);
     }, delay);
-  }
-
-  // ✅ 外部调用：主动断开连接并不再自动重连
-  close() {
-    this.shouldReconnect = false;
-    this.stopHeartbeat();
-    if (this.ws) {
-      this.ws.close();
-      this.ws = null;
-    }
-  }
-
-  // ✅ 外部调用：允许重新连接
-  allowReconnect() {
-    this.shouldReconnect = true;
-    this.init();
   }
 }
 
