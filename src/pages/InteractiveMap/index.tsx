@@ -29,7 +29,6 @@ import RulerPosition from './components/UI/RulerPosition';
 import SocketStatus from './components/UI/SocketStatus';
 import Title from './components/UI/Title';
 import Tooltip from './components/UI/Tooltip';
-import Warning from './components/UI/Warning';
 import { clearSavedHandle, getLayer, getSavedHandle, saveHandle } from './utils';
 
 import './style.less';
@@ -804,7 +803,6 @@ const Index = () => {
           onClickEftWatcherPath={handleClickEftWatcherPath}
           onClickTarkovGamePath={handleClickTarkovGamePath}
         />
-        <Warning />
       </div>
     );
   } else {
