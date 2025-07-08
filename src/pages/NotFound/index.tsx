@@ -33,7 +33,7 @@ const Index = () => {
         </div>
         <div className="notfound-describe">
           <span>
-            Not Found。
+            Not Found
           </span>
         </div>
         <div className="notfound-button">

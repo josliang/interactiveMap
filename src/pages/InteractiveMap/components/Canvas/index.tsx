@@ -26,8 +26,8 @@ import PlayerLocation from '../PlayerLocation';
 import Ruler from '../Ruler';
 import Spawns from '../Spawns';
 import StationaryWeapons from '../StationaryWeapons';
+import { showContextMenu } from '../UI/ContextMenu';
 
-// import { showContextMenu } from '../UI/ContextMenu';
 import './style.less';
 
 interface CanvasProps {
@@ -320,14 +320,13 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
     }
   };
 
-  const handleMouseUp = () => {
-    /*
-      // e: KonvaEventObject<MouseEvent>
-      if (operationContext.current) showContextMenu({ x: e.evt.clientX, y: e.evt.clientY });
-    */
+  const handleMouseUp = (e: KonvaEventObject<MouseEvent>) => {
+    if (operationContext.current) showContextMenu({ x: e.evt.clientX, y: e.evt.clientY });
     if ((strokeType === 'draw' || strokeType === 'eraser') && drawTempPoints.length > 0) {
+      const username = localStorage.getItem('im-username');
       const _strokeWidth = strokeType === 'draw' ? strokeWidth : eraserWidth;
       const data = {
+        username,
         tool: strokeType,
         mapId: mapData.id,
         points: drawTempPoints,
@@ -388,12 +387,15 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
 
   const handleContextMenu = (e: KonvaEventObject<PointerEvent>) => {
     e.evt.preventDefault();
-    // showContextMenu({ x: e.evt.clientX, y: e.evt.clientY });
+    showContextMenu({ x: e.evt.clientX, y: e.evt.clientY });
   };
 
   useEffect(() => {
     (window as any).interactUpdateOtherDraw = (data: any[]) => {
       setDrawLines((prev) => [...prev, ...data]);
+    };
+    (window as any).interactClearAllDraw = () => {
+      setDrawLines([]);
     };
   }, []);
 

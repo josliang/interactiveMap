@@ -35,6 +35,8 @@ const Index = (props: SettingProps) => {
 
   const [lang] = useRecoilState(langState);
 
+  const [username, setUsername] = useState(localStorage.getItem('im-username') ?? '默认用户');
+
   const { t } = useI18N(lang);
 
   const handleClickEftWatcherPath = () => {
@@ -66,12 +68,10 @@ const Index = (props: SettingProps) => {
     onAutoDeleteChange(!autoDelete);
   };
 
-  const [value, setValue] = useState(localStorage.getItem('im-username') ?? '默认用户');
-
-  const handleValueChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.target.value;
-    setValue(newValue);
-    newValue && localStorage.setItem('im-username', newValue);
+  const handleUsernameChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const newName = e.target.value;
+    setUsername(newName);
+    newName && localStorage.setItem('im-username', newName);
   };
 
   return (
@@ -134,8 +134,8 @@ const Index = (props: SettingProps) => {
         <div className="im-quicktools-modal-setting-input">
           <div className="im-quicktools-modal-setting-input-label">{t('setting.username')}</div>
           <input
-            value={value}
-            onChange={handleValueChange}
+            value={username}
+            onChange={handleUsernameChange}
             placeholder={t('setting.usernamePlaceholder')}
           />
         </div>

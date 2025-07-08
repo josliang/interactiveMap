@@ -115,6 +115,10 @@ const Index = (props: PlayerLocationProps & InteractiveMap.UtilProps) => {
       });
       setOtherLocations(locations);
     };
+    (window as any).interactClearAllLocation = () => {
+      setPlayerLocations({});
+      setOtherLocations({});
+    };
   }, [activeMapId, onPlayerLocationChange]);
 
   const compoundLocations = { ...playerLocations, ...otherLocations };

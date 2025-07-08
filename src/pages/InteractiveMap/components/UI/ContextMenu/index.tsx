@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
 import classNames from 'classnames';
-import { message } from 'tilty-ui';
+
+import { useWs } from '@/components/WsContext';
 
 import './style.less';
 
@@ -10,6 +11,8 @@ export let showContextMenu = (props: InteractiveMap.Position2D) => {
 };
 
 const Index = () => {
+  const { ws } = useWs();
+
   const [position, setPosition] = useState<InteractiveMap.Position2D>({
     x: 0,
     y: 0,
@@ -17,6 +20,19 @@ const Index = () => {
   const [show, setShow] = useState(false);
 
   const contextMenuRef = useRef<HTMLDivElement>(null);
+
+  const clearCanvas = () => {
+    (window as any).interactClearAllLocation();
+    (window as any).interactClearAllDraw();
+    const username = localStorage.getItem('im-username');
+    ws.send({
+      category: 'clearLines',
+      value: {
+        username,
+      },
+    });
+    setShow(false);
+  };
 
   useEffect(() => {
     showContextMenu = (props: InteractiveMap.Position2D) => {
@@ -51,12 +67,16 @@ const Index = () => {
       }}
       ref={contextMenuRef}
     >
-      <div className="im-contextmenu-item" onClick={() => message.show({ content: '开发中...' })}>
-        <span>标记当前坐标</span>
+      <div className="im-contextmenu-item" onClick={() => clearCanvas()}>
+        <span>清空画布</span>
       </div>
-      <div className="im-contextmenu-item" onClick={() => message.show({ content: '开发中...' })}>
-        <span>添加至收藏</span>
-      </div>
+      {
+        /*
+        <div className="im-contextmenu-item" onClick={() => message.show({ content: '开发中...' })}>
+          <span>添加至收藏</span>
+        </div>
+        */
+      }
     </div>
   );
 };

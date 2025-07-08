@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { toast } from 'react-toastify';
 
 import Icon from '@/components/Icon';
+import { useWs } from '@/components/WsContext';
 
 import './style.less';
 
@@ -55,6 +57,10 @@ const handleGoQA = () => {
 const Index = (props: AdditionfuncProps) => {
   const { isMobile } = props;
 
+  const { connected, toggleConnection } = useWs();
+
+  const [userMode] = useState(localStorage.getItem('im-mode') ?? '');
+
   return (
     <div className="im-additionfunc">
       <div className="im-additionfunc-list">
@@ -64,6 +70,14 @@ const Index = (props: AdditionfuncProps) => {
             onClick={() => handleGoQA()}
           >
             <Icon type="icon-question-fill" />
+          </div>
+        )}
+        {userMode === 'dev' && (
+          <div
+            className="im-additionfunc-list-item"
+            onClick={() => toggleConnection()}
+          >
+            {connected ? (<Icon type="icon-eye-fill1" />) : (<Icon type="icon-eye-close-fill" />)}
           </div>
         )}
         {self === top && !isMobile && (

@@ -5,12 +5,14 @@ import { wsInstance } from '@/utils/socket';
 interface WsContextType {
   ws: typeof wsInstance;
   connected: boolean;
+  toggleConnection: () => void;
 }
 
 const WsContext = createContext<WsContextType | null>(null);
 
 export const WsProvider = ({ children }: { children: React.ReactNode }) => {
   const [connected, setConnected] = useState(false);
+  const [manualClosed, setManualClosed] = useState(false);
   const latestUserMessages = useRef<Map<string, any>>(new Map());
   const writeLock = useRef(false);
 
@@ -29,8 +31,20 @@ export const WsProvider = ({ children }: { children: React.ReactNode }) => {
     }, 1000);
   };
 
-  const writeLineToMap = (data: any) => {
-    (window as any).interactUpdateOtherDraw(data);
+  const writeLineToMap = (data: any, type: string) => {
+    if (type === 'line') {
+      const [{ username }] = data;
+      const name = localStorage.getItem('im-username');
+      if (name !== username) (window as any).interactUpdateOtherDraw(data);
+    } else if (type === 'initLines') {
+      (window as any).interactUpdateOtherDraw(data);
+    }
+  };
+
+  const clearLineInMap = (data: any) => {
+    const { username } = data;
+    const name = localStorage.getItem('im-username');
+    if (name !== username) (window as any).interactClearAllDraw();
   };
 
   const switchActiveMap = (data: any) => {
@@ -40,7 +54,7 @@ export const WsProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   useEffect(() => {
-    wsInstance.init();
+    if (!manualClosed) wsInstance.init();
 
     const checkConnected = setInterval(() => {
       setConnected(wsInstance.socketStatus);
@@ -53,9 +67,11 @@ export const WsProvider = ({ children }: { children: React.ReactNode }) => {
         latestUserMessages.current.set(username, data.value);
         writeLocationToMapThrottle();
       } else if (data.category === 'line') {
-        writeLineToMap([data.value]);
+        writeLineToMap([data.value], data.category);
       } else if (data.category === 'initLines') {
-        writeLineToMap(data.value);
+        writeLineToMap(data.value, data.category);
+      } else if (data.category === 'clearLines') {
+        clearLineInMap(data.value);
       } else if (data.category === 'switchMap') {
         switchActiveMap(data.value);
       }
@@ -67,10 +83,21 @@ export const WsProvider = ({ children }: { children: React.ReactNode }) => {
       clearInterval(checkConnected);
       wsInstance.offMessage(handleMessage);
     };
-  }, []);
+  }, [manualClosed]);
+
+  const toggleConnection = () => {
+    if (wsInstance.socketStatus) {
+      setManualClosed(true);
+      wsInstance.close();
+    } else {
+      setManualClosed(false);
+      wsInstance.allowReconnect();
+      wsInstance.init();
+    }
+  };
 
   return (
-    <WsContext.Provider value={{ ws: wsInstance, connected }}>
+    <WsContext.Provider value={{ ws: wsInstance, connected, toggleConnection }}>
       {children}
     </WsContext.Provider>
   );

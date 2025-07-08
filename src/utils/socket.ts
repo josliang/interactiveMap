@@ -19,10 +19,11 @@ class Ws {
   private lastPongTimestamp = Date.now();
   private pongTimeoutChecker: NodeJS.Timeout | null = null;
 
-  // 新增：用于自动重连
   private reconnectAttempts = 0;
   private reconnectTimer: NodeJS.Timeout | null = null;
   private connectUrl = '';
+
+  private shouldReconnect = true;
 
   onMessage(fn: MessageListener) {
     this.listeners.add(fn);
@@ -33,7 +34,7 @@ class Ws {
   }
 
   connect(url: string) {
-    this.connectUrl = url; // 保存连接地址以供重连使用
+    this.connectUrl = url;
     this.ws = new WebSocket(url);
     this.ws.onopen = this.onopen.bind(this);
     this.ws.onmessage = this.onmessage.bind(this);
@@ -42,6 +43,7 @@ class Ws {
   }
 
   init(): Promise<void> {
+    this.shouldReconnect = true;
     return new Promise((resolve, reject) => {
       this.connect('wss://www.gzvirdyn.cn:8001');
 
@@ -68,7 +70,7 @@ class Ws {
   onopen(): void {
     console.log(':::websocket连接成功:::', this.ws);
     this.socketStatus = true;
-    this.reconnectAttempts = 0; // 重置重连次数
+    this.reconnectAttempts = 0;
     this.lastPongTimestamp = Date.now();
     this.startHeartbeat();
   }
@@ -92,14 +94,18 @@ class Ws {
     console.log(':::websocket连接关闭:::');
     this.socketStatus = false;
     this.stopHeartbeat();
-    this.tryReconnect();
+    if (this.shouldReconnect) {
+      this.tryReconnect();
+    }
   }
 
   onerror(e: Event): void {
     console.log(':::websocket连接失败:::', e);
     this.socketStatus = false;
     this.stopHeartbeat();
-    this.tryReconnect();
+    if (this.shouldReconnect) {
+      this.tryReconnect();
+    }
   }
 
   send(message: WebSocketMessage): void {
@@ -121,7 +127,9 @@ class Ws {
       const now = Date.now();
       if (now - this.lastPongTimestamp > this.heartbeatTimeout * 2) {
         console.error('心跳超时，尝试重连');
-        this.tryReconnect();
+        if (this.shouldReconnect) {
+          this.tryReconnect();
+        }
       }
     }, this.heartbeatTimeout);
   }
@@ -138,7 +146,7 @@ class Ws {
   }
 
   private tryReconnect() {
-    if (this.reconnectTimer) return; // 避免重复重连
+    if (!this.shouldReconnect || this.reconnectTimer) return;
 
     if (this.ws) {
       this.ws.close();
@@ -152,6 +160,22 @@ class Ws {
       this.reconnectTimer = null;
       this.connect(this.connectUrl);
     }, delay);
+  }
+
+  // ✅ 外部调用：主动断开连接并不再自动重连
+  close() {
+    this.shouldReconnect = false;
+    this.stopHeartbeat();
+    if (this.ws) {
+      this.ws.close();
+      this.ws = null;
+    }
+  }
+
+  // ✅ 外部调用：允许重新连接
+  allowReconnect() {
+    this.shouldReconnect = true;
+    this.init();
   }
 }
 
