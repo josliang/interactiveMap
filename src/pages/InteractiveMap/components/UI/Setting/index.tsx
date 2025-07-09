@@ -81,63 +81,111 @@ const Index = (props: SettingProps) => {
       </div>
       <div className="im-quicktools-modal-setting-block">
         {self === top && (
-          <button
-            className="im-quicktools-modal-setting-button"
-            style={{ color: !directoryHandler ? '#ffffff' : '#288828' }}
-            onClick={handleClickEftWatcherPath}
-          >
-            {directoryHandler
-              ? `${t('setting.realtimeMarker')} ${directoryHandler?.name}`
-              : t('setting.enableMarker')}
-          </button>
+          <div className={!directoryHandler ? 'im-quicktools-modal-setting-box de-active-box' : 'im-quicktools-modal-setting-box active-box'}>
+            <div className="im-quicktools-modal-setting-box-title">
+              <span>{t('setting.markerTitle')}</span>
+            </div>
+            <div className="im-quicktools-modal-setting-box-content">
+              <span>{t('setting.markerContent')}</span>
+            </div>
+            <div className="im-quicktools-modal-setting-box-tips">
+              <span>{t('eftwatcher.tips4')}</span>
+            </div>
+            <button
+              className="im-quicktools-modal-setting-box-button active-box-button"
+              onClick={handleClickEftWatcherPath}
+            >
+              {directoryHandler
+                ? `${t('setting.realtimeMarker')} ${directoryHandler?.name}`
+                : t('setting.enableMarker')}
+            </button>
+          </div>
         )}
         {self === top && (
-          <button
-            className="im-quicktools-modal-setting-button"
-            style={{ color: !tarkovGamePathHandler ? '#ffffff' : '#288828' }}
-            onClick={handleClickTarkovGamePathPath}
-          >
-            {tarkovGamePathHandler
-              ? `${t('setting.tarkovGamePath')} ${tarkovGamePathHandler?.name}`
-              : t('setting.enableTarkovGamePath')}
-          </button>
+          <div className={!tarkovGamePathHandler ? 'im-quicktools-modal-setting-box' : 'im-quicktools-modal-setting-box active-box'}>
+            <div className="im-quicktools-modal-setting-box-title">
+              <span>{t('setting.gamePathTitle')}</span>
+            </div>
+            <div className="im-quicktools-modal-setting-box-content">
+              <span>{t('setting.gamePathContent')}</span>
+            </div>
+            <div className="im-quicktools-modal-setting-box-tips">
+              <span>{t('eftwatcher.tips5')}</span>
+            </div>
+            <button
+              className="im-quicktools-modal-setting-box-button active-box-button"
+              onClick={handleClickTarkovGamePathPath}
+            >
+              {tarkovGamePathHandler
+                ? `${t('setting.tarkovGamePath')} ${tarkovGamePathHandler?.name}`
+                : t('setting.enableTarkovGamePath')}
+            </button>
+          </div>
         )}
         {self === top && (
-          <button
-            className="im-quicktools-modal-setting-button"
-            style={{ color: '#e59400' }}
-            onClick={handleDeleteHandler}
-          >
-            {t('setting.resetPath')}
-          </button>
+          <div className="im-quicktools-modal-setting-box warn-box">
+            <div className="im-quicktools-modal-setting-box-title">
+              <span>{t('setting.resetPath')}</span>
+            </div>
+            <div className="im-quicktools-modal-setting-box-content">
+              <span>{t('setting.resetPathContent')}</span>
+            </div>
+            <button
+              className="im-quicktools-modal-setting-box-button active-box-button"
+              onClick={handleDeleteHandler}
+            >
+              {t('setting.resetPath')}
+            </button>
+          </div>
         )}
         {self === top && (
-          <div className="im-quicktools-modal-setting-divider" />
+          <div className={!autoDelete ? 'im-quicktools-modal-setting-box' : 'im-quicktools-modal-setting-box active-box'}>
+            <div className="im-quicktools-modal-setting-box-title">
+              <span>{t('setting.autoDelete')}</span>
+            </div>
+            <div className="im-quicktools-modal-setting-box-content">
+              <span>{t('setting.autoDeleteContent')}</span>
+            </div>
+            <button
+              className="im-quicktools-modal-setting-box-button active-box-button"
+              onClick={handleToggleAutoDelete}
+            >
+              {t('setting.autoDelete')} ({autoDelete ? t('common.enable') : t('common.disable')})
+            </button>
+          </div>
         )}
-        {self === top && (
+        <div className={!locationScale ? 'im-quicktools-modal-setting-box' : 'im-quicktools-modal-setting-box active-box'}>
+          <div className="im-quicktools-modal-setting-box-title">
+            <span>{t('setting.markerScale')}</span>
+          </div>
+          <div className="im-quicktools-modal-setting-box-content">
+            <span>{t('setting.markerScaleContent')}</span>
+          </div>
           <button
-            style={{ color: !autoDelete ? '#882828' : '#288828' }}
-            className="im-quicktools-modal-setting-button"
-            onClick={handleToggleAutoDelete}
+            className="im-quicktools-modal-setting-box-button active-box-button"
+            onClick={handleToggleLocationScale}
           >
-            {t('setting.autoDelete')} ({autoDelete ? t('common.enable') : t('common.disable')})
+            {t('setting.markerScale')} ({locationScale ? t('common.enable') : t('common.disable')})
           </button>
-        )}
-        <button
-          style={{ color: !locationScale ? '#882828' : '#288828' }}
-          className="im-quicktools-modal-setting-button"
-          onClick={handleToggleLocationScale}
-        >
-          {t('setting.markerScale')} ({locationScale ? t('common.enable') : t('common.disable')})
-        </button>
-        <div className="im-quicktools-modal-setting-divider" />
-        <div className="im-quicktools-modal-setting-input">
-          <div className="im-quicktools-modal-setting-input-label">{t('setting.username')}</div>
-          <input
-            value={username}
-            onChange={handleUsernameChange}
-            placeholder={t('setting.usernamePlaceholder')}
-          />
+        </div>
+        <div className="im-quicktools-modal-setting-box">
+          <div className="im-quicktools-modal-setting-box-title">
+            <span>{t('setting.usernamePlaceholder')}</span>
+          </div>
+          <div className="im-quicktools-modal-setting-box-content">
+            <span>{t('setting.usernameContent')}</span>
+          </div>
+          <div className="im-quicktools-modal-setting-box-tips">
+            <span>{t('setting.usernameTips')}</span>
+          </div>
+          <div className="im-quicktools-modal-setting-box-input">
+            <div className="im-quicktools-modal-setting-box-input-label">{t('setting.username')}</div>
+            <input
+              value={username}
+              onChange={handleUsernameChange}
+              placeholder={t('setting.usernamePlaceholder')}
+            />
+          </div>
         </div>
 
         <div className="im-warning" onMouseDown={(e) => e.stopPropagation()}>

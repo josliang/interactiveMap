@@ -70,18 +70,17 @@ const Index = (props: EFTWatcherProps) => {
         <div className="im-eftwatcher-title">
           <span>{t('eftwatcher.title')}</span>
         </div>
-        <div className="im-eftwatcher-content">
-          {
-            /*
-            <span>{t('eftwatcher.tips1')}</span>
-            <span>{t('eftwatcher.tips2')}</span>
-            <span>{t('eftwatcher.tips3')}</span>
-            */
-          }
-          <span style={{ color: '#ffff88' }}>{t('eftwatcher.tips4')}</span>
-          <span style={{ color: '#ffff88' }}>{t('eftwatcher.tips5')}</span>
-        </div>
-
+        {
+          /*
+          <div className="im-eftwatcher-content">
+              <span>{t('eftwatcher.tips1')}</span>
+              <span>{t('eftwatcher.tips2')}</span>
+              <span>{t('eftwatcher.tips3')}</span>
+              <span style={{ color: '#ffff88' }}>{t('eftwatcher.tips4')}</span>
+              <span style={{ color: '#ffff88' }}>{t('eftwatcher.tips5')}</span>
+          </div>
+          */
+        }
         <div className="im-eftwatcher-buttons">
           {window.showDirectoryPicker ? (
             <button
