@@ -101,7 +101,7 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
       _heightRange = activeLayer.extents[0].height;
     }
     return _heightRange;
-  }, [activeLayer]);
+  }, [activeLayer, baseMap]);
 
   const image2realPos = useMemo(() => {
     return _image2realPos(baseMap, mapData.bounds, mapData.coordinateRotation);
