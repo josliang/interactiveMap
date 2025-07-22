@@ -162818,7 +162818,7 @@ export default [
     ],
     id: '6733700029c367a3d40b02af',
     tarkovDataId: null,
-    name: 'The Labyrinth',
+    name: '迷宫',
     normalizedName: 'the-labyrinth',
     wiki: 'https://escapefromtarkov.fandom.com/wiki/The_Labyrinth',
     description: 'TerraGroup的承包商之一Knossos公司的设施。据公共消息来源称，他们建造了游乐园和主题公园。然而，这个地方看起来更像是一个戒备森严的地堡，而不是一个新的主题公园。',

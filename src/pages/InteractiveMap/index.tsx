@@ -321,7 +321,7 @@ const Index = () => {
           },
         });
         break;
-      case 'the-labyrinth':
+      case 'Labyrinth':
         setActiveMapId('6733700029c367a3d40b02af');
         setActiveLayer(undefined);
         ws.send({
