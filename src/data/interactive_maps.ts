@@ -86361,7 +86361,7 @@ export default [
     ],
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev',
-    svgPath: 'mapSvg/the-lab-temp.jpg',
+    svgPath: 'mapSvg/the-lab-temp.png',
     tilePath: '/uselessPath/maps/labs_v3/1st/{z}/{x}/{y}.png',
     heightRange: [
       -0.9,
@@ -162766,7 +162766,7 @@ export default [
     ],
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev',
-    svgPath: 'mapSvg/the-labyrinth-temp.jpg',
+    svgPath: 'mapSvg/the-labyrinth-temp.png',
     tilePath: '/uselessPath/maps/labyrinth/main/{z}/{x}/{y}.png',
     heightRange: [
       0,
@@ -162853,7 +162853,7 @@ export default [
     extracts: [
       {
         id: '761dedf3fefaf3526e0ce19c7d7b1a3d494fce9b',
-        name: 'The Way Up',
+        name: '向上通路',
         faction: 'pmc',
         switches: [],
         position: {
@@ -162867,7 +162867,7 @@ export default [
       },
       {
         id: '761dedf3fefaf3526e0ce19c7d7b1a3d494fce1c',
-        name: "Ariadne's Path",
+        name: '阿里阿德涅之线',
         faction: 'pmc',
         switches: [],
         position: {
