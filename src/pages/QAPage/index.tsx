@@ -7,8 +7,8 @@ interface GuideItem {
   id: number;
   title: string;
   content: string;
-  images?: string[]; // 内容中的图片URL数组
-  type?: 'normal' | 'important' | 'warning'; // 内容类型
+  images?: string[];
+  type?: 'normal' | 'important' | 'warning';
 }
 
 const GuideDocumentation: React.FC = () => {
@@ -65,7 +65,6 @@ const GuideDocumentation: React.FC = () => {
 
   return (
     <div className="guide-doc">
-      {/* 顶部标题 */}
       <header className="guide-doc-header">
         <div className="guide-header-content container">
           <p className="guide-title">文章详情</p>
@@ -73,10 +72,8 @@ const GuideDocumentation: React.FC = () => {
         </div>
       </header>
 
-      {/* 主内容区 */}
       <main className="guide-main">
         <div className="container">
-          {/* 按分类展示内容 */}
           {guideItems.map((item) => (
             <article
               key={item.id}
@@ -89,7 +86,6 @@ const GuideDocumentation: React.FC = () => {
               </div>
               <div className="item-content">
                 <p dangerouslySetInnerHTML={{ __html: item.content }} />
-                {/* 图片展示 */}
                 {item.images && item.images.length > 0 && (
                   <div className="item-images">
                     {item.images.map((img) => (
