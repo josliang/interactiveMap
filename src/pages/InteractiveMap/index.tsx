@@ -332,6 +332,17 @@ const Index = () => {
           },
         });
         break;
+      case 'Terminal':
+        setActiveMapId('65cc8f81a9aac3e77d0cfd3e');
+        setActiveLayer(undefined);
+        ws.send({
+          category: 'switchMap',
+          value: {
+            mapId: '65cc8f81a9aac3e77d0cfd3e',
+            username,
+          },
+        });
+        break;
       default:
         break;
     }
