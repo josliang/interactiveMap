@@ -68775,19 +68775,19 @@ export default [
     coordinateRotation: 180,
     bounds: [
       [
-        532.75,
-        -442.75,
+        600,
+        -440.75,
       ],
       [
-        -364,
-        453.5,
+        -435,
+        420.5,
       ],
     ],
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev',
     svgPath: 'mapSvg/Interchange-Ground_Level.svg',
     tilePath: '/uselessPath/maps/interchange/main/{z}/{x}/{y}.png',
-    _heightRange: [
+    heightRange: [
       -1000,
       25,
     ],
@@ -69015,7 +69015,7 @@ export default [
         top: 33,
         size: 80,
       },
-      {
+      /* {
         position: [
           87,
           -165,
@@ -69075,17 +69075,18 @@ export default [
         top: 33,
         size: 65,
       },
+      */
       {
         position: [
           18,
-          -103,
+          -106,
         ],
         text: 'EMERCOM',
         bottom: 25,
         top: 33,
         size: 65,
       },
-      {
+      /*  {
         position: [
           -28,
           -103,
@@ -69175,17 +69176,18 @@ export default [
         top: 33,
         size: 65,
       },
+      */
       {
         position: [
           -18,
-          -25,
+          -28,
         ],
         text: 'Kiba',
         bottom: 25,
         top: 33,
         size: 65,
       },
-      {
+      /* {
         position: [
           -34,
           -20,
@@ -69385,6 +69387,7 @@ export default [
         top: 999,
         size: 65,
       },
+      */
       {
         position: [
           -27,
@@ -69395,7 +69398,7 @@ export default [
         top: 999,
         size: 65,
       },
-      {
+      /* {
         position: [
           70,
           -94,
@@ -69615,6 +69618,7 @@ export default [
         top: 999,
         size: 65,
       },
+      */
     ],
     id: '5714dbc024597771384a510d',
     tarkovDataId: '4',
@@ -141951,6 +141955,20 @@ export default [
         top: 14.4583473,
         bottom: 12.2290764,
       },
+      {
+        id: '3a8cfedc77147d2e438f8a2c55a01ae3d6defb212',
+        name: '前往终点站',
+        faction: 'transit',
+        switches: [],
+        position: {
+          x: -966.0,
+          y: 1,
+          z: 365.6,
+        },
+        outline: [],
+        top: 14.4583473,
+        bottom: 12.2290764,
+      },
     ],
     locks: [
       {
@@ -153287,8 +153305,8 @@ export default [
         -945,
       ],
       [
-        -695,
-        470,
+        -761.8,
+        469.6,
       ],
     ],
     author: 'Shebuka',
@@ -156910,9 +156928,9 @@ export default [
         faction: 'pmc',
         switches: [],
         position: {
-          x: -134.26001,
+          x: -135.26001,
           y: -2.37,
-          z: 419.8,
+          z: 445.8,
         },
         outline: [
           {
@@ -156982,7 +157000,7 @@ export default [
         position: {
           x: 447.24,
           y: -13.46346,
-          z: 57.46,
+          z: 71.46,
         },
         outline: [
           {
@@ -157017,7 +157035,7 @@ export default [
         position: {
           x: -536.1243,
           y: 1.68126917,
-          z: 286.7704,
+          z: 308.7704,
         },
         outline: [
           {
@@ -157148,9 +157166,9 @@ export default [
         faction: 'scav',
         switches: [],
         position: {
-          x: 195.550049,
+          x: 197.550049,
           y: -16.6887321,
-          z: 259.210022,
+          z: 280.210022,
         },
         outline: [
           {
@@ -157183,9 +157201,9 @@ export default [
         faction: 'scav',
         switches: [],
         position: {
-          x: 176.640015,
+          x: 174.640015,
           y: -20.72,
-          z: 215.859985,
+          z: 238.859985,
         },
         outline: [
           {
@@ -157220,7 +157238,7 @@ export default [
         position: {
           x: 413.685669,
           y: -12.5587311,
-          z: 242.17038,
+          z: 260.17038,
         },
         outline: [
           {
@@ -157253,9 +157271,9 @@ export default [
         faction: 'scav',
         switches: [],
         position: {
-          x: 220.426651,
+          x: 222.426651,
           y: 20.538269,
-          z: -705.7956,
+          z: -724.7956,
         },
         outline: [
           {
@@ -157363,9 +157381,9 @@ export default [
         faction: 'scav',
         switches: [],
         position: {
-          x: -517.93,
+          x: -520.93,
           y: 10.67,
-          z: 149.19,
+          z: 170.19,
         },
         outline: [
           {
@@ -157400,7 +157418,7 @@ export default [
         position: {
           x: -135.774353,
           y: 0.971269131,
-          z: 416.2604,
+          z: 442.2604,
         },
         outline: [
           {
