@@ -38,7 +38,6 @@ interface OtherFileType {
 
 const Index = (props: PlayerLocationProps & InteractiveMap.UtilProps) => {
   const {
-    isMobile,
     activeMapId,
     baseMapStatus,
     mapScale,
@@ -109,7 +108,7 @@ const Index = (props: PlayerLocationProps & InteractiveMap.UtilProps) => {
               updatedAt,
             };
           } else if (name !== '默认用户') {
-            if (isMobile || (self !== top)) (window as any).interactUpdateLocalLocation(filename);
+            (window as any).interactUpdateLocalLocation(filename);
           }
         }
       });

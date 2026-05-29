@@ -658,7 +658,7 @@ const Index = () => {
   useEffect(() => {
     localStorage.getItem('im-username') ?? localStorage.setItem('im-username', '默认用户');
     (window as any).interactUpdateActiveMap = (mapId: string) => {
-      if (isMobile || (self !== top)) setActiveMapId(mapId);
+      setActiveMapId(mapId);
     };
   }, [isMobile]);
 
