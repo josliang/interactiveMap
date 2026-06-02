@@ -332,13 +332,24 @@ const Index = () => {
           },
         });
         break;
-      case 'Terminal':
-        setActiveMapId('65cc8f81a9aac3e77d0cfd3e');
+      case 'Terminal_ui':
+        setActiveMapId('6925a2c38bdebd9e2302692e');
         setActiveLayer(undefined);
         ws.send({
           category: 'switchMap',
           value: {
-            mapId: '65cc8f81a9aac3e77d0cfd3e',
+            mapId: '6925a2c38bdebd9e2302692e',
+            username,
+          },
+        });
+        break;
+      case 'Icebreaker':
+        setActiveMapId('69af492a4819ea4ba10a69c5');
+        setActiveLayer(undefined);
+        ws.send({
+          category: 'switchMap',
+          value: {
+            mapId: '69af492a4819ea4ba10a69c5',
             username,
           },
         });
