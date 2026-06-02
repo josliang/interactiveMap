@@ -603,7 +603,8 @@ const Index = () => {
 
   useEffect(() => {
     const saveMapId = localStorage.getItem('im-activeMap');
-    if (saveMapId) {
+    const isMapIdValid = mapList.some((map) => map.id === saveMapId);
+    if (saveMapId && isMapIdValid) {
       setActiveMapId(saveMapId);
     } else if (mapList[0]?.id) {
       setActiveMapId(mapList[0].id);
