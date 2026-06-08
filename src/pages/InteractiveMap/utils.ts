@@ -96,7 +96,7 @@ export const icons: any = {
   spawn_scav: 'spawn_scav',
   stationarygun: 'stationarygun',
   switch: 'switch',
-  btr: 'btr',
+  btr_stop: 'btr_stop',
 };
 
 export const loots: any = {

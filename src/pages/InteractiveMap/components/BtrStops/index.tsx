@@ -4,14 +4,14 @@ import { getIconCDN, mouseClickEvent, mouseHoverEvent } from '@/pages/Interactiv
 
 import Image from '../Image';
 
-interface BtrProps {
-  btrs: InteractiveMap.Btr[];
+interface BtrStopProps {
+  btrStops: InteractiveMap.BtrStop[];
   show: string[];
 }
 
-const Index = (props: BtrProps & InteractiveMap.UtilProps) => {
+const Index = (props: BtrStopProps & InteractiveMap.UtilProps) => {
   const {
-    btrs = [],
+    btrStops = [],
     baseMapStatus,
     mapScale,
     activeLayer,
@@ -22,28 +22,28 @@ const Index = (props: BtrProps & InteractiveMap.UtilProps) => {
   if (baseMapStatus === 'loaded' && show.length > 0) {
     return (
       <Group>
-        {btrs.map((btr) => {
-          const btrHeight = btr.position.y;
+        {btrStops.map((btrStop) => {
+          const btrStopHeight = btrStop.position.y;
           let active = true;
           if (activeLayer) {
             if (
-              btrHeight < heightRange[0] ||
-              btrHeight > heightRange[1]
+              btrStopHeight < heightRange[0] ||
+              btrStopHeight > heightRange[1]
             ) {
               active = false;
             }
           }
-          if (show.includes('btr')) {
+          if (show.includes('btrStop')) {
             return (
               <Group
-                id={`im-btr-group-${btr.position.x}-${btr.position.z}`}
+                id={`im-btrStop-group-${btrStop.position.x}-${btrStop.position.z}`}
                 {...mouseHoverEvent}
                 {...mouseClickEvent({
-                  text: btr.parkingPointName,
+                  text: btrStop.parkingPointName,
                   mapScale,
                   position: {
-                    x: btr.position.x,
-                    y: btr.position.z,
+                    x: btrStop.position.x,
+                    y: btrStop.position.z,
                   },
                   real2imagePos,
                 })}
@@ -51,21 +51,21 @@ const Index = (props: BtrProps & InteractiveMap.UtilProps) => {
                 listening={active}
               >
                 <Image
-                  id={`im-btr-image-${btr.position.x}-${btr.position.z}`}
-                  x={real2imagePos.x(btr.position.x) - 12 / mapScale}
-                  y={real2imagePos.y(btr.position.z) - 20 / mapScale}
-                  width={24 / mapScale}
-                  height={24 / mapScale}
-                  imageSrc={getIconCDN('btr')}
+                  id={`im-btrStop-image-${btrStop.position.x}-${btrStop.position.z}`}
+                  x={real2imagePos.x(btrStop.position.x) - 10 / mapScale}
+                  y={real2imagePos.y(btrStop.position.z) - 18 / mapScale}
+                  width={20 / mapScale}
+                  height={20 / mapScale}
+                  imageSrc={getIconCDN('btr_stop')}
                 />
                 <Text
-                  id={`im-btr-text-${btr.position.x}-${btr.position.z}`}
-                  x={real2imagePos.x(btr.position.x)}
-                  y={real2imagePos.y(btr.position.z)}
+                  id={`im-btrStop-text-${btrStop.position.x}-${btrStop.position.z}`}
+                  x={real2imagePos.x(btrStop.position.x)}
+                  y={real2imagePos.y(btrStop.position.z)}
                   fontFamily="JinBuTi"
-                  text={btr.parkingPointName}
+                  text={btrStop.parkingPointName}
                   fontSize={12 / mapScale}
-                  fill={'#f0e442'}
+                  fill={'#fff'}
                   width={600 / mapScale}
                   offsetX={300 / mapScale}
                   align="center"

@@ -74,8 +74,8 @@ const Index = () => {
   const [hazards, setHazards] = useLocalStorageState<string[]>('im-hazards', {
     defaultValue: [],
   });
-  const [btrs, setBtrs] = useLocalStorageState<string[]>('im-btrs', {
-    defaultValue: ['btrs'],
+  const [btrStops, setBtrStops] = useLocalStorageState<string[]>('im-btrStops', {
+    defaultValue: ['btrStops'],
   });
   const [stationaryWeapons, setStationaryWeapons] = useLocalStorageState<string[]>(
     'im-stationaryWeapons',
@@ -485,8 +485,8 @@ const Index = () => {
     setHazards(_hazards);
   };
 
-  const handleBtrsChange = (_btrs: string[]) => {
-    setBtrs(_btrs);
+  const handleBtrStopsChange = (_btrStops: string[]) => {
+    setBtrStops(_btrStops);
   };
 
   const handleStationaryWeaponsChange = (_stationaryWeapons: string[]) => {
@@ -712,7 +712,7 @@ const Index = () => {
             markerLootKeys={lootKeys}
             markerSpawns={spawns}
             markerHazards={hazards}
-            markerBtrs={btrs}
+            markerBtrStops={btrStops}
             markerStationaryWeapons={stationaryWeapons}
             locationScale={locationScale}
             strokeType={strokeType}
@@ -759,7 +759,7 @@ const Index = () => {
                   lootKeys={lootKeys}
                   spawns={spawns}
                   hazards={hazards}
-                  btrs={btrs}
+                  btrStops={btrStops}
                   stationaryWeapons={stationaryWeapons}
                   mapInfoActive={mapInfoActive}
                   lootContainers={activeMap.lootContainers}
@@ -779,7 +779,7 @@ const Index = () => {
                   onLootKeysChange={handleLootKeysChange}
                   onSpawnsChange={handleSpawnsChange}
                   onHazardsChange={handleHazardsChange}
-                  onBtrsChange={handleBtrsChange}
+                  onBtrStopsChange={handleBtrStopsChange}
                   onStationaryWeaponsChange={handleStationaryWeaponsChange}
                   onStrokeColorChange={handleStrokeColorChange}
                   onStrokeWidthChange={handleStrokeWidthChange}

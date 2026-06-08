@@ -31886,7 +31886,7 @@ export default [
         },
       },
     ],
-    btrs: [
+    btrStops: [
       {
         parkingPointName: '市中心',
         position: {
@@ -142690,9 +142690,9 @@ export default [
         faction: 'transit',
         switches: [],
         position: {
-          x: -301.4,
+          x: -314.2,
           y: -66.11997,
-          z: 550.1,
+          z: 525.9,
         },
         outline: [],
         top: -60.894474,
@@ -163568,7 +163568,7 @@ export default [
       },
     ],
     stationaryWeapons: [],
-    btrs: [
+    btrStops: [
       {
         parkingPointName: 'USEC检查站',
         position: {

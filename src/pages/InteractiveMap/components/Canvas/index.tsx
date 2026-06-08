@@ -14,7 +14,7 @@ import {
 import { useWs } from '@/components/WsContext';
 
 import BaseMap from '../BaseMap';
-import Btrs from '../Btrs';
+import BtrStops from '../BtrStops';
 import DrawLines from '../DrawLines';
 import Extracts from '../Extracts';
 import Hazards from '../Hazards';
@@ -39,7 +39,7 @@ interface CanvasProps {
   markerLootKeys: string[];
   markerSpawns: string[];
   markerHazards: string[];
-  markerBtrs: string[];
+  markerBtrStops: string[];
   markerStationaryWeapons: string[];
   locationScale: boolean;
   width: number;
@@ -60,7 +60,7 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
     markerLootKeys,
     markerSpawns,
     markerHazards,
-    markerBtrs,
+    markerBtrStops,
     markerStationaryWeapons,
     locationScale,
     width,
@@ -566,7 +566,7 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
         />
         <Spawns {...utils} baseMap={mapData} spawns={mapData.spawns} show={markerSpawns} />
         <Hazards {...utils} hazards={mapData.hazards} show={markerHazards} />
-        <Btrs {...utils} btrs={mapData.btrs} show={markerBtrs} />
+        <BtrStops {...utils} btrStops={mapData.btrStops} show={markerBtrStops} />
         <Extracts {...utils} extracts={mapData.extracts} show={markerExtracts} />
         <Locks {...utils} locks={mapData.locks} show={markerLocks} />
         <PlayerLocation

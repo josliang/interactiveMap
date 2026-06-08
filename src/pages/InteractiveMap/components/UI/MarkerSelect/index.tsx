@@ -14,7 +14,7 @@ export interface MarkerSelectProps {
   lootKeys: string[];
   spawns: string[];
   hazards: string[];
-  btrs: string[];
+  btrStops: string[];
   stationaryWeapons: string[];
   lootContainers: InteractiveMap.LootContainer[];
   onExtractsChange: (extracts: InteractiveMap.Faction[]) => void;
@@ -22,7 +22,7 @@ export interface MarkerSelectProps {
   onLootKeysChange: (lootKeys: string[]) => void;
   onSpawnsChange: (spawn: string[]) => void;
   onHazardsChange: (hazards: string[]) => void;
-  onBtrsChange: (btrs: string[]) => void;
+  onBtrStopsChange: (btrStops: string[]) => void;
   onStationaryWeaponsChange: (stationaryWeapon: string[]) => void;
 }
 
@@ -33,7 +33,7 @@ const Index = (props: MarkerSelectProps) => {
     lootKeys,
     spawns,
     hazards,
-    btrs,
+    btrStops,
     stationaryWeapons,
     lootContainers,
     onExtractsChange,
@@ -41,7 +41,7 @@ const Index = (props: MarkerSelectProps) => {
     onLootKeysChange,
     onSpawnsChange,
     onHazardsChange,
-    onBtrsChange,
+    onBtrStopsChange,
     onStationaryWeaponsChange,
   } = props;
 
@@ -89,11 +89,11 @@ const Index = (props: MarkerSelectProps) => {
     }
   };
 
-  const handleToggleBtr = (_btr: string) => {
-    if (btrs.includes(_btr)) {
-      onBtrsChange?.(btrs.filter((h) => h !== _btr));
+  const handleToggleBtrStop = (_btrStop: string) => {
+    if (btrStops.includes(_btrStop)) {
+      onBtrStopsChange?.(btrStops.filter((h) => h !== _btrStop));
     } else {
-      onBtrsChange?.([...btrs, _btr]);
+      onBtrStopsChange?.([...btrStops, _btrStop]);
     }
   };
 
@@ -197,14 +197,14 @@ const Index = (props: MarkerSelectProps) => {
               />
             );
           })}
-          {['btr'].map((btr) => {
+          {['btrStop'].map((btrStop) => {
             return (
               <img
                 className={classNames({
-                  active: btrs.includes(btr),
+                  active: btrStops.includes(btrStop),
                 })}
-                src={getIconCDN('btr')}
-                onClick={() => handleToggleBtr(btr)}
+                src={getIconCDN('btr_stop')}
+                onClick={() => handleToggleBtrStop(btrStop)}
               />
             );
           })}

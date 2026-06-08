@@ -14,7 +14,7 @@ declare namespace InteractiveMap {
     extracts: Extract[];
     locks: Lock[];
     hazards: Hazard[];
-    btrs: Btr[];
+    btrStops: BtrStop[];
     lootContainers: LootContainer[];
     stationaryWeapons: StationaryWeapon[];
 
@@ -91,7 +91,7 @@ declare namespace InteractiveMap {
     bottom: number;
   }
 
-  interface Btr {
+  interface BtrStop {
     parkingPointName: string;
     position: Position;
   }
