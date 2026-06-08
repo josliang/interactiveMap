@@ -6792,6 +6792,8 @@ export default [
         top: 2.20602632,
         bottom: -2.02602649,
       },
+    ],
+    transits: [
       {
         id: 'b17b3bec8b22bdd99d6e9589ed0d9a41f2f6aac9',
         name: '前往实验室',
@@ -34633,6 +34635,8 @@ export default [
         top: 19.1449986,
         bottom: 16.1449986,
       },
+    ],
+    transits: [
       {
         id: '89ff19116feeafdf4a2b4e538cafb5364ffbe869',
         name: '前往塔科夫街区',
@@ -41485,6 +41489,7 @@ export default [
         },
       },
     ],
+    btrStops: [],
   },
   {
     key: 'ground-zero',
@@ -44271,6 +44276,8 @@ export default [
         top: 19.1449986,
         bottom: 16.1449986,
       },
+    ],
+    transits: [
       {
         id: '89ff19116feeafdf4a2b4e538cafb5364ffbe869',
         name: '前往塔科夫街区',
@@ -51123,6 +51130,7 @@ export default [
         },
       },
     ],
+    btrStops: [],
   },
   {
     key: 'customs',
@@ -55789,6 +55797,8 @@ export default [
         top: 3.18349981,
         bottom: -1.17350006,
       },
+    ],
+    transits: [
       {
         id: 'cbb161149bdb3062b2a27447fbc804385948f672',
         name: '前往工厂',
@@ -62556,6 +62566,7 @@ export default [
         },
       },
     ],
+    btrStops: [],
   },
   {
     key: 'factory',
@@ -64333,6 +64344,8 @@ export default [
         top: 3.13233328,
         bottom: -0.4076667,
       },
+    ],
+    transits: [
       {
         id: '7bb46d641d59983a58440a7a58d65933d981c212',
         name: '前往海关',
@@ -65858,6 +65871,7 @@ export default [
       },
     ],
     stationaryWeapons: [],
+    btrStops: [],
   },
   {
     key: 'factory',
@@ -67654,8 +67668,10 @@ export default [
         top: 3.13233328,
         bottom: -0.4076667,
       },
+    ],
+    transits: [
       {
-        id: '7bb46d641d59983a58440a7a58d65933d981c215',
+        id: '7bb46d641d59983a58440a7a58d65933d981c212',
         name: '前往海关',
         faction: 'transit',
         switches: [],
@@ -67690,7 +67706,7 @@ export default [
         bottom: -0.423,
       },
       {
-        id: '7bb46d641d59983a58440a7a58d65933d981c216',
+        id: '7bb46d641d59983a58440a7a58d65933d981c213',
         name: '前往实验室',
         faction: 'transit',
         switches: [],
@@ -67725,7 +67741,7 @@ export default [
         bottom: -4.085,
       },
       {
-        id: '7bb46d641d59983a58440a7a58d65933d981c217',
+        id: '7bb46d641d59983a58440a7a58d65933d981c214',
         name: '前往森林',
         faction: 'transit',
         switches: [],
@@ -69179,6 +69195,7 @@ export default [
       },
     ],
     stationaryWeapons: [],
+    btrStops: [],
   },
   {
     key: 'interchange',
@@ -72914,6 +72931,8 @@ export default [
         top: 24.6050549,
         bottom: 21.3349438,
       },
+    ],
+    transits: [
       {
         id: '7bb46d641d59983a58440a7a58d65933d981c218',
         name: '前往塔科夫街区',
@@ -86800,6 +86819,7 @@ export default [
       },
     ],
     stationaryWeapons: [],
+    btrStops: [],
   },
   {
     key: 'the-lab',
@@ -89601,6 +89621,8 @@ export default [
         top: 11.7320433,
         bottom: -0.652356148,
       },
+    ],
+    transits: [
       {
         id: '6499ac7374cd238366b977944e305a08afd2e9e4',
         name: '前往塔科夫街区',
@@ -94013,6 +94035,7 @@ export default [
       },
     ],
     stationaryWeapons: [],
+    btrStops: [],
   },
   {
     key: 'lighthouse',
@@ -97615,6 +97638,8 @@ export default [
         top: 14.4583473,
         bottom: 12.2290764,
       },
+    ],
+    transits: [
       {
         id: '3a8cfedc77147d2e438f8a2c55a01ae3d6defb26',
         name: '前往森林',
@@ -121614,6 +121639,7 @@ export default [
         },
       },
     ],
+    btrStops: [],
   },
   {
     key: 'reserve',
@@ -124663,6 +124689,8 @@ export default [
         top: -2.92,
         bottom: -4.92,
       },
+    ],
+    transits: [
       {
         id: '3a8cfedc77147d2e438f8a2c55a01ae3d6defb27',
         name: '前往森林',
@@ -138330,6 +138358,7 @@ export default [
         },
       },
     ],
+    btrStops: [],
   },
   {
     key: 'shoreline',
@@ -142579,6 +142608,8 @@ export default [
         top: 13.6386852,
         bottom: -15.6386852,
       },
+    ],
+    transits: [
       {
         id: '3a8cfedc77147d2e438f8a2c55a01ae3d6defb210',
         name: '前往灯塔',
@@ -154015,6 +154046,7 @@ export default [
         },
       },
     ],
+    btrStops: [],
   },
   {
     key: 'woods',
@@ -158241,6 +158273,8 @@ export default [
         top: 17.9161243,
         bottom: 0.7264141,
       },
+    ],
+    transits: [
       {
         id: '3a8cfedc77147d2e438f8a2c55a01ae3d6defb212',
         name: '前往灯塔',
@@ -166194,6 +166228,7 @@ export default [
     ],
     stationaryWeapons: [
     ],
+    btrStops: [],
   },
   {
     key: 'terminal',
@@ -168361,6 +168396,7 @@ export default [
         bottom: -4.035925,
       },
     ],
+    transits: [],
     locks: [
     ],
     switches: [
@@ -168371,6 +168407,7 @@ export default [
     ],
     stationaryWeapons: [
     ],
+    btrStops: [],
   },
   {
     key: 'icebreaker',
@@ -169307,6 +169344,7 @@ export default [
     ],
     extracts: [
     ],
+    transits: [],
     locks: [
     ],
     switches: [
@@ -169317,5 +169355,6 @@ export default [
     ],
     stationaryWeapons: [
     ],
+    btrStops: [],
   },
 ];

@@ -12,6 +12,7 @@ declare namespace InteractiveMap {
     bosses: Boss[];
     spawns: Spawn[];
     extracts: Extract[];
+    transits: Transit[];
     locks: Lock[];
     hazards: Hazard[];
     btrStops: BtrStop[];
@@ -58,6 +59,17 @@ declare namespace InteractiveMap {
   }
   
   interface Extract {
+    id: string;
+    name: string;
+    faction: Faction;
+    switches: Switch[];
+    position: Position;
+    outline: Position[];
+    top: number;
+    bottom: number;
+  }
+
+  interface Transit {
     id: string;
     name: string;
     faction: Faction;

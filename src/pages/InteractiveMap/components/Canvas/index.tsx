@@ -567,7 +567,11 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
         <Spawns {...utils} baseMap={mapData} spawns={mapData.spawns} show={markerSpawns} />
         <Hazards {...utils} hazards={mapData.hazards} show={markerHazards} />
         <BtrStops {...utils} btrStops={mapData.btrStops} show={markerBtrStops} />
-        <Extracts {...utils} extracts={mapData.extracts} show={markerExtracts} />
+        <Extracts
+          {...utils}
+          extracts={[...mapData.extracts, ...mapData.transits]}
+          show={markerExtracts}
+        />
         <Locks {...utils} locks={mapData.locks} show={markerLocks} />
         <PlayerLocation
           {...utils}
