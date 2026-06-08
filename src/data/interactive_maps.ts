@@ -72790,7 +72790,7 @@ export default [
       },
       {
         id: '1abefb699e1a8304defcd8b41dcbbeee14adde52',
-        name: '发电站',
+        name: '发电站载具撤离点',
         faction: 'pmc',
         switches: [],
         position: {
@@ -72849,41 +72849,114 @@ export default [
         faction: 'shared',
         switches: [],
         position: {
-          x: -96.3,
+          x: -62.5,
           y: 21.94955,
-          z: -71.7,
+          z: -60.5
         },
-        outline: [],
+        outline: [
+          {
+            x: -75.5,
+            y: 21.94955,
+            z: -72.5
+          },
+          {
+            x: -51.5,
+            y: 21.94955,
+            z: -72.5
+          },
+          {
+            x: -51.5,
+            y: 21.94955,
+            z: -48.5
+          },
+          {
+            x: -75.5,
+            y: 21.94955,
+            z: -48.5
+          }
+        ],
         top: 24.7984257,
-        bottom: 19.1006756,
+        bottom: 19.1006756
       },
       {
-        id: 'ffb8b37a6390d2c3b00baeee3295492ea1e19a55',
+        id: 'manual-interchange-smugglers-tunnel-codeword',
         name: '走私者隧道（暗号）',
         faction: 'shared',
         switches: [],
         position: {
-          x: -139.3,
-          y: 21.2876668,
-          z: -180.7,
+          x: -89,
+          y: 22.8,
+          z: -161
         },
-        outline: [],
-        top: -0.9176669,
-        bottom: -5.657667,
+        transferItem: {
+          count: 1,
+          quantity: 1,
+          item: {
+            id: '6900a54ae85e475e590c96be',
+            name: '立交桥地下设施平面图',
+            normalizedName: 'interchange-underground-utility-plan',
+            shortName: '立交桥地下'
+          }
+        },
+        outline: [
+          {
+            x: -101,
+            y: 22.8,
+            z: -173
+          },
+          {
+            x: -77,
+            y: 22.8,
+            z: -173
+          },
+          {
+            x: -77,
+            y: 22.8,
+            z: -149
+          },
+          {
+            x: -101,
+            y: 22.8,
+            z: -149
+          }
+        ],
+        top: 25.5,
+        bottom: 19.5
       },
       {
-        id: '9685be261b82bedb2d9298cc69cd1f282e250096',
+        id: 'manual-interchange-path-to-river-flare',
         name: '河畔之路',
         faction: 'pmc',
         switches: [],
         position: {
-          x: 511.2,
-          y: 22.79,
-          z: 82.3,
+          x: 525.17,
+          y: 22.8,
+          z: 76.05
         },
-        outline: [],
-        top: 24.3642883,
-        bottom: 21.2157135,
+        outline: [
+          {
+            x: 537.17,
+            y: 22.8,
+            z: 64.05
+          },
+          {
+            x: 513.17,
+            y: 22.8,
+            z: 64.05
+          },
+          {
+            x: 513.17,
+            y: 22.8,
+            z: 88.05
+          },
+          {
+            x: 537.17,
+            y: 22.8,
+            z: 88.05
+          }
+        ],
+        top: 25.5,
+        bottom: 19.5
       },
       {
         id: '9570d4e280d97bd1a43756135036f3212eb6d8a8',
