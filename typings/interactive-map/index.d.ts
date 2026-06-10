@@ -33,6 +33,7 @@ declare namespace InteractiveMap {
     tilePath: string;
     layers?: Layer[];
     labels: Label[];
+    is2D: boolean;
   }
 
   interface Boss {

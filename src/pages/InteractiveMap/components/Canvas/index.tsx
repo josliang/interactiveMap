@@ -577,6 +577,7 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
           {...utils}
           isMobile={isMobile}
           activeMapId={mapData.id}
+          is2DMap={mapData.is2D}
           show={['playerLocation']}
           onPlayerLocationChange={handlePlayerLocationChange}
         />

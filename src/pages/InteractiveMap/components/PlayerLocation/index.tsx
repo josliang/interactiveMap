@@ -12,6 +12,7 @@ import './style.less';
 interface PlayerLocationProps {
   isMobile: boolean;
   activeMapId?: string;
+  is2DMap?: boolean;
   show: string[];
   onPlayerLocationChange?: (pl: InteractiveMap.Position & { mapId: string }) => void;
 }
@@ -44,6 +45,7 @@ const Index = (props: PlayerLocationProps & InteractiveMap.UtilProps) => {
     activeLayer,
     heightRange,
     real2imagePos,
+    is2DMap,
     show,
     onPlayerLocationChange,
   } = props;
@@ -121,7 +123,7 @@ const Index = (props: PlayerLocationProps & InteractiveMap.UtilProps) => {
   }, [activeMapId, onPlayerLocationChange]);
 
   const compoundLocations = { ...playerLocations, ...otherLocations };
-  if (baseMapStatus === 'loaded' && (playerLocations || otherLocations) && show.length > 0) {
+  if (baseMapStatus === 'loaded' && (playerLocations || otherLocations) && show.length > 0 && !is2DMap) {
     return (
       <Group>
         {Object.keys(compoundLocations)

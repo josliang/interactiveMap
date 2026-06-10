@@ -168485,6 +168485,7 @@ export default [
   {
     key: 'icebreaker',
     projection: 'interactive',
+    is2D: true,
     tileSize: 175,
     minZoom: 1,
     maxZoom: 6,
