@@ -72851,32 +72851,32 @@ export default [
         position: {
           x: -62.5,
           y: 21.94955,
-          z: -60.5
+          z: -60.5,
         },
         outline: [
           {
             x: -75.5,
             y: 21.94955,
-            z: -72.5
+            z: -72.5,
           },
           {
             x: -51.5,
             y: 21.94955,
-            z: -72.5
+            z: -72.5,
           },
           {
             x: -51.5,
             y: 21.94955,
-            z: -48.5
+            z: -48.5,
           },
           {
             x: -75.5,
             y: 21.94955,
-            z: -48.5
-          }
+            z: -48.5,
+          },
         ],
         top: 24.7984257,
-        bottom: 19.1006756
+        bottom: 19.1006756,
       },
       {
         id: 'manual-interchange-smugglers-tunnel-codeword',
@@ -72886,7 +72886,7 @@ export default [
         position: {
           x: -89,
           y: 22.8,
-          z: -161
+          z: -161,
         },
         transferItem: {
           count: 1,
@@ -72895,33 +72895,33 @@ export default [
             id: '6900a54ae85e475e590c96be',
             name: '立交桥地下设施平面图',
             normalizedName: 'interchange-underground-utility-plan',
-            shortName: '立交桥地下'
-          }
+            shortName: '立交桥地下',
+          },
         },
         outline: [
           {
             x: -101,
             y: 22.8,
-            z: -173
+            z: -173,
           },
           {
             x: -77,
             y: 22.8,
-            z: -173
+            z: -173,
           },
           {
             x: -77,
             y: 22.8,
-            z: -149
+            z: -149,
           },
           {
             x: -101,
             y: 22.8,
-            z: -149
-          }
+            z: -149,
+          },
         ],
         top: 25.5,
-        bottom: 19.5
+        bottom: 19.5,
       },
       {
         id: 'manual-interchange-path-to-river-flare',
@@ -72931,32 +72931,32 @@ export default [
         position: {
           x: 525.17,
           y: 22.8,
-          z: 76.05
+          z: 76.05,
         },
         outline: [
           {
             x: 537.17,
             y: 22.8,
-            z: 64.05
+            z: 64.05,
           },
           {
             x: 513.17,
             y: 22.8,
-            z: 64.05
+            z: 64.05,
           },
           {
             x: 513.17,
             y: 22.8,
-            z: 88.05
+            z: 88.05,
           },
           {
             x: 537.17,
             y: 22.8,
-            z: 88.05
-          }
+            z: 88.05,
+          },
         ],
         top: 25.5,
-        bottom: 19.5
+        bottom: 19.5,
       },
       {
         id: '9570d4e280d97bd1a43756135036f3212eb6d8a8',

@@ -65,7 +65,7 @@ const Index = (props: BtrStopProps & InteractiveMap.UtilProps) => {
                   fontFamily="JinBuTi"
                   text={btrStop.parkingPointName}
                   fontSize={12 / mapScale}
-                  fill={'#fff'}
+                  fill={'#efe342'}
                   width={600 / mapScale}
                   offsetX={300 / mapScale}
                   align="center"
