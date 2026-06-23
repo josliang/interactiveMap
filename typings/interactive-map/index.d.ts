@@ -25,6 +25,7 @@ declare namespace InteractiveMap {
     maxZoom: number;
     transform: number[];
     coordinateRotation: number;
+    displayRotation?: number;
     bounds: number[][];
     heightRange: number[];
     author: string;

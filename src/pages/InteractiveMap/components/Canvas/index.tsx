@@ -10,6 +10,7 @@ import {
   calculateHypotenuse,
   image2realPos as _image2realPos,
   real2imagePos as _real2imagePos,
+  transformMapData,
 } from '@/pages/InteractiveMap/utils';
 import { useWs } from '@/components/WsContext';
 
@@ -92,23 +93,36 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
   const touchTouches = useRef(0);
 
   const { ws } = useWs();
-  const [baseMap, baseMapStatus] = useImage(mapData.svgPath);
+  const _mapData = useMemo(() => transformMapData(mapData), [mapData]);
+  const displayRotation = mapData.displayRotation || 0;
+  const [baseMap, baseMapStatus] = useImage(_mapData.svgPath);
 
   const baseScale = baseMap ? (baseMap.width + baseMap.height) / 1024 : 1;
   const heightRange = useMemo(() => {
-    let _heightRange = [mapData.heightRange?.[0] || -1000, mapData.heightRange?.[1] || 1000];
+    let _heightRange = [_mapData.heightRange?.[0] || -1000, _mapData.heightRange?.[1] || 1000];
     if (activeLayer) {
       _heightRange = activeLayer.extents[0].height;
     }
     return _heightRange;
-  }, [activeLayer, baseMap]);
+  }, [activeLayer, baseMap, _mapData]);
 
   const image2realPos = useMemo(() => {
-    return _image2realPos(baseMap, mapData.bounds, mapData.coordinateRotation);
-  }, [baseMap, mapData]);
+    const raw = _image2realPos(baseMap, _mapData.bounds, _mapData.coordinateRotation);
+    if (displayRotation) {
+      return {
+        x: (p: number) => raw.y(p),
+        y: (p: number) => raw.x(p),
+        p: (p: InteractiveMap.Position2D) => {
+          const r = raw.p(p);
+          return { x: r.y, y: r.x };
+        },
+      };
+    }
+    return raw;
+  }, [baseMap, _mapData, displayRotation]);
   const real2imagePos = useMemo(() => {
-    return _real2imagePos(baseMap, mapData.bounds, mapData.coordinateRotation);
-  }, [baseMap, mapData]);
+    return _real2imagePos(baseMap, _mapData.bounds, _mapData.coordinateRotation);
+  }, [baseMap, _mapData]);
 
   const utils: InteractiveMap.UtilProps = {
     baseMapStatus,
@@ -153,20 +167,22 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
   ) => {
     const { x, z, mapId } = playerLocation;
     if (stageRef.current && baseMap && mapId === mapData.id) {
+      const px = displayRotation ? z : x;
+      const py = displayRotation ? x : z;
       if (locationScale) {
         const scaleX = stageRef.current.width() / baseMap.width;
         const scaleY = stageRef.current.height() / baseMap.height;
         const _baseScale = scaleX < scaleY ? scaleX : scaleY;
         setMapScale(_baseScale * 3);
         setMapPosition({
-          x: stageRef.current.width() / 2 - real2imagePos.x(x) * _baseScale * 3,
-          y: stageRef.current.height() / 2 - real2imagePos.y(z) * _baseScale * 3,
+          x: stageRef.current.width() / 2 - real2imagePos.x(px) * _baseScale * 3,
+          y: stageRef.current.height() / 2 - real2imagePos.y(py) * _baseScale * 3,
         });
       } else {
         setMapScale(mapScale);
         setMapPosition({
-          x: stageRef.current.width() / 2 - real2imagePos.x(x) * mapScale,
-          y: stageRef.current.height() / 2 - real2imagePos.y(z) * mapScale,
+          x: stageRef.current.width() / 2 - real2imagePos.x(px) * mapScale,
+          y: stageRef.current.height() / 2 - real2imagePos.y(py) * mapScale,
         });
       }
     }
@@ -402,7 +418,7 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
   useEffect(() => {
     if (stageRef.current) {
       if (baseMap && baseMapStatus === 'loaded') {
-        if (mapData.coordinateRotation !== 270) {
+        if (_mapData.coordinateRotation !== 270) {
           const scaleX = stageRef.current.width() / baseMap.width;
           const scaleY = stageRef.current.height() / baseMap.height;
           const newScale = scaleX < scaleY ? scaleX : scaleY;
@@ -432,7 +448,7 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
         setRulerPosition(undefined);
       }
     }
-  }, [baseMap, baseMapStatus, resolution]);
+  }, [baseMap, baseMapStatus, resolution, _mapData]);
 
   useEffect(() => {
     onCursorPositionChange?.(cursorPosition);
@@ -524,7 +540,7 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
     >
       <Layer id="im-layer-basemap">
         {
-          mapData.coordinateRotation !== 270 && (
+          _mapData.coordinateRotation !== 270 && (
             <Rect
               id="im-background"
               x={0}
@@ -536,7 +552,7 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
           )
         }
         {
-          mapData.coordinateRotation === 270 && (
+          _mapData.coordinateRotation === 270 && (
             <Rect
               id="im-background"
               x={baseMap?.height}
@@ -544,7 +560,7 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
               width={baseMap?.width}
               height={baseMap?.height}
               fill="#00000028"
-              rotation={mapData.coordinateRotation - 180}
+              rotation={_mapData.coordinateRotation - 180}
             />
           )
         }
@@ -553,31 +569,32 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
           baseMap={baseMap}
           activeLayer={activeLayer}
           status={baseMapStatus}
-          coordinateRotation={mapData.coordinateRotation}
+          coordinateRotation={_mapData.coordinateRotation}
           resolution={{ width, height }}
         />
-        {activeLayer && <LayerMap id="im-layermap" baseMap={baseMap} imageSrc={activeLayer.svgPath} coordinateRotation={mapData.coordinateRotation} />}
-        <Labels {...utils} labels={mapData.labels} show />
-        <LootContainers {...utils} lootContainers={mapData.lootContainers} show={markerLootKeys} />
+        {activeLayer && <LayerMap id="im-layermap" baseMap={baseMap} imageSrc={activeLayer.svgPath} coordinateRotation={_mapData.coordinateRotation} />}
+        <Labels {...utils} labels={_mapData.labels} show />
+        <LootContainers {...utils} lootContainers={_mapData.lootContainers} show={markerLootKeys} />
         <StationaryWeapons
           {...utils}
-          stationaryWeapons={mapData.stationaryWeapons}
+          stationaryWeapons={_mapData.stationaryWeapons}
           show={markerStationaryWeapons}
         />
-        <Spawns {...utils} baseMap={mapData} spawns={mapData.spawns} show={markerSpawns} />
-        <Hazards {...utils} hazards={mapData.hazards} show={markerHazards} />
-        <BtrStops {...utils} btrStops={mapData.btrStops} show={markerBtrStops} />
+        <Spawns {...utils} baseMap={_mapData} spawns={_mapData.spawns} show={markerSpawns} />
+        <Hazards {...utils} hazards={_mapData.hazards} show={markerHazards} />
+        <BtrStops {...utils} btrStops={_mapData.btrStops} show={markerBtrStops} />
         <Extracts
           {...utils}
-          extracts={[...mapData.extracts, ...mapData.transits]}
+          extracts={[..._mapData.extracts, ..._mapData.transits]}
           show={markerExtracts}
         />
-        <Locks {...utils} locks={mapData.locks} show={markerLocks} />
+        <Locks {...utils} locks={_mapData.locks} show={markerLocks} />
         <PlayerLocation
           {...utils}
           isMobile={isMobile}
           activeMapId={mapData.id}
           is2DMap={mapData.is2D}
+          displayRotation={displayRotation}
           show={['playerLocation']}
           onPlayerLocationChange={handlePlayerLocationChange}
         />

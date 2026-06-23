@@ -261,6 +261,65 @@ export const transformMapId = (mapId: string) => {
   return _mapId;
 };
 
+export const transformMapData = (mapData: InteractiveMap.Data): InteractiveMap.Data => {
+  if (!mapData.displayRotation) return mapData;
+
+  const swap3D = (p: InteractiveMap.Position): InteractiveMap.Position => ({
+    x: p.z,
+    y: p.y,
+    z: p.x,
+  });
+
+  const [min, max] = mapData.bounds;
+  const oldXMin = Math.min(min[0], max[0]);
+  const oldXMax = Math.max(min[0], max[0]);
+  const oldYMin = Math.min(min[1], max[1]);
+  const oldYMax = Math.max(min[1], max[1]);
+  const newBounds: number[][] = [
+    [oldYMin, oldXMin],
+    [oldYMax, oldXMax],
+  ];
+
+  return {
+    ...mapData,
+    coordinateRotation: 180,
+    bounds: newBounds,
+    spawns: mapData.spawns.map((s) => ({ ...s, position: swap3D(s.position) })),
+    extracts: mapData.extracts.map((e) => ({
+      ...e,
+      position: swap3D(e.position),
+      outline: e.outline.map(swap3D),
+      switches: e.switches.map((sw) => ({ ...sw, position: swap3D(sw.position) })),
+    })),
+    transits: mapData.transits.map((t) => ({
+      ...t,
+      position: swap3D(t.position),
+      outline: t.outline.map(swap3D),
+      switches: t.switches.map((sw) => ({ ...sw, position: swap3D(sw.position) })),
+    })),
+    locks: mapData.locks.map((l) => ({
+      ...l,
+      position: swap3D(l.position),
+      outline: l.outline.map(swap3D),
+    })),
+    hazards: mapData.hazards.map((h) => ({
+      ...h,
+      position: swap3D(h.position),
+      outline: h.outline.map(swap3D),
+    })),
+    btrStops: mapData.btrStops.map((b) => ({ ...b, position: swap3D(b.position) })),
+    lootContainers: mapData.lootContainers.map((c) => ({ ...c, position: swap3D(c.position) })),
+    stationaryWeapons: mapData.stationaryWeapons.map((w) => ({
+      ...w,
+      position: swap3D(w.position),
+    })),
+    labels: mapData.labels.map((l) => ({
+      ...l,
+      position: [l.position[1], l.position[0]],
+    })),
+  };
+};
+
 export const calculateHypotenuse = (
   p1: InteractiveMap.Position2D, p2: InteractiveMap.Position2D,
 ) => {

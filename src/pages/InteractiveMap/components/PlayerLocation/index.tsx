@@ -13,6 +13,7 @@ interface PlayerLocationProps {
   isMobile: boolean;
   activeMapId?: string;
   is2DMap?: boolean;
+  displayRotation?: number;
   show: string[];
   onPlayerLocationChange?: (pl: InteractiveMap.Position & { mapId: string }) => void;
 }
@@ -46,9 +47,14 @@ const Index = (props: PlayerLocationProps & InteractiveMap.UtilProps) => {
     heightRange,
     real2imagePos,
     is2DMap,
+    displayRotation,
     show,
     onPlayerLocationChange,
   } = props;
+
+  const swapXZ = displayRotation !== 0 && displayRotation !== undefined;
+  const imgX = (x: number, z: number) => (swapXZ ? real2imagePos.x(z) : real2imagePos.x(x));
+  const imgY = (x: number, z: number) => (swapXZ ? real2imagePos.y(x) : real2imagePos.y(z));
 
   const [playerLocations, setPlayerLocations] = useState<{
     [key: string]: iMPlayerLocation;
@@ -175,18 +181,18 @@ const Index = (props: PlayerLocationProps & InteractiveMap.UtilProps) => {
                 >
                   {location.quaternion && !location.name && (
                     <Path
-                      x={real2imagePos.x(location.x)}
-                      y={real2imagePos.y(location.z) - 16 / mapScale}
+                      x={imgX(location.x, location.z)}
+                      y={imgY(location.x, location.z) - 16 / mapScale}
                       data={'M 0 0 L 30 80 L -30 80 L 0 0 Z'}
                       fill={'#00000068'}
-                      rotation={quaternionToEulerAngles(location.quaternion)[0]}
+                      rotation={quaternionToEulerAngles(location.quaternion)[0] + (displayRotation || 0)}
                       scale={{ x: 1 / mapScale, y: 1 / mapScale }}
                     />
                   )}
                   <Group
                     id={`im-playerlocation-path-${location.uuid}`}
-                    x={real2imagePos.x(location.x) - 15 / mapScale}
-                    y={real2imagePos.y(location.z) - 30 / mapScale}
+                    x={imgX(location.x, location.z) - 15 / mapScale}
+                    y={imgY(location.x, location.z) - 30 / mapScale}
                     scale={{ x: 0.03 / mapScale, y: 0.03 / mapScale }}
                   >
                     {getIconPath('location-fill').map((p) => {
@@ -195,8 +201,8 @@ const Index = (props: PlayerLocationProps & InteractiveMap.UtilProps) => {
                   </Group>
                   <Text
                     id={`im-playerlocation-text-${location.uuid}`}
-                    x={real2imagePos.x(location.x)}
-                    y={real2imagePos.y(location.z)}
+                    x={imgX(location.x, location.z)}
+                    y={imgY(location.x, location.z)}
                     fontFamily="JinBuTi"
                     text={location.name ? `${location.name}` : '你的位置'}
                     fontSize={12 / mapScale}

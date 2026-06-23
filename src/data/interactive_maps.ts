@@ -86907,6 +86907,7 @@ export default [
       0.575,
     ],
     coordinateRotation: 270,
+    displayRotation: -90,
     bounds: [
       [
         -81,
@@ -163750,9 +163751,10 @@ export default [
     maxZoom: 6,
     transform: [2.115, 85.5, 2.115, 128.0],
     coordinateRotation: 270,
+    displayRotation: -90,
     bounds: [
-      [52, -36.5],
-      [-51.5, 75],
+      [-51.5, -36.5],
+      [52, 75],
     ],
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev',
@@ -163767,24 +163769,24 @@ export default [
     labels: [
       {
         position: [
-          -47.3,
-          53.6,
+          -42.3,
+          51.6,
         ],
         text: '1号房',
         size: 120,
       },
       {
         position: [
-          2.7,
-          -28.6,
+          1,
+          -26.6,
         ],
         text: '2号房',
         size: 120,
       },
       {
         position: [
-          -40,
-          -21.8,
+          -35.8,
+          -8,
         ],
         text: '3号房',
         size: 120,
@@ -163800,7 +163802,7 @@ export default [
       {
         position: [
           39.6,
-          42.3,
+          40.3,
         ],
         text: '5号房',
         size: 120,
