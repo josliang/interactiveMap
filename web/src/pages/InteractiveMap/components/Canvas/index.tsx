@@ -165,26 +165,19 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
   const handlePlayerLocationChange = (
     playerLocation: InteractiveMap.Position & { mapId: string },
   ) => {
+    if (!locationScale) return;
     const { x, z, mapId } = playerLocation;
     if (stageRef.current && baseMap && mapId === mapData.id) {
       const px = displayRotation ? z : x;
       const py = displayRotation ? x : z;
-      if (locationScale) {
-        const scaleX = stageRef.current.width() / baseMap.width;
-        const scaleY = stageRef.current.height() / baseMap.height;
-        const _baseScale = scaleX < scaleY ? scaleX : scaleY;
-        setMapScale(_baseScale * 3);
-        setMapPosition({
-          x: stageRef.current.width() / 2 - real2imagePos.x(px) * _baseScale * 3,
-          y: stageRef.current.height() / 2 - real2imagePos.y(py) * _baseScale * 3,
-        });
-      } else {
-        setMapScale(mapScale);
-        setMapPosition({
-          x: stageRef.current.width() / 2 - real2imagePos.x(px) * mapScale,
-          y: stageRef.current.height() / 2 - real2imagePos.y(py) * mapScale,
-        });
-      }
+      const scaleX = stageRef.current.width() / baseMap.width;
+      const scaleY = stageRef.current.height() / baseMap.height;
+      const _baseScale = scaleX < scaleY ? scaleX : scaleY;
+      setMapScale(_baseScale * 3);
+      setMapPosition({
+        x: stageRef.current.width() / 2 - real2imagePos.x(px) * _baseScale * 3,
+        y: stageRef.current.height() / 2 - real2imagePos.y(py) * _baseScale * 3,
+      });
     }
   };
 

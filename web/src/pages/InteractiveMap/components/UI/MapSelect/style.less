@@ -35,9 +35,15 @@
 
     &-arrow {
       position: absolute;
-      top: 2px;
-      right: 4px;
+      top: 0;
+      bottom: 0;
+      right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 22px;
+      line-height: 1;
+      pointer-events: none;
     }
 
     &:hover {
@@ -147,8 +153,8 @@
       font-size: 13px;
       padding: 8px 30px 8px 12px;
       &-arrow {
-        top: 0px;
-        font-size: 27px;
+        right: 8px;
+        font-size: 21px;
       }
       &-layer {
         font-size: 10px;

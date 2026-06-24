@@ -78,7 +78,7 @@ const Index = (props: PlayerLocationProps & InteractiveMap.UtilProps) => {
           quaternion: [location[4], location[5], location[6], location[7]].map((v) => Number(v)),
           mapId: activeMapId,
         };
-        // onPlayerLocationChange?.(data);
+        onPlayerLocationChange?.(data);
         setPlayerLocations({
           self: {
             uuid: '0',
