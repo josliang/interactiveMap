@@ -15,7 +15,6 @@ interface QuickToolsProps {
   mapInfoActive: boolean;
   isMobile: boolean;
   resolution: { width: number; height: number };
-  setQuickSearchShow: (visible: boolean) => void;
   onMapInfoActive: (mapInfoActive: boolean) => void;
   onStrokeTypeChange: (strokeType: InteractiveMap.StrokeType) => void;
 }
@@ -27,7 +26,6 @@ const Index = (
     mapInfoActive,
     isMobile,
     resolution,
-    setQuickSearchShow,
     onMapInfoActive,
     onStrokeTypeChange,
   } = props;
@@ -80,52 +78,54 @@ const Index = (
   return (
     <div className="im-quicktools">
       <div className="im-quicktools-list">
-        <div className="im-quicktools-list-item" onClick={() => setQuickSearchShow(true)}>
-          <Icon type="icon-search-fill" />
+        <div className="im-quicktools-list-group">
+          <div
+            className={classNames('im-quicktools-list-item', {
+              active: strokeType === 'drag',
+            })}
+            onClick={() => setStrokeType('drag')}
+            title="拖拽 (Ctrl+A)"
+          >
+            <Icon type="icon-cursor-fill" />
+          </div>
+          {!isMobile && (
+            <div
+              className={classNames('im-quicktools-list-item', {
+                active: strokeType === 'draw',
+              })}
+              onClick={() => handleSelectDraw()}
+              onContextMenu={() => setActiveModal('draw')}
+              title="画笔 (Ctrl+S)"
+            >
+              <Icon type="icon-pencil-fill" />
+            </div>
+          )}
+          {!isMobile && (
+            <div
+              className={classNames('im-quicktools-list-item', {
+                active: strokeType === 'eraser',
+              })}
+              onClick={() => handleSelectEraser()}
+              onContextMenu={() => setActiveModal('eraser')}
+              title="橡皮 (Ctrl+D)"
+            >
+              <Icon type="icon-eraser-fill" />
+            </div>
+          )}
+          {(isMobile || resolution.width >= 420) && (
+            <div
+              className={classNames('im-quicktools-list-item', {
+                active: strokeType === 'ruler',
+              })}
+              onClick={() => setStrokeType('ruler')}
+              title="标尺 (Ctrl+F)"
+            >
+              <Icon type="icon-ruler-fill" />
+            </div>
+          )}
         </div>
-        <div
-          className={classNames('im-quicktools-list-item', {
-            active: strokeType === 'drag',
-          })}
-          onClick={() => setStrokeType('drag')}
-        >
-          <Icon type="icon-cursor-fill" />
-        </div>
-        {!isMobile && (
-          <div
-            className={classNames('im-quicktools-list-item', {
-              active: strokeType === 'draw',
-            })}
-            onClick={() => handleSelectDraw()}
-            onContextMenu={() => setActiveModal('draw')}
-          >
-            <Icon type="icon-pencil-fill" />
-          </div>
-        )}
-        {!isMobile && (
-          <div
-            className={classNames('im-quicktools-list-item', {
-              active: strokeType === 'eraser',
-            })}
-            onClick={() => handleSelectEraser()}
-            onContextMenu={() => setActiveModal('eraser')}
-            // onClick={() => setStrokeType(2)}
-          >
-            <Icon type="icon-eraser-fill" />
-          </div>
-        )}
-        {(isMobile || resolution.width >= 420) && (
-          <div
-            className={classNames('im-quicktools-list-item', {
-              active: strokeType === 'ruler',
-            })}
-            onClick={() => setStrokeType('ruler')}
-          >
-            <Icon type="icon-ruler-fill" />
-          </div>
-        )}
         <div className="im-quicktools-list-hr" />
-        <div className="im-quicktools-list-item" onClick={() => setActiveModal('marker')}>
+        <div className="im-quicktools-list-item" onClick={() => setActiveModal('marker')} title="标记">
           <Icon type="icon-flag-fill" />
         </div>
         {(isMobile || resolution.width >= 420) && (
@@ -134,11 +134,12 @@ const Index = (
               active: mapInfoActive,
             })}
             onClick={() => onMapInfoActive?.(!mapInfoActive)}
+            title="概览"
           >
             <Icon type="icon-rss-fill" />
           </div>
         )}
-        <div className="im-quicktools-list-item" onClick={() => setActiveModal('setting')}>
+        <div className="im-quicktools-list-item" onClick={() => setActiveModal('setting')} title="设置">
           <Icon type="icon-settings-fill" />
         </div>
       </div>

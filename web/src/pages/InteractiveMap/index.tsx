@@ -18,15 +18,13 @@ import { useWs } from '@/components/WsContext';
 import useI18N from '../../i18n';
 import Canvas from './components/Canvas';
 import AdditionFunc from './components/UI/AdditionFunc';
+import BottomStatus from './components/UI/BottomStatus';
 import ContextMenu from './components/UI/ContextMenu';
-import Coordinate from './components/UI/Coordinate';
 import EFTWatcher from './components/UI/EFTWatcher';
 import MapInfo from './components/UI/MapInfo';
 import MapSelect from './components/UI/MapSelect';
-import QuickSearch from './components/UI/QuickSearch';
 import QuickTools from './components/UI/QuickTools';
 import RulerPosition from './components/UI/RulerPosition';
-import SocketStatus from './components/UI/SocketStatus';
 import Title from './components/UI/Title';
 import Tooltip from './components/UI/Tooltip';
 import { clearSavedHandle, getLayer, getSavedHandle, saveHandle } from './utils';
@@ -103,8 +101,6 @@ const Index = () => {
   const [eraserWidth, setEraserWidth] = useLocalStorageState<number>('im-eraserWidth', {
     defaultValue: 20,
   });
-
-  const [quickSearchShow, setQuickSearchShow] = useState(false);
 
   const [lang] = useRecoilState(langState);
 
@@ -617,10 +613,7 @@ const Index = () => {
 
   useEffect(() => {
     const keydown = (e: KeyboardEvent) => {
-      if (e.ctrlKey && e.key === 'q') {
-        e.preventDefault();
-        setQuickSearchShow(true);
-      } else if (e.ctrlKey && e.key === 'g') {
+      if (e.ctrlKey && e.key === 'g') {
         e.preventDefault();
         setSimpleUIMode(!simpleUIMode);
       }
@@ -728,15 +721,6 @@ const Index = () => {
             <div className="im-header-left">
               <div className="im-header-left-1">
                 <Title />
-                {resolution.width > 750 && (
-                  <MapSelect
-                    mapList={mapList}
-                    activeMap={activeMap}
-                    activeLayer={activeLayer?.name}
-                    onMapChange={handleMapChange}
-                    onLayerChange={handleLayerChange}
-                  />
-                )}
               </div>
               {(isMobile || resolution.width >= 420) && (
                 <div className="im-header-left-2">
@@ -772,7 +756,6 @@ const Index = () => {
                   autoDelete={autoDelete}
                   resolution={resolution}
                   isMobile={isMobile}
-                  setQuickSearchShow={setQuickSearchShow}
                   onStrokeTypeChange={handleStrokeTypeChange}
                   onExtractsChange={handleExtractsChange}
                   onLocksChange={handleLocksChange}
@@ -790,8 +773,6 @@ const Index = () => {
                   onAutoDeleteChange={handleToggleAutoDelete}
                   onMapInfoActive={handleMapInfoActive}
                 />
-                {resolution.width > 1280 && <SocketStatus />}
-                {resolution.width > 1280 && <Coordinate {...utils} position={cursorPosition} />}
               </div>
               <div className="im-header-right-2">
                 <AdditionFunc isMobile={isMobile} />
@@ -800,26 +781,22 @@ const Index = () => {
           </div>
           <div className="im-footer">
             <div className="im-footer-left">
-              {resolution.width <= 750 && (
-                <MapSelect
-                  mapList={mapList}
-                  activeMap={activeMap}
-                  activeLayer={activeLayer?.name}
-                  onMapChange={handleMapChange}
-                  onLayerChange={handleLayerChange}
-                />
-              )}
+              <MapSelect
+                mapList={mapList}
+                activeMap={activeMap}
+                activeLayer={activeLayer?.name}
+                onMapChange={handleMapChange}
+                onLayerChange={handleLayerChange}
+              />
             </div>
             <div className="im-footer-right">
               <RulerPosition {...utils} rulerPosition={rulerPosition} />
-              {resolution.width <= 1280 && <SocketStatus />}
-              {resolution.width <= 1280 && <Coordinate {...utils} position={cursorPosition} />}
+              <BottomStatus {...utils} position={cursorPosition} />
             </div>
           </div>
         </div>
         <Tooltip {...resolution} />
         <ContextMenu />
-        <QuickSearch show={quickSearchShow} onHide={() => setQuickSearchShow(false)} />
         <EFTWatcher
           directoryHandler={directoryHandler}
           tarkovGamePathHandler={tarkovGamePathHandler}
