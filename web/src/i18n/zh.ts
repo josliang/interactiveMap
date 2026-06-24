@@ -44,6 +44,8 @@ export default {
     gameTime: '游戏时间:',
     pmcs: 'PMC数量:',
     raidTime: '战局时间:',
+    boss: 'Boss刷新:',
+    bossSpawn: '刷新点',
   },
 
   // 地图功能

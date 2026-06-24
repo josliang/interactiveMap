@@ -7,6 +7,7 @@ import { useRecoilState } from 'recoil';
 
 import useI18N from '@/i18n';
 import langState from '@/store/lang';
+import { wsInstance } from '@/utils/socket';
 
 import './style.less';
 
@@ -23,6 +24,9 @@ const Index = (props: MapInfoProps) => {
 
   const [realTime, setRealTime] = useState(0);
   const [timeDiff, setTimeDiff] = useState(0);
+  const [bossCache, setBossCache] = useState<{ maps: any[]; updatedAt: number }>(
+    { maps: [], updatedAt: 0 },
+  );
 
   const [lang] = useRecoilState(langState);
 
@@ -31,6 +35,15 @@ const Index = (props: MapInfoProps) => {
   const tarkovTime = useMemo(() => {
     return (((realTime + timeDiff) * 7) % (24 * 3600000)) - 5 * 3600000;
   }, [realTime]);
+
+  // 当前地图对应的 Boss 列表 (切换地图自动过滤)
+  const bosses = useMemo(() => {
+    if (!mapData?.normalizedName) return [];
+    const matched = bossCache.maps.find(
+      (m: any) => m.normalizedName === mapData.normalizedName,
+    );
+    return matched?.bosses || [];
+  }, [bossCache, mapData?.normalizedName]);
 
   useEffect(() => {
     const machineTime = dayjs().valueOf();
@@ -42,6 +55,19 @@ const Index = (props: MapInfoProps) => {
     const machineTime = dayjs().valueOf();
     setRealTime(machineTime);
   }, 1000 / 15);
+
+  // 订阅 WebSocket 的 Boss 刷新数据 (缓存全量，切换地图时自动过滤)
+  useEffect(() => {
+    const handler = (data: any) => {
+      if (data?.category !== 'boss') return;
+      const { value } = data;
+      if (!value?.maps) return;
+      setBossCache({ maps: value.maps, updatedAt: value.updatedAt || Date.now() });
+    };
+
+    wsInstance.onMessage(handler);
+    return () => wsInstance.offMessage(handler);
+  }, []);
 
   return (
     <div
@@ -69,6 +95,19 @@ const Index = (props: MapInfoProps) => {
           <span>
             {mapData.raidDuration} {t('common.minute')}
           </span>
+        </div>
+      )}
+      {bosses.length > 0 && (
+        <div className="im-mapinfo-item im-mapinfo-boss">
+          <span className="im-mapinfo-item-title">{t('mapInfo.boss')}</span>
+          <div className="boss-list">
+            {bosses.map((b) => (
+              <div className="boss-item" key={b.displayName}>
+                <span className="boss-name">{b.displayName}</span>
+                <span className="boss-chance">{Math.round(b.spawnChance * 100)}%</span>
+              </div>
+            ))}
+          </div>
         </div>
       )}
       {self === top && window.showDirectoryPicker && !directoryHandler && (

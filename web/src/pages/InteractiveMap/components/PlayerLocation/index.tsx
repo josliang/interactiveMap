@@ -185,7 +185,9 @@ const Index = (props: PlayerLocationProps & InteractiveMap.UtilProps) => {
                       y={imgY(location.x, location.z) - 16 / mapScale}
                       data={'M 0 0 L 30 80 L -30 80 L 0 0 Z'}
                       fill={'#00000068'}
-                      rotation={quaternionToEulerAngles(location.quaternion)[0] + (displayRotation || 0)}
+                      rotation={
+                        quaternionToEulerAngles(location.quaternion)[0] + (displayRotation || 0)
+                      }
                       scale={{ x: 1 / mapScale, y: 1 / mapScale }}
                     />
                   )}

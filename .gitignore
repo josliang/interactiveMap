@@ -1,21 +1,53 @@
-# node
+# ===== 依赖 =====
 node_modules
+web/node_modules
 package-lock.json
 pnpm-lock.yaml
+yarn.lock
 
-# build files
+# ===== 构建产物 =====
 dist
+web/dist
+web/.vite
+*.tsbuildinfo
 
-# cache files
+# ===== 缓存 =====
 cache
+.cache
 *.dump
+.eslintcache
 
-# public
+# ===== 日志 =====
 logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# test files
+# ===== 环境变量与密钥 (切勿提交) =====
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+cert/
+ssl/
+
+# ===== 测试 =====
 coverage
+*.lcov
+.nyc_output
 
-# system
+# ===== 系统与编辑器 =====
 .DS_Store
+Thumbs.db
 .idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# ===== 其他 =====
+public
+__test__
+**/*.d.ts
