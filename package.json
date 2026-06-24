@@ -5,16 +5,16 @@
   "private": true,
   "main": "src/index.js",
   "scripts": {
-    "dev:web": "npm run dev --prefix web",
+    "dev:web": "yarn --cwd web dev",
     "dev:server": "node src/index.js",
-    "dev": "concurrently -n web,server -c cyan,magenta \"npm:dev:web\" \"npm:dev:server\"",
-    "build:web": "npm run build --prefix web",
+    "dev": "concurrently -n web,server -c cyan,magenta \"yarn:dev:web\" \"yarn:dev:server\"",
+    "build:web": "yarn --cwd web build",
     "build": "node scripts/build-all.js",
-    "preview": "npm run preview --prefix web",
-    "lint": "npm run lint --prefix web",
-    "fix": "npm run fix --prefix web",
+    "preview": "yarn --cwd web preview",
+    "lint": "yarn --cwd web lint",
+    "fix": "yarn --cwd web fix",
     "start": "node src/index.js",
-    "install:all": "npm install && npm install --prefix web"
+    "i:all": "yarn install && yarn --cwd web install"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
