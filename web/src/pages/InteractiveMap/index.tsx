@@ -60,7 +60,7 @@ const Index = () => {
   const [raidInfo, setRaidInfo] = useState<InteractiveMap.RaidLogProps>();
 
   const [extracts, setExtracts] = useLocalStorageState<InteractiveMap.Faction[]>('im-extracts', {
-    defaultValue: ['pmc', 'scav', 'shared', 'transit'],
+    defaultValue: ['pmc', 'shared', 'transit'],
   });
   const [locks, setLocks] = useLocalStorageState<string[]>('im-locks', {
     defaultValue: [],
@@ -75,7 +75,7 @@ const Index = () => {
     defaultValue: [],
   });
   const [btrStops, setBtrStops] = useLocalStorageState<string[]>('im-btrStops', {
-    defaultValue: ['btrStops'],
+    defaultValue: ['btrStop'],
   });
   const [stationaryWeapons, setStationaryWeapons] = useLocalStorageState<string[]>(
     'im-stationaryWeapons',

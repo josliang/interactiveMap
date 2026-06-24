@@ -138,7 +138,7 @@ dist/
   ecosystem.config.js PM2 配置
 \`\`\`
 
-## 首次部署
+## 部署
 
 1. 上传整个 dist 目录至服务器 (Node.js >= 16)
 2. 检查 dist/.env 配置 (打包时已从根 .env 自动生成):
@@ -160,13 +160,6 @@ dist/
    npm start
    \`\`\`
 
-## 后续更新部署
-
-打包脚本每次从根 .env 重新生成 dist/.env。
-
-1. 本地重新打包: \`npm run build:all\`
-2. 上传 dist/ 覆盖服务器目录
-3. 服务器重启: \`pm2 restart tarkov-ws\`
 
 ## 本地调试 (无 SSL 证书)
 
