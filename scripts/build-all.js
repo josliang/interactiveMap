@@ -5,7 +5,7 @@
 //     src/                后端源码
 //     public/             前端构建产物 (来自 web/dist)
 //     package.json        后端依赖清单
-//     .env.example
+//     .env                环境变量 (打包时自动从根 .env 生成)
 //     ecosystem.config.js PM2 配置
 //     README.md           部署说明
 const fs = require('fs');
@@ -33,14 +33,7 @@ function copyDir(src, dest, skip = ['node_modules', 'dist', '.git']) {
   }
 }
 
-// 清空 dist (保留已配置的 dist/.env，避免每次重新部署都要 cp)
-const distEnv = path.join(DIST, '.env');
-let preservedEnv = null;
-if (fs.existsSync(distEnv)) {
-  preservedEnv = fs.readFileSync(distEnv, 'utf8');
-  log('检测到已存在的 dist/.env，将保留配置');
-}
-
+// 清空 dist
 if (fs.existsSync(DIST)) {
   fs.rmSync(DIST, { recursive: true, force: true });
 }
@@ -67,7 +60,7 @@ const rootPkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf
 const serverPkg = {
   name: 'tarkov-map-server',
   version: rootPkg.version,
-  description: '逃离塔科夫互动地图后端服务 (Express + WebSocket)',
+  description: '逃离塔科夫互动地图',
   private: true,
   main: 'src/index.js',
   scripts: {
@@ -80,15 +73,31 @@ fs.writeFileSync(
   path.join(DIST, 'package.json'),
   JSON.stringify(serverPkg, null, 2),
 );
-fs.copyFileSync(
-  path.join(ROOT, '.env.example'),
-  path.join(DIST, '.env.example'),
-);
 
-// 4.1 还原已保留的 .env (避免每次部署重新配置)
-if (preservedEnv !== null) {
-  fs.writeFileSync(distEnv, preservedEnv);
-  log('已还原 dist/.env');
+// 4.1 自动从根 .env 生成 dist/.env
+//     - 强制注释 USE_HTTP (生产用 HTTPS)
+//     - NODE_ENV 改为 production
+//     - dist 在 .gitignore 中，不会泄露至仓库
+const rootEnv = path.join(ROOT, '.env');
+if (fs.existsSync(rootEnv)) {
+  let envContent = fs.readFileSync(rootEnv, 'utf8');
+  // USE_HTTP=1 行改为注释 (已注释行保持不变)
+  envContent = envContent.replace(
+    /^(\s*)USE_HTTP\s*=\s*.+$/m,
+    '$1# USE_HTTP=1  # 生产环境强制 HTTPS，本地调试时手动放开',
+  );
+  // NODE_ENV 改为 production
+  if (/^\s*NODE_ENV\s*=.*$/m.test(envContent)) {
+    envContent = envContent.replace(
+      /^\s*NODE_ENV\s*=.*$/m,
+      'NODE_ENV=production',
+    );
+  } else {
+    envContent += '\nNODE_ENV=production\n';
+  }
+  fs.writeFileSync(path.join(DIST, '.env'), envContent);
+} else {
+  log('未找到根 .env，仅拷贝 .env.example，部署时需手动配置');
 }
 
 // 5. 拷贝 PM2 配置 (调整 cwd 指向 dist 根)
@@ -125,20 +134,18 @@ dist/
   src/                后端源码
   public/             前端静态资源
   package.json        后端依赖清单
-  .env.example
+  .env                环境变量 (打包时自动生成)
   ecosystem.config.js PM2 配置
 \`\`\`
 
 ## 首次部署
 
 1. 上传整个 dist 目录至服务器 (Node.js >= 16)
-2. 配置后端环境变量:
-   \`\`\`bash
-   cd dist
-   cp .env.example .env
-   # 编辑 .env: 填写 PORT / SSL_KEY_PATH / SSL_CERT_PATH
-   # USE_HTTP 保持注释，生产用 HTTPS
-   \`\`\`
+2. 检查 dist/.env 配置 (打包时已从根 .env 自动生成):
+   - PORT: 服务端口
+   - SSL_KEY_PATH / SSL_CERT_PATH: 证书路径
+   - USE_HTTP: 已自动注释 (生产用 HTTPS)
+   - NODE_ENV: 已自动设为 production
 3. 安装后端依赖:
    \`\`\`bash
    cd dist
@@ -155,7 +162,7 @@ dist/
 
 ## 后续更新部署
 
-打包脚本自动保留 dist/.env 配置。
+打包脚本每次从根 .env 重新生成 dist/.env。
 
 1. 本地重新打包: \`npm run build:all\`
 2. 上传 dist/ 覆盖服务器目录
@@ -175,5 +182,4 @@ USE_HTTP=1
 `;
 fs.writeFileSync(path.join(DIST, 'README.md'), readme);
 
-log('打包完成 -> dist/');
-log('部署: 上传 dist/ 至服务器, 执行 npm install --production 后 pm2 start ecosystem.config.js');
+log('打包成功');
