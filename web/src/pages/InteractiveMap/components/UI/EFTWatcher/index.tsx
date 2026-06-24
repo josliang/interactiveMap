@@ -82,31 +82,30 @@ const Index = (props: EFTWatcherProps) => {
           */
         }
         <div className="im-eftwatcher-buttons">
-          {window.showDirectoryPicker ? (
-            <button
-              style={{ color: !directoryHandler ? '#ffffff' : '#288828' }}
-              className="button button-default"
-              onClick={() => handleClickEftWatcherPath()}
-            >
-              {directoryHandler ? t('eftwatcher.disableScrPath') : t('eftwatcher.enableScrPath')}
-            </button>
-          ) : (
-            <button className="button button-default">{t('eftwatcher.unsupport')}</button>
-          )}
-          {window.showDirectoryPicker && (
-            <button
-              style={{ marginTop: 16, color: !tarkovGamePathHandler ? '#ffffff' : '#288828' }}
-              className="button button-default"
-              onClick={() => handleClickTarkovGamePath()}
-            >
-              {tarkovGamePathHandler
-                ? t('eftwatcher.disableGamePath')
-                : t('eftwatcher.enableGamePath')}
-            </button>
-          )}
+          <div className="im-eftwatcher-buttons-row">
+            {window.showDirectoryPicker ? (
+              <button
+                className={classNames('button button-default', { active: !!directoryHandler })}
+                onClick={() => handleClickEftWatcherPath()}
+              >
+                {directoryHandler ? t('eftwatcher.disableScrPath') : t('eftwatcher.enableScrPath')}
+              </button>
+            ) : (
+              <button className="button button-default">{t('eftwatcher.unsupport')}</button>
+            )}
+            {window.showDirectoryPicker && (
+              <button
+                className={classNames('button button-default', { active: !!tarkovGamePathHandler })}
+                onClick={() => handleClickTarkovGamePath()}
+              >
+                {tarkovGamePathHandler
+                  ? t('eftwatcher.disableGamePath')
+                  : t('eftwatcher.enableGamePath')}
+              </button>
+            )}
+          </div>
           <button
-            style={{ marginTop: 16 }}
-            className="button button-default"
+            className="button button-default im-eftwatcher-later"
             onClick={() => setShow(false)}
           >
             {t('eftwatcher.later')}
@@ -115,9 +114,16 @@ const Index = (props: EFTWatcherProps) => {
         {
           username === '默认用户' && (
             <div className="im-eftwatcher-first">
-              <div className="first-use-title">⬇{t('eftwatcher.first')}⬇</div>
+              <div className="im-eftwatcher-first-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                  <path d="M12 2L1 21h22M12 6l7.53 13H4.47M11 10v4h2v-4m-2 6v2h2v-2" />
+                </svg>
+              </div>
+              <div className="im-eftwatcher-first-main">
+                <div className="im-eftwatcher-first-title">{t('eftwatcher.first')}</div>
+              </div>
               <button
-                className="button button-default"
+                className="im-eftwatcher-first-btn"
                 onClick={() => handleGoQA()}
               >
                 {t('eftwatcher.doc')}

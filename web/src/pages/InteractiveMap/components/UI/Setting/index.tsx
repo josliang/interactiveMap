@@ -1,6 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 import { toast } from 'react-toastify';
 
+import classNames from 'classnames';
 import { useRecoilState } from 'recoil';
 
 import useI18N from '@/i18n';
@@ -20,6 +21,26 @@ export interface SettingProps {
   onLocationScaleChange: (b: boolean) => void;
   onAutoDeleteChange: (b: boolean) => void;
 }
+
+// 开关组件：紧凑矩形圆角，开启时绿色
+interface SwitchProps {
+  checked: boolean;
+  onChange: (v: boolean) => void;
+}
+
+const Switch = ({ checked, onChange }: SwitchProps) => {
+  return (
+    <div
+      className={classNames('im-switch', { on: checked })}
+      onClick={(e) => {
+        e.stopPropagation();
+        onChange(!checked);
+      }}
+    >
+      <span className="im-switch-thumb" />
+    </div>
+  );
+};
 
 const Index = (props: SettingProps) => {
   const {
@@ -60,14 +81,6 @@ const Index = (props: SettingProps) => {
     }
   };
 
-  const handleToggleLocationScale = () => {
-    onLocationScaleChange(!locationScale);
-  };
-
-  const handleToggleAutoDelete = () => {
-    onAutoDeleteChange(!autoDelete);
-  };
-
   const handleUsernameChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newName = e.target.value;
     setUsername(newName);
@@ -79,152 +92,128 @@ const Index = (props: SettingProps) => {
       <div className="im-quicktools-modal-setting-title">
         <span>{t('setting.title')}</span>
       </div>
-      <div className="im-quicktools-modal-setting-block">
-        {self === top && (
-          <div className={!directoryHandler ? 'im-quicktools-modal-setting-box de-active-box' : 'im-quicktools-modal-setting-box active-box'}>
-            <div className="im-quicktools-modal-setting-box-title">
-              <span>{t('setting.markerTitle')}</span>
-            </div>
-            <div className="im-quicktools-modal-setting-box-content">
-              <span>{t('setting.markerContent')}</span>
-            </div>
-            <div className="im-quicktools-modal-setting-box-tips">
-              <span>{t('eftwatcher.tips4')}</span>
-            </div>
-            <button
-              className="im-quicktools-modal-setting-box-button active-box-button"
-              onClick={handleClickEftWatcherPath}
-            >
-              {directoryHandler
-                ? `${t('setting.realtimeMarker')} ${directoryHandler?.name}`
-                : t('setting.enableMarker')}
-            </button>
-          </div>
-        )}
-        {self === top && (
-          <div className={!tarkovGamePathHandler ? 'im-quicktools-modal-setting-box' : 'im-quicktools-modal-setting-box active-box'}>
-            <div className="im-quicktools-modal-setting-box-title">
-              <span>{t('setting.gamePathTitle')}</span>
-            </div>
-            <div className="im-quicktools-modal-setting-box-content">
-              <span>{t('setting.gamePathContent')}</span>
-            </div>
-            <div className="im-quicktools-modal-setting-box-tips">
-              <span>{t('eftwatcher.tips5')}</span>
-            </div>
-            <button
-              className="im-quicktools-modal-setting-box-button active-box-button"
-              onClick={handleClickTarkovGamePathPath}
-            >
-              {tarkovGamePathHandler
-                ? `${t('setting.tarkovGamePath')} ${tarkovGamePathHandler?.name}`
-                : t('setting.enableTarkovGamePath')}
-            </button>
-          </div>
-        )}
-        {self === top && (
-          <div className="im-quicktools-modal-setting-box warn-box">
-            <div className="im-quicktools-modal-setting-box-title">
-              <span>{t('setting.resetPath')}</span>
-            </div>
-            <div className="im-quicktools-modal-setting-box-content">
-              <span>{t('setting.resetPathContent')}</span>
-            </div>
-            <button
-              className="im-quicktools-modal-setting-box-button active-box-button"
-              onClick={handleDeleteHandler}
-            >
-              {t('setting.resetPath')}
-            </button>
-          </div>
-        )}
-        {self === top && (
-          <div className={!autoDelete ? 'im-quicktools-modal-setting-box' : 'im-quicktools-modal-setting-box active-box'}>
-            <div className="im-quicktools-modal-setting-box-title">
-              <span>{t('setting.autoDelete')}</span>
-            </div>
-            <div className="im-quicktools-modal-setting-box-content">
-              <span>{t('setting.autoDeleteContent')}</span>
-            </div>
-            <button
-              className="im-quicktools-modal-setting-box-button active-box-button"
-              onClick={handleToggleAutoDelete}
-            >
-              {t('setting.autoDelete')} ({autoDelete ? t('common.enable') : t('common.disable')})
-            </button>
-          </div>
-        )}
-        <div className={!locationScale ? 'im-quicktools-modal-setting-box' : 'im-quicktools-modal-setting-box active-box'}>
-          <div className="im-quicktools-modal-setting-box-title">
-            <span>{t('setting.markerScale')}</span>
-          </div>
-          <div className="im-quicktools-modal-setting-box-content">
-            <span>{t('setting.markerScaleContent')}</span>
-          </div>
-          <button
-            className="im-quicktools-modal-setting-box-button active-box-button"
-            onClick={handleToggleLocationScale}
-          >
-            {t('setting.markerScale')} ({locationScale ? t('common.enable') : t('common.disable')})
-          </button>
-        </div>
-        <div className="im-quicktools-modal-setting-box">
-          <div className="im-quicktools-modal-setting-box-title">
-            <span>{t('setting.usernamePlaceholder')}</span>
-          </div>
-          <div className="im-quicktools-modal-setting-box-content">
-            <span>{t('setting.usernameContent')}</span>
-          </div>
-          <div className="im-quicktools-modal-setting-box-tips">
-            <span>{t('setting.usernameTips')}</span>
-          </div>
-          <div className="im-quicktools-modal-setting-box-input">
-            <div className="im-quicktools-modal-setting-box-input-label">{t('setting.username')}</div>
-            <input
-              value={username}
-              onChange={handleUsernameChange}
-              placeholder={t('setting.usernamePlaceholder')}
-            />
-          </div>
-        </div>
 
-        <div className="im-warning" onMouseDown={(e) => e.stopPropagation()}>
-          <div className="im-warning-shortkeys">
-            <span style={{ width: '50%' }}>
-              <code>W</code> {t('warning.move_w')}
-            </span>
-            <span style={{ width: '50%' }}>
-              <code>A</code> {t('warning.move_a')}
-            </span>
-            <span style={{ width: '50%' }}>
-              <code>S</code> {t('warning.move_s')}
-            </span>
-            <span style={{ width: '50%' }}>
-              <code>D</code> {t('warning.move_d')}
-            </span>
-            <span style={{ width: '50%' }}>
-              <code>Ctrl+Q</code> {t('warning.ctrl_q')}
-            </span>
-            <span style={{ width: '50%' }}>
-              <code>Ctrl+G</code> {t('warning.ctrl_g')}
-            </span>
-            <span style={{ width: '50%' }}>
-              <code>Ctrl+A</code> {t('warning.ctrl_a')}
-            </span>
-            <span style={{ width: '50%' }}>
-              <code>Ctrl+S</code> {t('warning.ctrl_s')}
-            </span>
-            <span style={{ width: '50%' }}>
-              <code>Ctrl+D</code> {t('warning.ctrl_d')}
-            </span>
-            <span style={{ width: '50%' }}>
-              <code>Ctrl+F</code> {t('warning.ctrl_f')}
-            </span>
+      {/* 用户名模块 - 单独一行置顶 */}
+      <div className="im-quicktools-modal-setting-username">
+        <div className="im-quicktools-modal-setting-username-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+          </svg>
+        </div>
+        <div className="im-quicktools-modal-setting-username-main">
+          <div className="im-quicktools-modal-setting-username-label">
+            {t('setting.username')}
           </div>
-          <div className="im-warning-contacts">
-            <span>{t('contact.group')}</span>
-            {/* <span>{t('contact.email')}</span> */}
+          <input
+            className="im-quicktools-modal-setting-username-input"
+            value={username}
+            onChange={handleUsernameChange}
+            placeholder={t('setting.usernamePlaceholder')}
+          />
+          <div className="im-quicktools-modal-setting-username-desc">
+            {t('setting.usernameContent')}
           </div>
+        </div>
+      </div>
+
+      <div className="im-quicktools-modal-setting-grid">
+        {self === top && (
+          <div className={classNames('im-setting-card', { active: !!directoryHandler })}>
+            <div className="im-setting-card-head">
+              <span className="im-setting-card-title">{t('setting.markerTitle')}</span>
+              <button
+                className={classNames('im-icon-btn', { active: !!directoryHandler })}
+                onClick={handleClickEftWatcherPath}
+                title={directoryHandler ? directoryHandler.name : t('setting.enableMarker')}
+              >
+                {directoryHandler ? (
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" /></svg>
+                ) : (
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z" /></svg>
+                )}
+              </button>
+            </div>
+            <div className="im-setting-card-content">{t('setting.markerContent')}</div>
+            <div className="im-setting-card-tips">{t('eftwatcher.tips4')}</div>
+          </div>
+        )}
+        {self === top && (
+          <div className={classNames('im-setting-card', { active: !!tarkovGamePathHandler })}>
+            <div className="im-setting-card-head">
+              <span className="im-setting-card-title">{t('setting.gamePathTitle')}</span>
+              <button
+                className={classNames('im-icon-btn', { active: !!tarkovGamePathHandler })}
+                onClick={handleClickTarkovGamePathPath}
+                title={tarkovGamePathHandler ? tarkovGamePathHandler.name : t('setting.enableTarkovGamePath')}
+              >
+                {tarkovGamePathHandler ? (
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" /></svg>
+                ) : (
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z" /></svg>
+                )}
+              </button>
+            </div>
+            <div className="im-setting-card-content">{t('setting.gamePathContent')}</div>
+            <div className="im-setting-card-tips">{t('eftwatcher.tips5')}</div>
+          </div>
+        )}
+        {self === top && (
+          <div className={classNames('im-setting-card', { active: autoDelete })}>
+            <div className="im-setting-card-head">
+              <span className="im-setting-card-title">{t('setting.autoDelete')}</span>
+              <Switch checked={autoDelete} onChange={onAutoDeleteChange} />
+            </div>
+            <div className="im-setting-card-content">{t('setting.autoDeleteContent')}</div>
+          </div>
+        )}
+        <div className={classNames('im-setting-card', { active: locationScale })}>
+          <div className="im-setting-card-head">
+            <span className="im-setting-card-title">{t('setting.markerScale')}</span>
+            <Switch checked={locationScale} onChange={onLocationScaleChange} />
+          </div>
+          <div className="im-setting-card-content">{t('setting.markerScaleContent')}</div>
+        </div>
+      </div>
+
+      {self === top && (
+        <button className="im-reset-btn" onClick={handleDeleteHandler} title={t('setting.resetPath')}>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" /></svg>
+          <span>{t('setting.resetPath')}</span>
+        </button>
+      )}
+
+      <div className="im-warning" onMouseDown={(e) => e.stopPropagation()}>
+        <div className="im-warning-shortkeys">
+          <span style={{ width: '50%' }}>
+            <code>W</code> {t('warning.move_w')}
+          </span>
+          <span style={{ width: '50%' }}>
+            <code>A</code> {t('warning.move_a')}
+          </span>
+          <span style={{ width: '50%' }}>
+            <code>S</code> {t('warning.move_s')}
+          </span>
+          <span style={{ width: '50%' }}>
+            <code>D</code> {t('warning.move_d')}
+          </span>
+          <span style={{ width: '50%' }}>
+            <code>Ctrl+G</code> {t('warning.ctrl_g')}
+          </span>
+          <span style={{ width: '50%' }}>
+            <code>Ctrl+A</code> {t('warning.ctrl_a')}
+          </span>
+          <span style={{ width: '50%' }}>
+            <code>Ctrl+S</code> {t('warning.ctrl_s')}
+          </span>
+          <span style={{ width: '50%' }}>
+            <code>Ctrl+D</code> {t('warning.ctrl_d')}
+          </span>
+          <span style={{ width: '50%' }}>
+            <code>Ctrl+F</code> {t('warning.ctrl_f')}
+          </span>
+        </div>
+        <div className="im-warning-contacts">
+          <span>{t('contact.group')}</span>
         </div>
       </div>
     </div>
