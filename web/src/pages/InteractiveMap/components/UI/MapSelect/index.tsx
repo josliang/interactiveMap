@@ -21,105 +21,86 @@ interface MapSelectProps {
 const Index = (props: MapSelectProps) => {
   const { mapList, activeMap, activeLayer, onMapChange, onLayerChange } = props;
 
-  const [mapSelectActive, setMapSelectActive] = useState(false);
-  const [layerSelectActive, setLayerSelectActive] = useState(false);
+  const [active, setActive] = useState(false);
 
   const [lang] = useRecoilState(langState);
 
   const { t } = useI18N(lang);
 
-  const handleMapSelect = () => {
-    setLayerSelectActive(false);
-    setMapSelectActive(!mapSelectActive);
-  };
-
-  const handleLayerSelect = () => {
-    setMapSelectActive(false);
-    setLayerSelectActive(!layerSelectActive);
-  };
+  const handleToggle = () => setActive(!active);
 
   const handleMapChange = (mapId: string) => {
     onMapChange?.(mapId);
-    setMapSelectActive(false);
+    setActive(false);
   };
 
   const handleLayerChange = (name: string) => {
     onLayerChange?.(name);
-    setLayerSelectActive(false);
+    setActive(false);
   };
+
+  // 是否有多图层 (layers 数组存在且非空)
+  const hasLayers = !!(activeMap.layers && activeMap.layers.length > 0);
 
   return (
     <div className="im-mapselect">
-      <div className="im-mapselect-base">
-        <div className="im-mapselect-base-surface" onClick={handleMapSelect}>
-          <span>{activeMap.name || t('others.selectMap')}</span>
-          <span className="im-mapselect-base-surface-arrow">
-            {mapSelectActive ? (
-              <Icon type="icon-arrow-drop-up-fill" />
-            ) : (
-              <Icon type="icon-arrow-drop-down-fill" />
-            )}
-          </span>
-        </div>
-        <div
-          className={classNames('im-mapselect-base-dropdown', {
-            active: mapSelectActive,
-          })}
-        >
+      <div className="im-mapselect-surface" onClick={handleToggle}>
+        <span className="im-mapselect-surface-map">
+          {activeMap.name || t('others.selectMap')}
+        </span>
+        <span className="im-mapselect-surface-layer">
+          {activeLayer || t('others.surface')}
+        </span>
+        <span className="im-mapselect-surface-arrow">
+          {active ? (
+            <Icon type="icon-arrow-drop-down-fill" />
+          ) : (
+            <Icon type="icon-arrow-drop-up-fill" />
+          )}
+        </span>
+      </div>
+      <div className={classNames('im-mapselect-dropdown', { active })}>
+        <div className="im-mapselect-dropdown-col im-mapselect-dropdown-maps">
           {mapList
             .filter((map) => map.id)
-            .map((map) => (
-              <div
-                key={map.id}
-                className={classNames('im-mapselect-base-dropdown-item', {
-                  active: map.name === activeMap.name,
-                })}
-                onClick={() => handleMapChange(map.id)}
-              >
-                <span>{map.name}</span>
-              </div>
-            ))}
+            .map((map) => {
+              const mapHasLayers = !!(map.layers && map.layers.length > 0);
+              return (
+                <div
+                  key={map.id}
+                  className={classNames('im-mapselect-dropdown-item', {
+                    active: map.name === activeMap.name,
+                  })}
+                  onClick={() => handleMapChange(map.id)}
+                >
+                  <span>{map.name}</span>
+                  {mapHasLayers && <span className="im-mapselect-dropdown-item-arrow">›</span>}
+                </div>
+              );
+            })}
+        </div>
+        <div className="im-mapselect-dropdown-col im-mapselect-dropdown-layers">
+          <div
+            className={classNames('im-mapselect-dropdown-item', {
+              active: !activeLayer,
+            })}
+            onClick={() => handleLayerChange('')}
+          >
+            <span>{t('others.surface')}</span>
+          </div>
+          {hasLayers && activeMap.layers!.map((layer) => (
+            <div
+              key={layer.name}
+              className={classNames('im-mapselect-dropdown-item', {
+                active: layer.name === activeLayer,
+              })}
+              onClick={() => handleLayerChange(layer.name)}
+            >
+              <span>{layer.name}</span>
+            </div>
+          ))}
         </div>
       </div>
-      {activeMap.layers && (
-        <div className="im-mapselect-layer">
-          <div className="im-mapselect-layer-surface" onClick={handleLayerSelect}>
-            <span>{activeLayer || t('others.surface')}</span>
-            <span className="im-mapselect-base-surface-arrow">
-              {layerSelectActive ? (
-                <Icon type="icon-arrow-drop-up-fill" />
-              ) : (
-                <Icon type="icon-arrow-drop-down-fill" />
-              )}
-            </span>
-          </div>
-          <div
-            className={classNames('im-mapselect-layer-dropdown', {
-              active: layerSelectActive,
-            })}
-          >
-            <div
-              className={classNames('im-mapselect-layer-dropdown-item', {
-                active: !activeLayer,
-              })}
-              onClick={() => handleLayerChange('')}
-            >
-              <span>{t('others.surface')}</span>
-            </div>
-            {activeMap.layers.map((layer) => (
-              <div
-                key={layer.name}
-                className={classNames('im-mapselect-layer-dropdown-item', {
-                  active: layer.name === activeLayer,
-                })}
-                onClick={() => handleLayerChange(layer.name)}
-              >
-                <span>{layer.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 };

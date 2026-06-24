@@ -1,9 +1,9 @@
 .im-mapinfo {
   display: inline-block;
   min-width: 128px;
-  padding: 16px;
-  border: 3px solid #2c2c2c88;
-  border-radius: 8px;
+  padding: 12px;
+  border: 2px solid #2c2c2c88;
+  border-radius: 6px;
   color: #ffffff;
   background-color: #1c1c1c88;
   opacity: 0;
@@ -12,17 +12,17 @@
     opacity: 1;
   }
   &-title {
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     color: #ffffff;
   }
   &-item {
-    font-size: 14px;
+    font-size: 12px;
     &:not(:first-child) {
-      margin-top: 16px;
+      margin-top: 10px;
     }
     &-title {
       display: inline-block;
-      width: 96px;
+      width: 88px;
       color: #888888;
       &.warning {
         width: 100%;
@@ -36,7 +36,7 @@
   &-boss {
     .boss-list {
       display: inline-block;
-      width: calc(100% - 96px);
+      width: calc(100% - 88px);
     }
     .boss-item {
       margin-bottom: 6px;
@@ -46,7 +46,7 @@
     }
     .boss-name {
       display: inline-block;
-      margin-right: 8px;
+      margin-right: 6px;
       color: #ffffff;
       font-weight: 400;
     }
@@ -55,27 +55,27 @@
     }
     .boss-locs {
       margin-top: 2px;
-      font-size: 12px;
+      font-size: 10px;
       color: #aaaaaa;
     }
     .boss-loc {
       display: inline-block;
-      margin-right: 8px;
+      margin-right: 6px;
     }
   }
   .tarkov-time {
     position: relative;
     display: inline-block;
-    width: 64px;
+    width: 56px;
     &:not(:last-child) {
-      margin-right: 16px;
+      margin-right: 12px;
     }
     &:last-child::before {
       content: '/';
       position: absolute;
       top: 0;
       right: 100%;
-      margin-right: 8px;
+      margin-right: 6px;
     }
   }
 }
@@ -83,24 +83,24 @@
 @media screen and (max-width: 750px) {
   .im-mapinfo {
     min-width: 128px;
-    padding: 16px;
+    padding: 12px;
     &-title {
-      margin-bottom: 8px;
-      font-size: 14px;
+      margin-bottom: 6px;
+      font-size: 12px;
     }
     &-item {
-      font-size: 12px;
+      font-size: 11px;
       &:not(:last-child) {
-        margin-bottom: 8px;
+        margin-bottom: 6px;
       }
       &-title {
-        width: 72px;
+        width: 64px;
       }
     }
     .tarkov-time {
-      width: 60px;
+      width: 52px;
       &:not(:last-child) {
-        margin-right: 8px;
+        margin-right: 6px;
       }
     }
   }

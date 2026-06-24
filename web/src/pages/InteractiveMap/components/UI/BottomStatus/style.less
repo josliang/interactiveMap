@@ -1,0 +1,32 @@
+.im-bottomstatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  pointer-events: auto;
+
+  &-coordinate {
+    font-size: 12px;
+    color: #666666;
+    font-family: 'Consolas', 'Monaco', monospace;
+    user-select: none;
+  }
+
+  &-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #888888;
+    transition: background-color 0.3s;
+
+    &.connected {
+      background-color: #28a745;
+      box-shadow: 0 0 4px rgba(40, 167, 69, 0.6);
+    }
+
+    &.disconnected {
+      background-color: #dc3545;
+      box-shadow: 0 0 4px rgba(220, 53, 69, 0.6);
+    }
+  }
+}
