@@ -1,5 +1,3 @@
-// 服务入口：创建 HTTPS 服务并挂载 WebSocket
-// 本地调试无证书时，设置 USE_HTTP=1 回退为 HTTP
 const http = require('http');
 const https = require('https');
 const fs = require('fs');
@@ -12,11 +10,9 @@ const useHttp = process.env.USE_HTTP === '1';
 let server;
 
 if (useHttp) {
-  // HTTP 模式 (本地调试)
   server = http.createServer(app);
   logger.warn('USE_HTTP=1，已回退为 HTTP 模式，仅供本地调试');
 } else {
-  // HTTPS 模式 (生产)
   if (!config.ssl.keyPath || !config.ssl.certPath) {
     logger.error('请在 .env 中配置 SSL_KEY_PATH 与 SSL_CERT_PATH，或设置 USE_HTTP=1 进入本地调试模式');
     process.exit(1);
@@ -28,7 +24,6 @@ if (useHttp) {
   server = https.createServer(options, app);
 }
 
-// 将 WebSocket 挂载到同一服务
 wsService.attach(server);
 
 server.listen(config.port, () => {
@@ -37,7 +32,6 @@ server.listen(config.port, () => {
   logger.info(`环境: ${config.nodeEnv}`);
 });
 
-// 优雅退出
 const shutdown = (signal) => {
   logger.info(`收到 ${signal}，开始关闭服务...`);
   server.close(() => {

@@ -1,5 +1,3 @@
-// WebSocket 服务：广播中转 + 绘图缓存 + 心跳
-// 协议保持与原 app.js 一致，前端无需改动
 const WebSocket = require('ws');
 const config = require('../config');
 const logger = require('../utils/logger');
@@ -12,7 +10,6 @@ class WsService {
     this.heartbeatTimer = null;
   }
 
-  // 挂载到已有的 HTTP(S) server
   attach (server) {
     this.wss = new WebSocket.Server({ server });
     this.wss.on('connection', (ws, req) => this._onConnection(ws, req));
@@ -28,7 +25,6 @@ class WsService {
     ws.isAlive = true;
     ws.on('pong', () => { ws.isAlive = true; });
 
-    // 首次连接推送全量绘图缓存
     if (this.drawLineCache.length > 0) {
       ws.send(JSON.stringify({
         type: 'broadcast',
@@ -39,7 +35,6 @@ class WsService {
       }));
     }
 
-    // 第一个客户端连入 → 启动 Boss 轮询
     if (this.wss.clients.size === 1) {
       bossService.start((cache) => {
         this.broadcast({
@@ -49,7 +44,6 @@ class WsService {
       });
     }
 
-    // 立即给当前客户端发送已有 Boss 缓存
     const bossCache = bossService.getCache();
     if (bossCache.maps.length > 0) {
       ws.send(JSON.stringify({
@@ -61,7 +55,6 @@ class WsService {
     ws.on('message', (raw) => this._onMessage(ws, raw));
     ws.on('close', () => {
       logger.info(`Client disconnected: ${clientIP}`);
-      // 最后一个客户端离开 → 停止 Boss 轮询
       if (this.wss && this.wss.clients.size === 0) {
         bossService.stop();
       }
@@ -82,13 +75,11 @@ class WsService {
       return;
     }
 
-    // 心跳协议
     if (message.type === 'ping') {
       ws.send(JSON.stringify({ type: 'pong' }));
       return;
     }
 
-    // 业务消息校验
     if (!this._isValidMessage(message)) {
       logger.warn('无效消息格式:', message);
       ws.send(JSON.stringify({
@@ -98,7 +89,6 @@ class WsService {
       return;
     }
 
-    // 绘图数据缓存
     if (message.category === 'line') {
       this.drawLineCache.push(message.value);
       if (this.drawLineCache.length > config.ws.maxLineCache) {
@@ -108,7 +98,6 @@ class WsService {
       this.drawLineCache = [];
     }
 
-    // 广播给其他客户端
     this.broadcast({
       type: 'broadcast',
       data: message,
@@ -123,7 +112,6 @@ class WsService {
     );
   }
 
-  // 广播消息，可选排除某个客户端
   broadcast (payload, excludeWs = null) {
     if (!this.wss) return;
     const data = JSON.stringify(payload);
@@ -134,12 +122,10 @@ class WsService {
     });
   }
 
-  // 主动向所有客户端推送
   pushToAll (category, value) {
     this.broadcast({ type: 'broadcast', data: { category, value } });
   }
 
-  // 心跳检测：清理僵尸连接
   _startHeartbeat () {
     this.heartbeatTimer = setInterval(() => {
       if (!this.wss) return;
@@ -156,7 +142,6 @@ class WsService {
     this.wss.on('close', () => clearInterval(this.heartbeatTimer));
   }
 
-  // 每日定时清空缓存
   _scheduleClearCache () {
     const now = new Date();
     const next = new Date();
@@ -170,7 +155,6 @@ class WsService {
     }, next - now);
   }
 
-  // 给 HTTP 接口暴露当前状态
   getStatus () {
     return {
       clientCount: this.wss ? this.wss.clients.size : 0,

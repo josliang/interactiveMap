@@ -45,7 +45,6 @@ class Ws {
   init(): Promise<void> {
     this.shouldReconnect = true;
     return new Promise((resolve, reject) => {
-      // WS 地址优先级: Vite env > 生产默认
       const wsUrl = import.meta.env.VITE_WS_URL || 'wss://www.gzvirdyn.cn:8001';
       this.connect(wsUrl);
 

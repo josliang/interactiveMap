@@ -36,7 +36,6 @@ const Index = (props: MapInfoProps) => {
     return (((realTime + timeDiff) * 7) % (24 * 3600000)) - 5 * 3600000;
   }, [realTime]);
 
-  // 当前地图对应的 Boss 列表 (切换地图自动过滤)
   const bosses = useMemo(() => {
     if (!mapData?.normalizedName) return [];
     const matched = bossCache.maps.find(
@@ -56,7 +55,6 @@ const Index = (props: MapInfoProps) => {
     setRealTime(machineTime);
   }, 1000 / 15);
 
-  // 订阅 WebSocket 的 Boss 刷新数据 (缓存全量，切换地图时自动过滤)
   useEffect(() => {
     const handler = (data: any) => {
       if (data?.category !== 'boss') return;

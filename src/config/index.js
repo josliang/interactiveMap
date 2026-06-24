@@ -1,4 +1,3 @@
-// 配置中心：统一读取环境变量，提供默认值
 require('dotenv').config();
 
 const config = {

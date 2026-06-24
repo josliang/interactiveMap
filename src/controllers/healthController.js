@@ -1,4 +1,3 @@
-// 健康检查与状态接口
 const wsService = require('../services/wsService');
 
 exports.health = (req, res) => {

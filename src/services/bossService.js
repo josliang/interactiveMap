@@ -1,14 +1,10 @@
-// Boss 刷新率服务：拉取上游 API、过滤白名单、定时轮询、缓存
 const https = require('https');
 const logger = require('../utils/logger');
 
 const BOSS_API_URL = 'https://api.eftarkov.com/boss.php?id=1';
-const POLL_INTERVAL = 3 * 60 * 1000; // 3 分钟
-const REQUEST_TIMEOUT = 10000;       // 10 秒
+const POLL_INTERVAL = 3 * 60 * 1000;
+const REQUEST_TIMEOUT = 10000;
 
-// Boss 白名单：API 英文名 → 前端显示名
-// Black Div. Boss / Black Div. Raider / Black Div. 统一合并为"黑色军团"
-// Tagilla 原样显示；仅 Shadow of Tagilla 译为"牛头大锤"
 const BOSS_WHITELIST = {
   Tagilla: 'Tagilla',
   'Shadow of Tagilla': '牛头大锤',
@@ -31,8 +27,6 @@ const BOSS_WHITELIST = {
   'The Wedge': 'Wedge',
 };
 
-// API 地图名 → normalizedName（前端用 kebab-case 匹配）
-// 移除 + 等非字母数字字符，统一为前端 kebab-case 形式
 function toNormalizedName (name) {
   return String(name)
     .toLowerCase()
@@ -49,7 +43,6 @@ class BossService {
     this.fetching = false;
   }
 
-  // 请求上游接口（强制 Host + Origin 头）
   fetchBosses () {
     return new Promise((resolve, reject) => {
       const url = new URL(BOSS_API_URL);
@@ -88,9 +81,7 @@ class BossService {
     });
   }
 
-  // 过滤 + 合并 (按 displayName 去重：Black Div. Boss/Raider 合并为"黑色军团")
   transform (rawData) {
-    // 上游返回结构: { category, raw_api_data: { data: { maps: [...] } } }
     const rawMaps = rawData?.raw_api_data?.data?.maps || rawData?.data?.maps || [];
     const maps = rawMaps.map((map) => {
       const bossMap = new Map();
@@ -106,7 +97,6 @@ class BossService {
           });
         } else {
           const existing = bossMap.get(displayName);
-          // 取较大刷新率作为合并后刷新率
           if (boss.spawnChance > existing.spawnChance) {
             existing.spawnChance = boss.spawnChance;
           }

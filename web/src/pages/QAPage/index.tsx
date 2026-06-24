@@ -2,7 +2,6 @@ import React from 'react';
 
 import './style.less';
 
-// 文档数据类型
 interface GuideItem {
   id: number;
   title: string;

@@ -1,4 +1,3 @@
-// 简易日志工具，带时间戳与分级
 const fmt = (level, ...args) => {
   const ts = new Date().toISOString();
   console.log(`[${ts}] [${level}]`, ...args);

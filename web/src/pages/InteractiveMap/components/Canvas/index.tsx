@@ -191,7 +191,6 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
   const handleMouseDown = (e: KonvaEventObject<MouseEvent>) => {
     const stage = e.target.getStage();
     if (stage) {
-      // 初始化
       operationType.current = e.evt.button as InteractiveMap.OperationType;
       if (!operationInitialStage.current) {
         operationInitialStage.current = { x: stage.x(), y: stage.y() };
@@ -207,7 +206,6 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
           pageY: e.evt.pageY,
         },
       ];
-      // 初始化
       if (e.evt.button === 2) operationContext.current = true;
       if (strokeType === 'draw' || strokeType === 'eraser') {
         setDrawTempPoints([operationInitialVal.current[0].x, operationInitialVal.current[0].y]);
@@ -221,7 +219,6 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
     e.evt.preventDefault();
     const stage = e.target.getStage();
     if (stage) {
-      // 初始化
       if (e.evt.touches.length > touchTouches.current) {
         touchTouches.current = e.evt.touches.length;
       }
@@ -242,7 +239,6 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
         });
       }
       operationInitialVal.current = _operationInitialVal;
-      // 初始化
       if (strokeType === 'ruler') setRulerPosition(undefined);
     }
     updateCursorPosition();
@@ -356,24 +352,20 @@ const Index = (props: CanvasProps & InteractiveMap.DrawProps) => {
         value: data,
       });
     }
-    // 初始化
     operationInitialStage.current = undefined;
     operationInitialScale.current = 0;
     operationInitialVal.current = [{ x: 0, y: 0, pageX: 0, pageY: 0 }];
     operationType.current = -1;
     operationContext.current = false;
     setDrawTempPoints([]);
-    // 初始化
   };
 
   const handleTouchEnd = (e: KonvaEventObject<TouchEvent>) => {
     if (e.evt.touches.length === 0) {
-      // 初始化
       operationInitialStage.current = undefined;
       operationInitialScale.current = 0;
       operationInitialVal.current = [{ x: 0, y: 0, pageX: 0, pageY: 0 }];
       touchTouches.current = 0;
-      // 初始化
     }
   };
 
