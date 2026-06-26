@@ -22,7 +22,6 @@ export interface SettingProps {
   onAutoDeleteChange: (b: boolean) => void;
 }
 
-// 开关组件：紧凑矩形圆角，开启时绿色
 interface SwitchProps {
   checked: boolean;
   onChange: (v: boolean) => void;
@@ -93,7 +92,6 @@ const Index = (props: SettingProps) => {
         <span>{t('setting.title')}</span>
       </div>
 
-      {/* 用户名模块 - 单独一行置顶 */}
       <div className="im-quicktools-modal-setting-username">
         <div className="im-quicktools-modal-setting-username-icon">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">

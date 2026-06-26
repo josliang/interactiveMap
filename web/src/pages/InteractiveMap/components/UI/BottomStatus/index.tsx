@@ -9,7 +9,6 @@ interface BottomStatusProps {
   image2realPos?: InteractiveMap.ImageTransformProps;
 }
 
-// 右下角状态指示器：坐标 + WebSocket 连接状态点
 const Index = (props: BottomStatusProps) => {
   const { position, image2realPos } = props;
   const { connected } = useWs();

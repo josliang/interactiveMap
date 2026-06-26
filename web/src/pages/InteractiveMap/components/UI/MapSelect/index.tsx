@@ -39,7 +39,6 @@ const Index = (props: MapSelectProps) => {
     setActive(false);
   };
 
-  // 是否有多图层 (layers 数组存在且非空)
   const hasLayers = !!(activeMap.layers && activeMap.layers.length > 0);
 
   return (
