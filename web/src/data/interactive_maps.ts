@@ -86920,8 +86920,7 @@ export default [
     ],
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev',
-    svgPath: 'mapSvg/the-lab-temp.png',
-    tilePath: '/uselessPath/maps/labs_v3/1st/{z}/{x}/{y}.png',
+    svgPath: 'mapSvg/TheLab-Ground_Level.webp',
     heightRange: [
       -0.9,
       3,
@@ -86929,7 +86928,7 @@ export default [
     layers: [
       {
         name: 'Second Level',
-        tilePath: '/uselessPath/maps/labs_v3/2nd/{z}/{x}/{y}.png',
+        svgPath: 'mapSvg/TheLab-Second_Floor.webp',
         show: false,
         extents: [
           {
@@ -86954,7 +86953,7 @@ export default [
       },
       {
         name: 'Technical',
-        tilePath: '/uselessPath/maps/labs_v3/technical/{z}/{x}/{y}.png',
+        svgPath: 'mapSvg/TheLab-Underground_Level.webp',
         show: false,
         extents: [
           {
@@ -163758,7 +163757,7 @@ export default [
     ],
     author: 'Tarkov.dev',
     authorLink: 'https://tarkov.dev',
-    svgPath: 'mapSvg/the-labyrinth-temp.png',
+    svgPath: 'mapSvg/TheLabyrinth.webp',
     tilePath: '/uselessPath/maps/labyrinth/main/{z}/{x}/{y}.png',
     heightRange: [
       0,
